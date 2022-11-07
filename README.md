@@ -20,7 +20,7 @@ Se recomienda clonarlo en su IDE de preferencia (Ej: VS Code).
 
 Java JDK 11 | Maven | Spring Boot 2.7.X | Arquitectura MVC.
 
-Dependencias: Spring Boot DevTools | Spring Web | MySQL Driver | Spring data JPA | spring boot starter data jpa
+Dependencias: Spring Boot DevTools | Spring Web | MySQL Driver | Spring data JPA | spring boot starter data jpa | spring-boot-starter-actuator
 - - -
 Para ejecutarlo, corra el archivo "ProyectoUbbApplication.java"
 - - -
