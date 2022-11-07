@@ -1,4 +1,8 @@
 *https://docs.github.com/en/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax*
+PD: Edite el historial de commits pq no actualizaba mis contribuciones de perfil >:)
+Asi que si ven los ultimos commits, veran que fueron aplicados en un periodo de tiempo corto.
+aun asi, los re-inserte cronologicamente. Eso paso por estar jugando con el "git reset" y el "git config".
+Aunque ahora que lo pienso, hubiese sido mas facil hacer un "git rebase", que soy tonto :(
 
 Group id: com.teamxploitdx
 artifact id: proyecto_ubb
