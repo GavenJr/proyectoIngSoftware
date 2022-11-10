@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 02-11-2022 a las 20:52:42
+-- Tiempo de generación: 20-10-2022 a las 21:53:26
 -- Versión del servidor: 10.4.25-MariaDB
 -- Versión de PHP: 8.1.10
 
@@ -89,7 +89,6 @@ CREATE TABLE `encuesta` (
   `fecha_termino` date NOT NULL,
   `min_respuestas` int(11) NOT NULL,
   `max_respuestas` int(11) NOT NULL,
-  `visible` tinyint(1) NOT NULL,
   `id_empresa` int(11) NOT NULL,
   `id_categoria` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
@@ -98,12 +97,12 @@ CREATE TABLE `encuesta` (
 -- Volcado de datos para la tabla `encuesta`
 --
 
-INSERT INTO `encuesta` (`id`, `nombre`, `descripción`, `fecha_inicio`, `fecha_termino`, `min_respuestas`, `max_respuestas`, `visible`, `id_empresa`, `id_categoria`) VALUES
-(1, 'Nombre de encuesta genérico', 'Soy una descripción de encuesta genérica', '0000-00-00', '0000-00-00', 29, 38, 0, 1, 2),
-(2, 'Nombre de encuesta genérico', 'Soy una descripción de encuesta genérica', '0000-00-00', '0000-00-00', 21, 42, 0, 1, 2),
-(3, 'Nombre de encuesta genérico', 'Soy una descripción de encuesta genérica', '0000-00-00', '0000-00-00', 21, 39, 0, 1, 3),
-(4, 'Nombre de encuesta genérico', 'Soy una descripción de encuesta genérica', '0000-00-00', '0000-00-00', 27, 46, 0, 1, 4),
-(5, 'Nombre de encuesta genérico', 'Soy una descripción de encuesta genérica', '0000-00-00', '0000-00-00', 24, 47, 0, 2, 2);
+INSERT INTO `encuesta` (`id`, `nombre`, `descripción`, `fecha_inicio`, `fecha_termino`, `min_respuestas`, `max_respuestas`, `id_empresa`, `id_categoria`) VALUES
+(1, 'Nombre de encuesta genérico', 'Soy una descripción de encuesta genérica', '0000-00-00', '0000-00-00', 29, 38, 1, 2),
+(2, 'Nombre de encuesta genérico', 'Soy una descripción de encuesta genérica', '0000-00-00', '0000-00-00', 21, 42, 1, 2),
+(3, 'Nombre de encuesta genérico', 'Soy una descripción de encuesta genérica', '0000-00-00', '0000-00-00', 21, 39, 1, 3),
+(4, 'Nombre de encuesta genérico', 'Soy una descripción de encuesta genérica', '0000-00-00', '0000-00-00', 27, 46, 1, 4),
+(5, 'Nombre de encuesta genérico', 'Soy una descripción de encuesta genérica', '0000-00-00', '0000-00-00', 24, 47, 2, 2);
 
 -- --------------------------------------------------------
 
@@ -137,24 +136,45 @@ INSERT INTO `encuestado` (`id`, `nombre`, `apellido`, `email`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Estructura de tabla para la tabla `preferencia`
+--
+
+CREATE TABLE `preferencia` (
+  `id` int(11) NOT NULL,
+  `nombre` varchar(45) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Volcado de datos para la tabla `preferencia`
+--
+
+INSERT INTO `preferencia` (`id`, `nombre`) VALUES
+(1, 'Deporte'),
+(2, 'Tecnología'),
+(3, 'Hogar'),
+(4, 'Gaming');
+
+-- --------------------------------------------------------
+
+--
 -- Estructura de tabla para la tabla `preferencias`
 --
 
 CREATE TABLE `preferencias` (
   `id_encuestado` int(11) NOT NULL,
-  `id_categoria` int(11) NOT NULL
+  `id_preferencia` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Volcado de datos para la tabla `preferencias`
 --
 
-INSERT INTO `preferencias` (`id_encuestado`, `id_categoria`) VALUES
+INSERT INTO `preferencias` (`id_encuestado`, `id_preferencia`) VALUES
 (1, 3),
-(1, 4),
 (2, 3),
 (3, 1),
-(3, 2),
+(3, 3),
+(3, 3),
 (3, 3),
 (4, 1),
 (5, 2),
@@ -290,11 +310,17 @@ ALTER TABLE `encuestado`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indices de la tabla `preferencia`
+--
+ALTER TABLE `preferencia`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indices de la tabla `preferencias`
 --
 ALTER TABLE `preferencias`
-  ADD KEY `id_encuestado` (`id_encuestado`,`id_categoria`),
-  ADD KEY `id_categoria` (`id_categoria`);
+  ADD KEY `id_encuestado` (`id_encuestado`,`id_preferencia`),
+  ADD KEY `id_preferencia` (`id_preferencia`);
 
 --
 -- Indices de la tabla `pregunta`
@@ -356,8 +382,8 @@ ALTER TABLE `encuesta`
 -- Filtros para la tabla `preferencias`
 --
 ALTER TABLE `preferencias`
-  ADD CONSTRAINT `preferencias_ibfk_1` FOREIGN KEY (`id_categoria`) REFERENCES `categoria` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `preferencias_ibfk_2` FOREIGN KEY (`id_encuestado`) REFERENCES `encuestado` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `preferencias_ibfk_1` FOREIGN KEY (`id_encuestado`) REFERENCES `encuestado` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `preferencias_ibfk_2` FOREIGN KEY (`id_preferencia`) REFERENCES `preferencia` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Filtros para la tabla `pregunta`
