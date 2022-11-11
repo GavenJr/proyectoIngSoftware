@@ -45,7 +45,7 @@ Abarcar escenarios base.
 <p align="center" width="100%">
     <img width="30%" src="https://github.com/GavenJr/proyectoIngSoftware/blob/master/proyecto_ubb/src/main/resources/model/sprint1/Modelo_Fisico_BD.png">
     <img width="30%" src="https://github.com/GavenJr/proyectoIngSoftware/blob/master/proyecto_ubb/src/main/resources/model/sprint1/Representacion_SQL.PNG">
-    <img width="15%" src="https://github.com/GavenJr/proyectoIngSoftware/blob/master/proyecto_ubb/java_tan.jfif">
+    <img width="20%" src="https://github.com/GavenJr/proyectoIngSoftware/blob/master/proyecto_ubb/java_tan.jfif">
 </p>
 
 ### SPRINT 2: Que esperamos lograr
