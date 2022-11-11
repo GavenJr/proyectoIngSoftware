@@ -1,8 +1,5 @@
 *https://docs.github.com/en/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax*
-PD: Edite el historial de commits pq no actualizaba mis contribuciones de perfil >:)
-Asi que si ven los ultimos commits, veran que fueron aplicados en un periodo de tiempo corto.
-aun asi, los re-inserte cronologicamente. Eso paso por estar jugando con el "git reset" y el "git config".
-Aunque ahora que lo pienso, hubiese sido mas facil hacer un "git rebase", que soy tonto :(
+PD: JAJAJA, ya nunca sabran lo que decia aqui >:)
 
 Group id: com.teamxploitdx
 artifact id: proyecto_ubb
@@ -14,6 +11,12 @@ artifact id: proyecto_ubb
 ##### Team Xploit DX - Grupo 2 (17:10)
        
 ##### Docentes: Maria Soto y Fernando Santolaya     
+
+<p align="center" width="100%">
+    <img width="10%" src="https://brandslogos.com/wp-content/uploads/images/large/java-logo-1.png">
+    <img width="15%" src="https://e4developer.com/wp-content/uploads/2018/01/spring-boot.png">
+    <img width="10%" src="https://download.logo.wine/logo/MySQL/MySQL-Logo.wine.png">
+</p>
 
 ## Sobre el proyecto:
 Se recomienda clonarlo en su IDE de preferencia (Ej: VS Code).
