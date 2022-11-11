@@ -129,19 +129,19 @@ Abarcar escenarios base.
     Dado que me encuentro en la pantalla de gestión de usuarios de la empresa, cuando selecciono el botón de asignar rol a alguno de mis empleados el sistema deberá 
 
 ##### SERVICIO 4
-***COMO*** encargado de marketing, ***QUIERO*** ser capaz de limitar el numero de personas que pueden realizar una encuesta ***PARA*** así poder mantener una muestra controlada de datos."
+    ***COMO*** encargado de marketing, ***QUIERO*** ser capaz de limitar el numero de personas que pueden realizar una encuesta ***PARA*** así poder mantener una muestra controlada de datos."
 
-Tablas involucradas:
+    Tablas involucradas:
 
-- Encuesta
+    - Encuesta
 
-Servicios requeridos:
+    Servicios requeridos:
 
-- Servicio para actualizar el mínimo y máximo de encuestados que pueden responder la encuesta. (2 servicios uno para máx. y otro para min)
+    - Servicio para actualizar el mínimo y máximo de encuestados que pueden responder la encuesta. (2 servicios uno para máx. y otro para min)
 
-Escenario: 
+    Escenario: 
 
-Escenario 1: 
+    Escenario 1: 
 
 ##### SERVICIO 5
     ***COMO*** encuestado, ***QUIERO*** ser capaz de buscar alguna empresa especifica y ver que encuestas me puede ofrecer ***PARA*** así participar con algún producto de mi interés"
