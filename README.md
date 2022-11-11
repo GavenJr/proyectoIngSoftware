@@ -159,14 +159,14 @@ Abarcar escenarios base.
     - Escenario 1: Mostrar empresas
     Dado que me encuentro en la categoría de Empresas, el sistema desplegara todas las empresas disponibles, que actualmente tienen encuestas activas.
 
-- - -
+
 <!-- NOTA: el tamano solo parece funcionar en incrementos de 10 -->
 <p align="center" width="100%">
     <img width="25%" src="https://github.com/GavenJr/proyectoIngSoftware/blob/master/proyecto_ubb/src/main/resources/model/sprint1/Modelo_Fisico_BD.png">
     <img width="50%" src="https://github.com/GavenJr/proyectoIngSoftware/blob/master/proyecto_ubb/src/main/resources/model/sprint1/Representacion_SQL.PNG">
     <img width="20%" src="https://github.com/GavenJr/proyectoIngSoftware/blob/master/proyecto_ubb/java_tan.jfif">
 </p>
-
+- - -
 ### SPRINT 2: Que esperamos lograr
 
 <!-- Imagenes alineadas unas con las otras con un tamano del 30% -->
