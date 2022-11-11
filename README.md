@@ -29,21 +29,33 @@ Esta informacion puede incluir preferencias de producto, edad, sexo, localidad, 
 
 <!-- This content will not appear in the rendered Markdown -->
 <!-- Los comentarios se hacen usando sintaxis HTML -->
+<!-- -->
 
-Modelo entidar relacion
-> ![Modelo ER](https://github.com/GavenJr/proyectoIngSoftware/blob/master/proyecto_ubb/src/main/resources/model/ER.jpg?raw=true)
+<!-- > ![Modelo ER](https://github.com/GavenJr/proyectoIngSoftware/blob/master/proyecto_ubb/src/main/resources/model/ER.jpg?raw=true) -->
 <!-- <img src="https://github.com/GavenJr/proyectoIngSoftware/blob/master/proyecto_ubb/src/main/resources/model/ER.jpg" width="512x512"> -->
-Modelo relacional
-> ![Modelo Relacional](https://github.com/GavenJr/proyectoIngSoftware/blob/master/proyecto_ubb/src/main/resources/model/Relational_Schema.png?raw=true)
+
+<!-- > ![Modelo Relacional](https://github.com/GavenJr/proyectoIngSoftware/blob/master/proyecto_ubb/src/main/resources/model/Relational_Schema.png?raw=true) -->
 <!-- <img src="https://github.com/GavenJr/proyectoIngSoftware/blob/master/proyecto_ubb/src/main/resources/model/Relational_Schema.png" width="512x512"> -->
 
 ### SPRINT 1: Que esperamos lograr
 Implementar los primeros 5 requisitos de sistema.
 Implementar los servicios que conlleven.
 Abarcar escenarios base.
+<!-- Imagenes alineadas unas con las otras con un tamano del 30% -->
+<p align="center" width="100%">
+    <img width="30%" src="https://github.com/GavenJr/proyectoIngSoftware/blob/master/proyecto_ubb/src/main/resources/model/sprint1/Modelo_Fisico_BD.png">
+    <img width="30%" src="https://github.com/GavenJr/proyectoIngSoftware/blob/master/proyecto_ubb/src/main/resources/model/sprint1/Representacion_SQL.PNG">
+    <img width="30%" src="https://github.com/GavenJr/proyectoIngSoftware/blob/master/proyecto_ubb/java_tan.jfif">
+</p>
 
 ### SPRINT 2: Que esperamos lograr
 
+<!-- Imagenes alineadas unas con las otras con un tamano del 30% -->
+<p align="center" width="100%">
+    <img width="30%" src="https://github.com/GavenJr/proyectoIngSoftware/blob/master/proyecto_ubb/src/main/resources/model/sprint2/ER.jpg">
+    <img width="30%" src="https://github.com/GavenJr/proyectoIngSoftware/blob/master/proyecto_ubb/src/main/resources/model/sprint2/Relational_Schema.png">
+    <img width="30%" src="https://www.nicepng.com/png/full/26-267104_sans-sans-sprite.png">
+</p>
 
 ### SPRINT 3: Que esperamos lograr
 
