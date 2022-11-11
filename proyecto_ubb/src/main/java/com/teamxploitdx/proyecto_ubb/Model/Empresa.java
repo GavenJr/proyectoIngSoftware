@@ -1,12 +1,33 @@
 package com.teamxploitdx.proyecto_ubb.Model;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity														// Indicamos que es una entidad
+@Table (name = "empresa")									// indicamos el nombre del initDB.sql
 public class Empresa {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     int id;
     String nombre;
     String email;
     String descripcion;
 
+    public Empresa(){}
 
+    public Empresa(int id, String nombre, String email, String descripcion) {
+        this.id = id;
+        this.nombre = nombre;
+        this.email = email;
+        this.descripcion = descripcion;
+    }
+
+    /* - - - - - - - - - - - - - - -
+	 * 	Getters y Setters
+	 */
     public int getId() {
         return this.id;
     }

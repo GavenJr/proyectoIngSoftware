@@ -68,7 +68,7 @@ Esta informacion puede incluir preferencias de producto, edad, sexo, localidad, 
 Implementar los primeros 5 requisitos de sistema.
 Implementar los servicios que conlleven.
 Abarcar escenarios base.
-<!-- Imagenes alineadas unas con las otras con un tamano del 30% -->
+<!-- NOTA: el tamano solo parece funcionar en incrementos de 10 -->
 <p align="center" width="100%">
     <img width="25%" src="https://github.com/GavenJr/proyectoIngSoftware/blob/master/proyecto_ubb/src/main/resources/model/sprint1/Modelo_Fisico_BD.png">
     <img width="50%" src="https://github.com/GavenJr/proyectoIngSoftware/blob/master/proyecto_ubb/src/main/resources/model/sprint1/Representacion_SQL.PNG">

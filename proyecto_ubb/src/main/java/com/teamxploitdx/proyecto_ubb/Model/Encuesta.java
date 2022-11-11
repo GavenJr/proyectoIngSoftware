@@ -24,6 +24,21 @@ public class Encuesta {
     private int id_empresa;
     private int id_categoria;
     
+	public Encuesta(){}
+
+	public Encuesta(int id, String nombre, String descripcion, Date fecha_inicio, Date fecha_termino, int min, int max, boolean visibilidad, int id_empresa, int id_categoria) {
+		this.id = id;
+		this.nombre = nombre;
+		this.descripcion = descripcion;
+		this.fecha_inicio = fecha_inicio;
+		this.fecha_termino = fecha_termino;
+		this.min = min;
+		this.max = max;
+		this.visibilidad = visibilidad;
+		this.id_empresa = id_empresa;
+		this.id_categoria = id_categoria;
+	}
+
 
 	/* - - - - - - - - - - - - - - -
 	 * 
