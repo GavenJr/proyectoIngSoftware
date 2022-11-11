@@ -68,6 +68,98 @@ Esta informacion puede incluir preferencias de producto, edad, sexo, localidad, 
 Implementar los primeros 5 requisitos de sistema.
 Implementar los servicios que conlleven.
 Abarcar escenarios base.
+- - -
+##### SERVICIO 1
+    ***COMO*** administrador ***QUIERO*** ser capaz de administrar la visibilidad de mis encuestas ***PARA*** así poder programar la publicación de alguna  ya hecha con anticipación.
+
+    Tablas involucradas:
+
+    - Encuesta
+
+    Servicios requeridos:
+
+    - Servicio para actualizar "visibilidad"
+
+    ‌Escenario:
+
+    - 1. Dado que me encuentro en la pantalla de encuesta al momento en que presiono el botón de "visible" , la encuesta se establecerá como "visible" o "no visible" según corresponda
+
+##### SERVICIO 2
+    _**COMO**_ encuestado, **QUIERO** que la aplicación me permita cambiar mis categorías de encuestas favoritas _**PARA**_ que así pueda actualizar mis preferencias de filtrado rápido de encuestas de interés"
+
+    Tablas involucradas:
+
+    - Preferencias
+    - Usuario
+
+    Servicios requeridos:
+
+    - Servicio para añadir una preferencia
+    - Servicio para eliminar una preferencia
+
+    Escenarios:
+
+    - Escenario 1: Agregar categoría
+    Dado que me encuentro en la administración de usuario, al presionar el botón de agregar categoría, el sistema mostrara las categorías disponibles y permitirá seleccionar la que quiero agregar.
+    - Escenario 2: Eliminar categoría
+    Dado que me encuentro en la administración de usuario, al presionar el botón de eliminar categoría, el sistema mostrara las categorías que actualmente tengo seleccionadas y al seleccionarlas el sistema las eliminara de mis categorías favoritas
+    - Escenario 3: Agrega categoría inexistente
+    ‌
+##### SERVICIO 3
+    _**COMO** administrador,_ **QUIERO** que la aplicación me permita agregar nuevos empleados de mi empresa _**PARA**_ trabajar con las encuestas y los resultados obtenidos"
+
+    Tablas involucradas:
+
+    - Usuario
+    - Rol
+    - Empresa
+
+    Servicios requeridos:
+
+    - Servicio para crear un nuevo usuario
+    - Servicio para asignar un rol
+    - Servicio para asignar empresa
+
+    Escenario 1: Registro de un nuevo usuario
+
+    Dado que me encuentro en la pantalla principal de la empresa, cuando selecciono el botón de  agregar un nuevo usuario a la empresa entonces el sistema deberá mostrar un formulario que permita agregar los datos de mis empleados.
+
+    Escenario 2: Asignación de rol
+
+    Dado que me encuentro en la pantalla de gestión de usuarios de la empresa, cuando selecciono el botón de asignar rol a alguno de mis empleados el sistema deberá 
+
+##### SERVICIO 4
+***COMO*** encargado de marketing, ***QUIERO*** ser capaz de limitar el numero de personas que pueden realizar una encuesta ***PARA*** así poder mantener una muestra controlada de datos."
+
+Tablas involucradas:
+
+- Encuesta
+
+Servicios requeridos:
+
+- Servicio para actualizar el mínimo y máximo de encuestados que pueden responder la encuesta. (2 servicios uno para máx. y otro para min)
+
+Escenario: 
+
+Escenario 1: 
+
+##### SERVICIO 5
+    ***COMO*** encuestado, ***QUIERO*** ser capaz de buscar alguna empresa especifica y ver que encuestas me puede ofrecer ***PARA*** así participar con algún producto de mi interés"
+
+    Tablas involucradas:
+
+    - Empresa
+    - Encuesta
+
+    Servicios requeridos:
+    \- Encontrar todas las encuestas por el nombre de una empresa (FindAllByName)
+
+    Escenarios: 
+
+    - Escenario 1: Mostrar empresas
+    Dado que me encuentro en la categoría de Empresas, el sistema desplegara todas las empresas disponibles, que actualmente tienen encuestas activas.
+
+- - -
 <!-- NOTA: el tamano solo parece funcionar en incrementos de 10 -->
 <p align="center" width="100%">
     <img width="25%" src="https://github.com/GavenJr/proyectoIngSoftware/blob/master/proyecto_ubb/src/main/resources/model/sprint1/Modelo_Fisico_BD.png">
