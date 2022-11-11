@@ -1,6 +1,6 @@
 package com.teamxploitdx.proyecto_ubb.Service;
 // imports de Java
-import java.util.List;
+import java.util.*;
 // imports de spring boot
 import org.springframework.stereotype.Service;
 // imports locales
@@ -17,6 +17,25 @@ public class EncuestaService {
     
     public List<Encuesta> findAllEncuestas(){
         return encuestaRepository.findAll();
+    }
+
+ 
+    public Optional<Encuesta> findEncuestaById(int id){
+        return encuestaRepository.findById(id);
+    }
+
+    public boolean updateVisibilidad (int idEncuesta, Boolean newVisi){
+        
+        Optional<Encuesta> encuestaOptional = encuestaRepository.findById(idEncuesta);
+        Encuesta encuesta = encuestaOptional.get();
+        
+        if (encuestaOptional.isPresent()){
+            encuesta.setVisibilidad(newVisi);
+            encuestaRepository.save(encuesta);
+                return true;
+            }else{
+                return false;
+            }
     }
 
 }
