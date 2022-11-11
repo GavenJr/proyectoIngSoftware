@@ -28,6 +28,26 @@ Java JDK 11 | Maven | Spring Boot 2.7.X | Arquitectura MVC.
 
 Dependencias: Spring Boot DevTools | Spring Web | MySQL Driver | Spring data JPA | spring boot starter data jpa | spring-boot-starter-actuator
 - - -
+Para implementar el proyecto, se realizo el siguiente flujo:
+    > Crear el proyecto Spring Boot usando el Spring Initializr
+
+    > Crear una base de datos MYSQL y definir su configuracion (esto lo necesitara el POM)
+    >   > Si por alguna razon mysql tira errores al querer usarlo, revisen su configuracion horaria, necesitan tener la configuracion utf-8 Unicode habilitada
+
+    > Crear modelo entidad-relacion
+    
+    >    > Derivar un modelo relacional y inicializar la BD
+    
+    > Crear un JPA Data Repository
+    
+    > Crear la capa de servicios
+    
+    > crear la capa de controladores
+    
+    > Armar y correr el proyecto
+    
+    > Testear usando Postman/Explorador web de preferencia
+
 Para ejecutarlo, corra el archivo "ProyectoUbbApplication.java"
 - - -
 El proyecto consiste en un sistema de encuestas que se dedica a recopilar informacion de usuarios, y se la entrega a las empresas encargadas en algun formato.
@@ -49,9 +69,9 @@ Implementar los servicios que conlleven.
 Abarcar escenarios base.
 <!-- Imagenes alineadas unas con las otras con un tamano del 30% -->
 <p align="center" width="100%">
-    <img width="30%" src="https://github.com/GavenJr/proyectoIngSoftware/blob/master/proyecto_ubb/src/main/resources/model/sprint1/Modelo_Fisico_BD.png">
+    <img width="25%" src="https://github.com/GavenJr/proyectoIngSoftware/blob/master/proyecto_ubb/src/main/resources/model/sprint1/Modelo_Fisico_BD.png">
     <img width="40%" src="https://github.com/GavenJr/proyectoIngSoftware/blob/master/proyecto_ubb/src/main/resources/model/sprint1/Representacion_SQL.PNG">
-    <img width="20%" src="https://github.com/GavenJr/proyectoIngSoftware/blob/master/proyecto_ubb/java_tan.jfif">
+    <img width="25%" src="https://github.com/GavenJr/proyectoIngSoftware/blob/master/proyecto_ubb/java_tan.jfif">
 </p>
 
 ### SPRINT 2: Que esperamos lograr
