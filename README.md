@@ -167,8 +167,11 @@ Abarcar escenarios base.
     <img width="20%" src="https://github.com/GavenJr/proyectoIngSoftware/blob/master/proyecto_ubb/java_tan.jfif">
 </p>
 - - -
+
 ### SPRINT 2: Que esperamos lograr
 
+- - -
+- - -
 <!-- Imagenes alineadas unas con las otras con un tamano del 30% -->
 <p align="center" width="100%">
     <img width="10%" src="https://www.pngkit.com/png/full/402-4028532_the-great-papyrus-great-papyrus.png">
@@ -177,8 +180,10 @@ Abarcar escenarios base.
     <img width="10%" src="https://www.nicepng.com/png/full/26-267104_sans-sans-sprite.png">
 </p>
 
+- - -
 ### SPRINT 3: Que esperamos lograr
-
+- - -
+- - -
 
 ## Sobre la BDD:
 MySQL Community 8.0.31 | Disenada con MySQL Workbench | Modelo ER hecho en yED Graph Editor
