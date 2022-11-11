@@ -13,12 +13,12 @@ artifact id: proyecto_ubb
 ##### Docentes: Maria Soto y Fernando Santolaya     
 
 <p align="center" width="100%">
-    <img width="15%" src="https://brandslogos.com/wp-content/uploads/images/large/java-logo-1.png">
+    <img width="10%" src="https://brandslogos.com/wp-content/uploads/images/large/java-logo-1.png">
     <img width="15%" src="https://e4developer.com/wp-content/uploads/2018/01/spring-boot.png">
     <img width="15%" src="https://download.logo.wine/logo/MySQL/MySQL-Logo.wine.png">
-    <img width="15%" src="https://www.freepnglogos.com/uploads/logo-mysql-png/logo-mysql-how-setup-mysql-workbench-database-for-wordpress-20.png">
+    <img width="10%" src="https://www.freepnglogos.com/uploads/logo-mysql-png/logo-mysql-how-setup-mysql-workbench-database-for-wordpress-20.png">
     <img width="15%" src="https://upload.wikimedia.org/wikipedia/commons/c/c2/Postman_%28software%29.png">
-    <img width="15%" src="https://static.macupdate.com/products/36897/l/yed-logo.png?v=1649314965">
+    <img width="15%" src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2f/PhpMyAdmin_logo_2010_hidef.svg/1200px-PhpMyAdmin_logo_2010_hidef.svg.png">
 </p>
 
 ## Sobre el proyecto:
