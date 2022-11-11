@@ -166,6 +166,7 @@ Abarcar escenarios base.
     <img width="50%" src="https://github.com/GavenJr/proyectoIngSoftware/blob/master/proyecto_ubb/src/main/resources/model/sprint1/Representacion_SQL.PNG">
     <img width="20%" src="https://github.com/GavenJr/proyectoIngSoftware/blob/master/proyecto_ubb/java_tan.jfif">
 </p>
+
 - - -
 
 ### SPRINT 2: Que esperamos lograr
