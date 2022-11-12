@@ -11,6 +11,14 @@ import com.teamxploitdx.proyecto_ubb.Repository.EncuestaRepository;
 public class EncuestaService {
     EncuestaRepository encuestaRepository;                      // 
 
+    /**
+    Encuentra las encuestas segun el nombre de una empresa
+    @param String El nombre de la empresa
+    */
+    public List<Encuesta> findByEmpresa(String name){
+        return encuestaRepository.findByEmpresa(name);
+    }
+
     public EncuestaService(EncuestaRepository encuestaRepository) {
         this.encuestaRepository = encuestaRepository;           // Con esto, sera posible hacer las asignaciones con el repositorio
     }

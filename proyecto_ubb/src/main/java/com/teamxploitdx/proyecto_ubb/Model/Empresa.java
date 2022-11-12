@@ -1,5 +1,5 @@
 package com.teamxploitdx.proyecto_ubb.Model;
-
+// imports de dependencias
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -16,6 +16,10 @@ public class Empresa {
     String email;
     String descripcion;
 
+
+    /* - - - - - - - - - - - - - - -
+	 * 	Constructores
+	 */
     public Empresa(){}
 
     public Empresa(int id, String nombre, String email, String descripcion) {
