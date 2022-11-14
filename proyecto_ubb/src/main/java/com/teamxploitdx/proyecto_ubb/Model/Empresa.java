@@ -1,5 +1,4 @@
 package com.teamxploitdx.proyecto_ubb.Model;
-import javax.persistence.Column;
 // imports de dependencias
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;

@@ -2,7 +2,6 @@ package com.teamxploitdx.proyecto_ubb.Model;
 // imports de Java
 import java.sql.Date;
 
-import javax.persistence.Column;
 // imports de dependencias
 import javax.persistence.Entity;							// Si no pueden importar de javax,
 import javax.persistence.GeneratedValue;					// les faltan dependencias en el POM
@@ -17,13 +16,13 @@ import javax.persistence.Table;
 public class Encuesta {
 	@Id														// El atributo deabajo es la clave primaria 
 	@GeneratedValue(strategy = GenerationType.IDENTITY)		// Indicamos que es un valor generado
-  private int id;
+	private int id;
 	private String nombre;
 	private String descripcion ;
-  private Date fecha_inicio;
+	private Date fecha_inicio;
 	private Date fecha_termino;
-  private boolean visible;
-  private int min_respuestas;
+	private boolean visible;
+	private int min_respuestas;
 	private int max_respuestas;
 
 	@ManyToOne							// Cardinalidad de la relacion n:1

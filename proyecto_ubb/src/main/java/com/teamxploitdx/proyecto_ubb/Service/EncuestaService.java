@@ -21,6 +21,9 @@ public class EncuestaService {
         this.empresaRepository = empresaRepository;
     }
 
+    /**
+    Recupera todas las encuestas
+    */
     public List<Encuesta> findAllEncuestas(){
         return encuestaRepository.findAll();
     }
@@ -39,12 +42,19 @@ public class EncuestaService {
         return encuestaRepository.findByEmpresa(empresa);
     }
     
-
- 
+     /**
+    Encuentra las encuestas segun el nombre de una empresa
+    @param int El id de la empresa
+    */
     public Optional<Encuesta> findEncuestaById(int id){
         return encuestaRepository.findById(id);
     }
 
+    /**
+    Encuentra las encuestas segun el nombre de una empresa
+    @param int El id de la empresa
+    @param boolean La visibilidad deseada
+    */
     public boolean updateVisibilidad (int idEncuesta, Boolean newVisi){
         
         Optional<Encuesta> encuestaOptional = encuestaRepository.findById(idEncuesta);

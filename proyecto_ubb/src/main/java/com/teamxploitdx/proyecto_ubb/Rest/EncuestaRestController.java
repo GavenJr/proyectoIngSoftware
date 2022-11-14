@@ -9,7 +9,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
@@ -30,7 +29,7 @@ public class EncuestaRestController {
     }
 
     /**
-    Retorna todas las encuestas
+    Retorna todas las encuestas a la uri "/proyecto_ubb/encuestas"
     */    
     @GetMapping(value = "")
     public ResponseEntity< List<Encuesta> > getAllEncuestas(){
@@ -43,7 +42,7 @@ public class EncuestaRestController {
     }
 
     /**
-    Retorna las encuestas segun el nombre de una empresa
+    Retorna las encuestas de una empresa (por nombre) a la URI "proyecto_ubb/encuestas/empresa?nombre="
     @param String El nombre de la empresa
     */
     @GetMapping(value = "/empresa")       //RequestParam extrae el parametro name de la query
@@ -59,8 +58,11 @@ public class EncuestaRestController {
 
     }
 
-
-
+    /**
+    Actualiza la visibilidad de una encuesta segun su ID
+    @param int El id de la encuesta
+    @param boolean La visibilidad deseada
+    */
     @PatchMapping (value = "/{cambiarVisibilidad}")
     public ResponseEntity<Void> changeVisibilidad (@PathVariable int idEncuesta,@PathVariable boolean newVis){
         boolean actualizado = encuestaService.updateVisibilidad(idEncuesta, newVis );
