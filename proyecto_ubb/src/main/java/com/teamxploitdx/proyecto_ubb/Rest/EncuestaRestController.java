@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.teamxploitdx.proyecto_ubb.Model.Encuesta;
 import com.teamxploitdx.proyecto_ubb.Service.EncuestaService;
 
+
 @RestController     // definimos que es un controlador
 @RequestMapping(value = "encuestas", produces = "application/json")  // Usamos la notacion json para obtener resultados en esa URI
 public class EncuestaRestController {

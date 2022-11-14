@@ -17,13 +17,13 @@ import javax.persistence.Table;
 public class Encuesta {
 	@Id														// El atributo deabajo es la clave primaria 
 	@GeneratedValue(strategy = GenerationType.IDENTITY)		// Indicamos que es un valor generado
-    private int id;
+  private int id;
 	private String nombre;
 	private String descripcion ;
-    private Date fecha_inicio;
+  private Date fecha_inicio;
 	private Date fecha_termino;
-    private boolean visible;
-    private int min_respuestas;
+  private boolean visible;
+  private int min_respuestas;
 	private int max_respuestas;
 
 	@ManyToOne							// Cardinalidad de la relacion n:1
@@ -97,28 +97,25 @@ public class Encuesta {
 		return this.visible;
 	}
 
-	public boolean getVisible() {
-		return this.visible;
-	}
-
 	public void setVisible(boolean visible) {
 		this.visible = visible;
 	}
 
-	public int getMin() {
+	public int getMin_respuestas() {
 		return this.min_respuestas;
 	}
 
-	public void setMin(int min_respuestas) {
+	public void setMin_respuestas(int min_respuestas) {
 		this.min_respuestas = min_respuestas;
 	}
 
-	public int getMax() {
+	public int getMax_respuestas() {
 		return this.max_respuestas;
 	}
 
-	public void setMax(int max_respuestas) {
+	public void setMax_respuestas(int max_respuestas) {
 		this.max_respuestas = max_respuestas;
+
 	}
 
 	public Empresa getEmpresa() {
