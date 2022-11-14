@@ -1,4 +1,5 @@
 package com.teamxploitdx.proyecto_ubb.Model;
+import javax.persistence.Column;
 // imports de dependencias
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -20,7 +21,8 @@ public class Empresa {
     /* - - - - - - - - - - - - - - -
 	 * 	Constructores
 	 */
-    public Empresa(){}
+
+     public Empresa(){}
 
     public Empresa(int id, String nombre, String email, String descripcion) {
         this.id = id;

@@ -39,14 +39,14 @@ CREATE TABLE `empresa` (
   `id` int(11) NOT NULL,
   `nombre` varchar(100) NOT NULL,
   `email` varchar(100) NOT NULL,
-  `descripción` varchar(500) NOT NULL
+  `descripcion` varchar(500) NOT NULL
 );
 
 --
 -- Volcado de datos para la tabla `empresa`
 --
 
-INSERT INTO `empresa` (`id`, `nombre`, `email`, `descripción`) VALUES
+INSERT INTO `empresa` (`id`, `nombre`, `email`, `descripcion`) VALUES
 (1, 'Gabcube', 'ccrisp0@youku.com', 'Soy una descripción de empresa genérica'),
 (2, 'Buzzshare', 'abengtson1@reverbnation.com', 'Soy una descripción de empresa genérica');
 
