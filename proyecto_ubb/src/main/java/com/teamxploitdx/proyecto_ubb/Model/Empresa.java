@@ -18,10 +18,10 @@ public class Empresa {
 
 
     /* - - - - - - - - - - - - - - -
-	 * 	Constructores
-	 */
+	* 	Constructores
+	*/
 
-     public Empresa(){}
+    public Empresa(){}
 
     public Empresa(int id, String nombre, String email, String descripcion) {
         this.id = id;
@@ -31,8 +31,8 @@ public class Empresa {
     }
 
     /* - - - - - - - - - - - - - - -
-	 * 	Getters y Setters
-	 */
+	* 	Getters y Setters
+	*/
     public int getId() {
         return this.id;
     }

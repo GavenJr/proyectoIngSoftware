@@ -12,9 +12,8 @@ import com.teamxploitdx.proyecto_ubb.Repository.EncuestaRepository;
 
 @Service
 public class EncuestaService {
-    private final EncuestaRepository encuestaRepository;                      // 
+    private final EncuestaRepository encuestaRepository;
     private final EmpresaRepository empresaRepository;
-
 
     public EncuestaService(EncuestaRepository encuestaRepository, EmpresaRepository empresaRepository) {
         this.encuestaRepository = encuestaRepository;           // Con esto, sera posible hacer las asignaciones con el repositorio

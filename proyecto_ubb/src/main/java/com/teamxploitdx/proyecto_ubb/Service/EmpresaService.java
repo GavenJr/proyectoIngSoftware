@@ -17,6 +17,9 @@ public class EmpresaService {
         this.empresaRepository = empresaRepository;
     }
 
+    /**
+    Encuentra todas las Empresas y las devuelve
+    */  
     public List<Empresa> findAllEmpresas(){
         return empresaRepository.findAll();
     }

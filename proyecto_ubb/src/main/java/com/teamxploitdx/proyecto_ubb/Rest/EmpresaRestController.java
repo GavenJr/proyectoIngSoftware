@@ -21,11 +21,13 @@ public class EmpresaRestController {
     }
 
     /**
-    Retorna todas las encuestas
+    Retorna todas las empresas a la URI "/proyecto_ubb/empresas"
     */    
     @GetMapping(value = "")
     public ResponseEntity< List<Empresa> > getAllEmpresas(){
+        // Busca las empresas
         List<Empresa> encuestaList = empresaService.findAllEmpresas();
+        // Comprueba si se encontro alguna
         if( !encuestaList.isEmpty() ){
             return new ResponseEntity<>(encuestaList, HttpStatus.OK);
         }else{

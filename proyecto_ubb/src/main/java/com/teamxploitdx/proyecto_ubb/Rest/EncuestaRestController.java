@@ -33,7 +33,9 @@ public class EncuestaRestController {
     */    
     @GetMapping(value = "")
     public ResponseEntity< List<Encuesta> > getAllEncuestas(){
+        // Busca las encuestas
         List<Encuesta> encuestaList = encuestaService.findAllEncuestas();
+        // Comprueba si se encontro alguna
         if( !encuestaList.isEmpty() ){
             return new ResponseEntity<>(encuestaList, HttpStatus.OK);
         }else{

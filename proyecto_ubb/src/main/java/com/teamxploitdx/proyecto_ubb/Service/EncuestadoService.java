@@ -21,26 +21,44 @@ public class EncuestadoService {
         this.categoriaRepository = categoriaRepository;
     }
 
+    /**
+    Encuentra a todos los encuestados
+    */    
     public List<Encuestado> findAllEncuestados() {
         return encuestadoRepository.findAll();
     }
     
+    /**
+    Encuentra un encuestado por id
+    @param id El id del encuestado
+    */  
     public Optional<Encuestado> findEncuestadoById(int id){
     	return encuestadoRepository.findById(id);
     }
     
+    /**
+    Encuentra una categoria por id
+    @param id El id de la categoria
+    */  
     public Optional<Categoria> findCategoriaById(int id){
     	return categoriaRepository.findById(id);
     }
     
-    /*Agrega un nuevo Encuestado*/
+    /**
+    Agrega un nuevo Encuestado
+    @param Encuestado El encuestado a agregar al repositorio
+    */  
 	public boolean save(Encuestado encuestado) {
 		encuestadoRepository.saveAndFlush(encuestado);
         Optional<Encuestado> encuestadoOptional = encuestadoRepository.findEncuestadoByNombre(encuestado.getNombre());
         return encuestadoOptional.isPresent();
 	}
 	
-	/*Agrega una preferencia*/
+    /**
+    Agrega una preferencia
+    @param Encuestado El encuestado a modificar
+    @param Categoria La preferencia a agregar
+    */  
 	public boolean addPreferencia(Encuestado enc, Categoria categoria) {
 		if(categoria == null) {
 			return false;
@@ -51,7 +69,11 @@ public class EncuestadoService {
 		}
 	}
 	
-	/*Elimina una preferencia*/
+    /**
+    Elimina una preferencia
+    @param int El id de la preferencia
+    @param Encuestado El encuestado del que se desea eliminar
+    */  
 	public boolean deletePreferenciaById(int idCat, Encuestado enc) {
         Optional<Categoria> categoriaOptional = categoriaRepository.findById(idCat);
         if (categoriaOptional.isPresent()) {

@@ -27,7 +27,9 @@ public class EncuestadoRestController {
         this.encuestadoService = encuestadoService;
     }
     
-    /*Busca todos los encuestados y muestra sus preferencias*/
+    /**
+    Busca todos los encuestados y muestra sus preferencias
+    */    
     @GetMapping(value = "")
     public ResponseEntity<List<Encuestado>> getAllEncuestados() {
         List<Encuestado> encuestadoList = encuestadoService.findAllEncuestados();
@@ -38,7 +40,10 @@ public class EncuestadoRestController {
         }
     }
     
-    /*Busca un encuestado especifico*/
+    /**
+    Busca un encuestado especifico
+    @param int El id del encuestado
+    */  
     @GetMapping(value = "/{idEnc}")
     public ResponseEntity<Encuestado> getEncuestadoById(@PathVariable int idEnc) {
         Optional<Encuestado> encuestadoOptional = encuestadoService.findEncuestadoById(idEnc) ;
@@ -49,7 +54,10 @@ public class EncuestadoRestController {
         }
     }
     
-    /*Agrega un encuestado nuevo*/ 
+    /**
+    Agrega un encuestado nuevo
+    @param Encuestado El encuestado a agregar
+    */  
     @PostMapping(value = "")
     public ResponseEntity<Void> addEncuestado(@RequestBody Encuestado encuestado) {
         boolean nuevo = encuestadoService.save(encuestado);
@@ -60,7 +68,11 @@ public class EncuestadoRestController {
         }
     }
     
-    /*Agrega una categoria a las preferencias del encuestado*/
+    /**
+    Agrega una categoria a las preferencias del encuestado
+    @param int El id del encuestado a actualizar
+    @param Categoria La preferencia que se desea agregar al encuestado
+    */ 
     @PostMapping(value = "/{encuestadoId}/categoria")
     public ResponseEntity<Void> updatePreferencias(@PathVariable(value = "encuestadoId") int encuestadoId, @RequestBody Categoria categoria) {
     	Optional<Encuestado> enc = encuestadoService.findEncuestadoById(encuestadoId);
@@ -76,7 +88,11 @@ public class EncuestadoRestController {
     	}	
     }
     
-    /*Elimina una categoria de las preferencias del encuestado*/
+    /**
+    Elimina una categoria de las preferencias del encuestado
+    @param int El id del encuestado a actualizar
+    @param Categoria La preferencia que se desea eliminar del encuestado
+    */ 
     @DeleteMapping(value = "/{encuestadoId}/categoria/{categoriaId}")
     public ResponseEntity<Void> deletePreferencia(@PathVariable(value = "encuestadoId") int encuestadoId,@PathVariable(value = "categoriaId") int categoriaId) {
     	Encuestado enc = encuestadoService.findEncuestadoById(encuestadoId).get();
