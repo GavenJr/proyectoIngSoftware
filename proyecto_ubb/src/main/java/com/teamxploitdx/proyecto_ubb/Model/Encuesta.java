@@ -19,8 +19,9 @@ public class Encuesta {
 	private String descripcion ;
     private Date fecha_inicio;
 	private Date fecha_termino;
-    private int min,max;
-    private boolean visibilidad;
+    private int min_respuestas;
+    private int max_respuestas;
+    private boolean visible;
     private int id_empresa;
     private int id_categoria;
     
@@ -60,23 +61,23 @@ public class Encuesta {
 	public void setFecha_termino(Date fecha_termino) {
 		this.fecha_termino = fecha_termino;
 	}
-	public int getMin() {
-		return min;
+	public int getMin_respuestas() {
+		return min_respuestas;
 	}
-	public void setMin(int min) {
-		this.min = min;
+	public void setMin_respuestas(int min) {
+		this.min_respuestas = min;
 	}
-	public int getMax() {
-		return max;
+	public int getMax_respuestas() {
+		return max_respuestas;
 		}
-	public void setMax(int max) {
-		this.max = max;
+	public void setMax_respuestas(int max) {
+		this.max_respuestas = max;
 	}
 	public boolean isVisibilidad() {
-		return visibilidad;
+		return visible;
 	}
 	public void setVisibilidad(boolean visibilidad) {
-		this.visibilidad = visibilidad;
+		this.visible = visibilidad;
 	}
 	public int getId_empresa() {
 		return id_empresa;

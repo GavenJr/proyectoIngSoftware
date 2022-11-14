@@ -27,10 +27,4 @@ public class CategoriaService {
     	return categoriaRepository.findById(categoriaId);
     }
     
-    public boolean saveEncuestadoP(Encuestado encuestado) {
-        encuestadoRepository.saveAndFlush(encuestado);
-        Optional<Encuestado> empleadoOptional =  encuestadoRepository.findEncuestadoByNombre(encuestado.getNombre());
-        return empleadoOptional.isPresent();
-    }
-    
 }

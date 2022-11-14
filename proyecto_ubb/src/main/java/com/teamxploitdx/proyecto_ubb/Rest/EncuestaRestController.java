@@ -12,7 +12,7 @@ import com.teamxploitdx.proyecto_ubb.Model.Encuesta;
 import com.teamxploitdx.proyecto_ubb.Service.EncuestaService;
 
 @RestController
-@RequestMapping(value = "encuestas", produces = "application/json")
+@RequestMapping(value = "encuesta", produces = "application/json")
 public class EncuestaRestController {                           // Usamos la notacion json para obtener resultados
     EncuestaService encuestaService;
 
