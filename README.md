@@ -214,7 +214,7 @@ Abarcar escenarios base.
 MySQL Community 8.0.31 | Disenada con MySQL Workbench | Modelo ER hecho en yED Graph Editor
 
 #### POBLACION DE LA BD
-<details><summary>VER TABLAS</summary>
+<details><summary>TABLA Sample Text</summary>
 <p>
 
 | First Header  | Second Header | Third Header  | Forth Header | Fifth Header  | Sixth Header | 
@@ -225,7 +225,9 @@ MySQL Community 8.0.31 | Disenada con MySQL Workbench | Modelo ER hecho en yED G
 </p>
 </details>
 
-## Extensiones de Visual Studio Code Recomendadas:
+## Extensiones de Visual Studio Code Recomendadas
+<details><summary>TABLA Sample Text</summary>
+<p>
 https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-pack
 
 https://marketplace.visualstudio.com/items?itemName=Pivotal.vscode-boot-dev-pack
@@ -243,3 +245,5 @@ https://marketplace.visualstudio.com/items?itemName=GitHub.codespaces
 https://marketplace.visualstudio.com/items?itemName=GitHub.vscode-pull-request-github
 
 https://marketplace.visualstudio.com/items?itemName=DotJoshJohnson.xml
+</p>
+</details>
