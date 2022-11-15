@@ -182,7 +182,8 @@ Abarcar escenarios base.
 
     - Escenario 1: Mostrar empresas
     Dado que me encuentro en la categoría de Empresas, el sistema desplegara todas las empresas disponibles, que actualmente tienen encuestas activas.
-
+</p>
+</details>
 
 <!-- NOTA: el tamano solo parece funcionar en incrementos de 10 -->
 <p align="center" width="100%">
