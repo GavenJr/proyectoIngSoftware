@@ -82,6 +82,7 @@ MySQL Community 8.0.31 | Disenada con MySQL Workbench | Modelo ER hecho en yED G
 
 </p>
 </details>
+
 - - -
 
 ### SPRINT 1: Que esperamos lograr
