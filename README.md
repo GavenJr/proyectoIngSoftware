@@ -216,10 +216,12 @@ MySQL Community 8.0.31 | Disenada con MySQL Workbench | Modelo ER hecho en yED G
 #### POBLACION DE LA BD
 <details><summary>VER TABLAS</summary>
 <p>
-| First Header  | Second Header | First Header  | Second Header | First Header  | Second Header | 
+
+| First Header  | Second Header | Third Header  | Forth Header | Fifth Header  | Sixth Header | 
 | ------------- | ------------- | ------------- | ------------- | ------------- | ------------- |
 | Content Cell  | Content Cell  | Content Cell  | Content Cell  | Content Cell  | Content Cell  |
 | Content Cell  | Content Cell  | Content Cell  | Content Cell  | Content Cell  | Content Cell  |
+
 </p>
 </details>
 
