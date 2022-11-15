@@ -67,6 +67,23 @@ Esta informacion puede incluir preferencias de producto, edad, sexo, localidad, 
 <!-- > ![Modelo Relacional](https://github.com/GavenJr/proyectoIngSoftware/blob/master/proyecto_ubb/src/main/resources/model/Relational_Schema.png?raw=true) -->
 <!-- <img src="https://github.com/GavenJr/proyectoIngSoftware/blob/master/proyecto_ubb/src/main/resources/model/Relational_Schema.png" width="512x512"> -->
 
+
+## Sobre la BDD:
+MySQL Community 8.0.31 | Disenada con MySQL Workbench | Modelo ER hecho en yED Graph Editor
+
+#### POBLACION DE LA BD
+<details><summary>TABLA Sample Text</summary>
+<p>
+
+| First Header  | Second Header | Third Header  | Forth Header | Fifth Header  | Sixth Header | 
+| ------------- | ------------- | ------------- | ------------- | ------------- | ------------- |
+| Content Cell  | Content Cell  | Content Cell  | Content Cell  | Content Cell  | Content Cell  |
+| Content Cell  | Content Cell  | Content Cell  | Content Cell  | Content Cell  | Content Cell  |
+
+</p>
+</details>
+- - -
+
 ### SPRINT 1: Que esperamos lograr
 Implementar los primeros 5 requisitos de sistema.
 Implementar los servicios que conlleven.
@@ -210,20 +227,6 @@ Abarcar escenarios base.
 - - -
 - - -
 
-## Sobre la BDD:
-MySQL Community 8.0.31 | Disenada con MySQL Workbench | Modelo ER hecho en yED Graph Editor
-
-#### POBLACION DE LA BD
-<details><summary>TABLA Sample Text</summary>
-<p>
-
-| First Header  | Second Header | Third Header  | Forth Header | Fifth Header  | Sixth Header | 
-| ------------- | ------------- | ------------- | ------------- | ------------- | ------------- |
-| Content Cell  | Content Cell  | Content Cell  | Content Cell  | Content Cell  | Content Cell  |
-| Content Cell  | Content Cell  | Content Cell  | Content Cell  | Content Cell  | Content Cell  |
-
-</p>
-</details>
 
 ## Extensiones de Visual Studio Code Recomendadas
 <details><summary>E X T E N S I O N E S</summary>
