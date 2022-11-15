@@ -1,16 +1,14 @@
 *https://docs.github.com/en/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax*
 PD: JAJAJA, ya nunca sabran lo que decia aqui >:)
 
-Group id: com.teamxploitdx
-artifact id: proyecto_ubb
+
+<!-- Group id: com.teamxploitdx - artifact id: proyecto_ubb-->
 
 # Ingenieria de Software 2022-2
 
 ### Sistema de Encuestas que recopila informacion estrategica sobre usuarios para empresas
 
-##### Team Xploit DX - Grupo 2 (17:10)
-       
-##### Docentes: Maria Soto y Fernando Santolaya     
+##### Team Xploit DX - Grupo 2 (17:10)  
 
 <p align="center" width="100%">
     <img width="10%" src="https://brandslogos.com/wp-content/uploads/images/large/java-logo-1.png">
@@ -29,7 +27,7 @@ Java JDK 11 | Maven | Spring Boot 2.7.X | Arquitectura MVC.
 Dependencias: Spring Boot DevTools | Spring Web | MySQL Driver | Spring data JPA | spring boot starter data jpa | spring-boot-starter-actuator
 - - -
 Para implementar implementar un proyecto similar, siga el siguiente flujo:
-
+```
     > Crear el proyecto Spring Boot usando el Spring Initializr
 
     > Crear una base de datos MYSQL y definir su configuracion (esto lo necesitara el POM)
@@ -48,6 +46,7 @@ Para implementar implementar un proyecto similar, siga el siguiente flujo:
     > Armar y correr el proyecto
     
     > Testear usando Postman/Explorador web de preferencia
+```
 
 Para ejecutarlo, corra el archivo "ProyectoUbbApplication.java"
 - - -
@@ -70,6 +69,7 @@ Implementar los servicios que conlleven.
 Abarcar escenarios base.
 - - -
 ##### SERVICIO 1
+```
     ***COMO*** administrador ***QUIERO*** ser capaz de administrar la visibilidad de mis encuestas ***PARA*** así poder programar la publicación de alguna  ya hecha con anticipación.
 
     Tablas involucradas:
@@ -83,8 +83,10 @@ Abarcar escenarios base.
     ‌Escenario:
 
     - 1. Dado que me encuentro en la pantalla de encuesta al momento en que presiono el botón de "visible" , la encuesta se establecerá como "visible" o "no visible" según corresponda
+```
 
 ##### SERVICIO 2
+```
     _**COMO**_ encuestado, **QUIERO** que la aplicación me permita cambiar mis categorías de encuestas favoritas _**PARA**_ que así pueda actualizar mis preferencias de filtrado rápido de encuestas de interés"
 
     Tablas involucradas:
@@ -104,8 +106,10 @@ Abarcar escenarios base.
     - Escenario 2: Eliminar categoría
     Dado que me encuentro en la administración de usuario, al presionar el botón de eliminar categoría, el sistema mostrara las categorías que actualmente tengo seleccionadas y al seleccionarlas el sistema las eliminara de mis categorías favoritas
     - Escenario 3: Agrega categoría inexistente
+```
     ‌
 ##### SERVICIO 3
+```
     _**COMO** administrador,_ **QUIERO** que la aplicación me permita agregar nuevos empleados de mi empresa _**PARA**_ trabajar con las encuestas y los resultados obtenidos"
 
     Tablas involucradas:
@@ -127,8 +131,10 @@ Abarcar escenarios base.
     Escenario 2: Asignación de rol
 
     Dado que me encuentro en la pantalla de gestión de usuarios de la empresa, cuando selecciono el botón de asignar rol a alguno de mis empleados el sistema deberá 
+```
 
 ##### SERVICIO 4
+```
     ***COMO*** encargado de marketing, ***QUIERO*** ser capaz de limitar el numero de personas que pueden realizar una encuesta ***PARA*** así poder mantener una muestra controlada de datos."
 
     Tablas involucradas:
@@ -142,8 +148,10 @@ Abarcar escenarios base.
     Escenario: 
 
     Escenario 1: 
+```
 
 ##### SERVICIO 5
+```
     ***COMO*** encuestado, ***QUIERO*** ser capaz de buscar alguna empresa especifica y ver que encuestas me puede ofrecer ***PARA*** así participar con algún producto de mi interés"
 
     Tablas involucradas:
@@ -158,7 +166,7 @@ Abarcar escenarios base.
 
     - Escenario 1: Mostrar empresas
     Dado que me encuentro en la categoría de Empresas, el sistema desplegara todas las empresas disponibles, que actualmente tienen encuestas activas.
-
+```
 
 <!-- NOTA: el tamano solo parece funcionar en incrementos de 10 -->
 <p align="center" width="100%">
