@@ -1,6 +1,7 @@
 *https://docs.github.com/en/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax*
 PD: JAJAJA, ya nunca sabran lo que decia aqui >:)
-
+<!-- Los comentarios se hacen usando sintaxis HTML -->
+<!-- -->
 <!--
 Group id: com.teamxploitdx
 artifact id: proyecto_ubb
@@ -28,28 +29,26 @@ Java JDK 11 | Maven | Spring Boot 2.7.X | Arquitectura MVC.
 
 Dependencias: Spring Boot DevTools | Spring Web | MySQL Driver | Spring data JPA | spring boot starter data jpa | spring-boot-starter-actuator
 - - -
-Para implementar implementar un proyecto similar, siga el siguiente flujo:
+Para poder implementar el proyecto, siga el siguiente flujo:
 
-<details><summary>VER DETALLES</summary>
+<details><summary>VER INSTRUCCIONES</summary>
 <p>
-    > Crear el proyecto Spring Boot usando el Spring Initializr
+    > Crear el proyecto Spring Boot usando el Spring Initializr, o clonarlo de aqui
 
-    > Crear una base de datos MYSQL y definir su configuracion (esto lo necesitara el POM)
+    > Edite el proyect properties en caso de que falten dependencias
+
+    > Crear una base de datos MYSQL y definir sus credenciales (estas las necesitara el POM)
     >   > Si por alguna razon mysql tira errores al querer usarlo, revisen su configuracion horaria, necesitan tener la configuracion utf-8 Unicode habilitada
-
-    > Crear modelo entidad-relacion
     
-    >    > Derivar un modelo relacional y inicializar la BD
+    > Inicialice la BD con el archivo initDB ubicado en /resources
     
-    > Crear un JPA Data Repository
+    > Pueble la BD con el archivo populateDB
     
-    > Crear la capa de servicios
+    > configure su archivo POM con un puerto para la spring boot app y la URI adecuada (debe ser distinto al server MySQL)
     
-    > crear la capa de controladores
+    > Si usa VS Code, asegurese de tener las extensiones apropiadas instaladas
     
-    > Armar y correr el proyecto
-    
-    > Testear usando Postman/Explorador web de preferencia
+    > Haga requests usando POSTMAN o un explorador web para certificar que todo funciona apropiadamente
 </p>
 </details>
 
@@ -213,6 +212,16 @@ Abarcar escenarios base.
 
 ## Sobre la BDD:
 MySQL Community 8.0.31 | Disenada con MySQL Workbench | Modelo ER hecho en yED Graph Editor
+
+#### POBLACION DE LA BD
+<details><summary>VER TABLAS</summary>
+<p>
+| First Header  | Second Header | First Header  | Second Header | First Header  | Second Header | 
+| ------------- | ------------- | ------------- | ------------- | ------------- | ------------- |
+| Content Cell  | Content Cell  | Content Cell  | Content Cell  | Content Cell  | Content Cell  |
+| Content Cell  | Content Cell  | Content Cell  | Content Cell  | Content Cell  | Content Cell  |
+</p>
+</details>
 
 ## Extensiones de Visual Studio Code Recomendadas:
 https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-pack
