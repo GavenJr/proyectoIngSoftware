@@ -226,7 +226,7 @@ MySQL Community 8.0.31 | Disenada con MySQL Workbench | Modelo ER hecho en yED G
 </details>
 
 ## Extensiones de Visual Studio Code Recomendadas
-<details><summary>TABLA Sample Text</summary>
+<details><summary>E X T E N S I O N E S</summary>
 <p>
 https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-pack
 
