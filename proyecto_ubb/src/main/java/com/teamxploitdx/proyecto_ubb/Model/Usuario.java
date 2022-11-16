@@ -29,6 +29,7 @@ public class Usuario {
     private String apellido;
     private String email;
     private int Rol_idRol;
+    private int Empresa_idEmpresa;
 
 
 

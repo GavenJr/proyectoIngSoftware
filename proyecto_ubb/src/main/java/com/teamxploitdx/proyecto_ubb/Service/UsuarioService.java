@@ -1,7 +1,7 @@
 package com.teamxploitdx.proyecto_ubb.Service;
 
 import java.util.Optional;
-
+import java.util.List;
 import org.springframework.stereotype.Service;
 
 import com.teamxploitdx.proyecto_ubb.Model.Categoria;
@@ -35,13 +35,13 @@ public class UsuarioService {
         return empleadoOptional.isPresent();
     }
     */
-    public boolean saveUsuario(Usuario usuario) {
+    public boolean save(Usuario usuario) {
     	UsuarioRepository.saveAndFlush(usuario);
     	Optional<Usuario> usuarioOptional = UsuarioRepository.findUsuarioByNombre(usuario.getNombre());
     	return usuarioOptional.isPresent();
     }
 
-    public  List<Usuario> findAllUsuarios(){
+    public List<Usuario> findAllUsuarios(){
     	return UsuarioRepository.findAll();
     }
 }
