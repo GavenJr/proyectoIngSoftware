@@ -41,28 +41,50 @@ public class EncuestadoService {
 	}
 	
 	/*Agrega una preferencia*/
-	public boolean addPreferencia(Encuestado enc, Categoria categoria) {
-		if(categoria == null) {
-			return false;
+	public boolean addPreferencia(int encId, int catId) {
+		Optional<Encuestado> enc = encuestadoRepository.findById(encId);
+		Optional<Categoria> cat = categoriaRepository.findById(catId);
+		
+		if(enc.isPresent()) {
+			if(cat.isPresent()) {
+				List<Categoria> preferencias = enc.get().getPreferencias();
+				if(!preferencias.contains(cat.get())) {
+					enc.get().addPreferencias(cat.get());
+					encuestadoRepository.saveAndFlush(enc.get());
+					return true;
+				}else {
+					return false;
+				}
+			}else {
+				return false;
+			}
 		}else {
-			enc.addPreferencias(categoria);
-			encuestadoRepository.saveAndFlush(enc);
-			return true;
+			return false;
 		}
 	}
 	
 	/*Elimina una preferencia*/
-	public boolean deletePreferenciaById(int idCat, Encuestado enc) {
-        Optional<Categoria> categoriaOptional = categoriaRepository.findById(idCat);
-        if (categoriaOptional.isPresent()) {
-            List<Categoria> preferencias = enc.getPreferencias();
-            preferencias.remove(categoriaOptional.get());
-            enc.setPreferencias(preferencias);
-            encuestadoRepository.saveAndFlush(enc);
-            return true;
-        } else {
-            return false;
-        }
-    }
+	public boolean deletePreferenciaById(int idCat, int encId) {
+		Optional<Categoria> cat = categoriaRepository.findById(idCat);
+		Optional<Encuestado> enc = encuestadoRepository.findById(encId);
+		
+		if(enc.isPresent()) {
+			if(cat.isPresent()) {
+				List<Categoria> preferencias = enc.get().getPreferencias();
+				if(!preferencias.contains(cat.get())) {
+					return false;
+				}else {
+					preferencias.remove(cat.get());
+					enc.get().setPreferencias(preferencias);
+					encuestadoRepository.saveAndFlush(enc.get());
+					return true;
+				}	
+			}else {
+				return false;
+			}
+		}else {
+			return false;
+		}
+	}
 	
 }

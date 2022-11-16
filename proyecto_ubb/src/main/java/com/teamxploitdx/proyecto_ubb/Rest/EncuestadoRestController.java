@@ -13,7 +13,6 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.teamxploitdx.proyecto_ubb.Model.Categoria;
 import com.teamxploitdx.proyecto_ubb.Model.Encuestado;
 import com.teamxploitdx.proyecto_ubb.Service.EncuestadoService;
 
@@ -61,26 +60,23 @@ public class EncuestadoRestController {
     }
     
     /*Agrega una categoria a las preferencias del encuestado*/
-    @PostMapping(value = "/{encuestadoId}/categoria")
-    public ResponseEntity<Void> updatePreferencias(@PathVariable(value = "encuestadoId") int encuestadoId, @RequestBody Categoria categoria) {
-    	Optional<Encuestado> enc = encuestadoService.findEncuestadoById(encuestadoId);
-    	if(enc.isEmpty()) {
-    		return new ResponseEntity<>(HttpStatus.NOT_FOUND);
-    	}else {
-    		boolean anadido = encuestadoService.addPreferencia(enc.get(),categoria);
-    		if(anadido) {
-        		return new ResponseEntity<>(HttpStatus.OK);
-            } else {
-                return new ResponseEntity<>(HttpStatus.NOT_FOUND);
-            }
-    	}	
+    @PostMapping(value = "/{encuestadoId}/preferencia/{categoriaId}")
+    public ResponseEntity<Void> updatePreferencias(@PathVariable(value = "encuestadoId") int encuestadoId, 
+    		                                       @PathVariable(value = "categoriaId") int categoriaId) {
+    	boolean anadido = encuestadoService.addPreferencia(encuestadoId, categoriaId);
+    	
+    	if(anadido) {
+        	return new ResponseEntity<>(HttpStatus.OK);
+        } else {
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
     }
     
     /*Elimina una categoria de las preferencias del encuestado*/
-    @DeleteMapping(value = "/{encuestadoId}/categoria/{categoriaId}")
-    public ResponseEntity<Void> deletePreferencia(@PathVariable(value = "encuestadoId") int encuestadoId,@PathVariable(value = "categoriaId") int categoriaId) {
-    	Encuestado enc = encuestadoService.findEncuestadoById(encuestadoId).get();
-    	boolean eliminado = encuestadoService.deletePreferenciaById(categoriaId, enc);
+    @DeleteMapping(value = "/{encuestadoId}/preferencia/{categoriaId}")
+    public ResponseEntity<Void> deletePreferencia(@PathVariable(value = "encuestadoId") int encuestadoId,
+    		                                      @PathVariable(value = "categoriaId") int categoriaId) {
+    	boolean eliminado = encuestadoService.deletePreferenciaById(categoriaId, encuestadoId);
     	
     	if(eliminado) {
     		return new ResponseEntity<>(HttpStatus.OK);
@@ -89,28 +85,6 @@ public class EncuestadoRestController {
         }
     }
     
-    /*
-    @PostMapping(value = "/{encuestadoId}/categoria")
-    public ResponseEntity<Void> updatePreferencias(@PathVariable(value = "encuestadoId") int encuestadoId, @RequestBody Categoria categoria) {
-        Optional<Encuestado> encuestado = encuestadoService.findEncuestadoById(encuestadoId);
-    	Optional<Categoria> categ = encuestadoService.findCategoriaById(categoria.getId());
-    	
-    	Encuestado enc = encuestado.get();
-    	Categoria cat = categ.get();
-    	
-    	if(encuestado.isPresent()) {
-    		if(categ.isEmpty()) {
-    			return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
-    		}else {
-    			enc.addPreferencias(cat);
-    			encuestadoService.save(enc);
-    			return new ResponseEntity<>(HttpStatus.CREATED);
-    		} 		
-    	}else {
-    		return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
-    	}
-    }
-    */
 
 }
 	
