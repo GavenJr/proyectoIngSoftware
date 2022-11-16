@@ -60,7 +60,7 @@ public class EncuestadoRestController {
     }
     
     /*Agrega una categoria a las preferencias del encuestado*/
-    @PostMapping(value = "/{encuestadoId}/preferencia/{categoriaId}")
+    @PostMapping(value = "/{encuestadoId}/preferencia/agrega/{categoriaId}")
     public ResponseEntity<Void> updatePreferencias(@PathVariable(value = "encuestadoId") int encuestadoId, 
     		                                       @PathVariable(value = "categoriaId") int categoriaId) {
     	boolean anadido = encuestadoService.addPreferencia(encuestadoId, categoriaId);
@@ -73,7 +73,7 @@ public class EncuestadoRestController {
     }
     
     /*Elimina una categoria de las preferencias del encuestado*/
-    @DeleteMapping(value = "/{encuestadoId}/preferencia/{categoriaId}")
+    @DeleteMapping(value = "/{encuestadoId}/preferencia/elimina/{categoriaId}")
     public ResponseEntity<Void> deletePreferencia(@PathVariable(value = "encuestadoId") int encuestadoId,
     		                                      @PathVariable(value = "categoriaId") int categoriaId) {
     	boolean eliminado = encuestadoService.deletePreferenciaById(categoriaId, encuestadoId);

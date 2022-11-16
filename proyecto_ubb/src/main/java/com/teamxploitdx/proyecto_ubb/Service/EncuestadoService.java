@@ -45,14 +45,15 @@ public class EncuestadoService {
 		Optional<Encuestado> enc = encuestadoRepository.findById(encId);
 		Optional<Categoria> cat = categoriaRepository.findById(catId);
 		
-		if(enc.isPresent()) {
-			if(cat.isPresent()) {
-				List<Categoria> preferencias = enc.get().getPreferencias();
-				if(!preferencias.contains(cat.get())) {
-					enc.get().addPreferencias(cat.get());
+	
+		if(enc.isPresent()) {													//evalua si existe el encuestado
+			if(cat.isPresent()) { 												//evalua si existe la categoria
+				List<Categoria> preferencias = enc.get().getPreferencias();		
+				if(!preferencias.contains(cat.get())) {							//evalua si no existe la categoria dentro de las preferencias 
+					enc.get().addPreferencias(cat.get());						//si no existe, entonces la agrega
 					encuestadoRepository.saveAndFlush(enc.get());
 					return true;
-				}else {
+				}else {															//si existe, no la agrega
 					return false;
 				}
 			}else {
@@ -68,14 +69,14 @@ public class EncuestadoService {
 		Optional<Categoria> cat = categoriaRepository.findById(idCat);
 		Optional<Encuestado> enc = encuestadoRepository.findById(encId);
 		
-		if(enc.isPresent()) {
-			if(cat.isPresent()) {
+		if(enc.isPresent()) {													//evalua si existe el encuestado
+			if(cat.isPresent()) {												//evalua si existe la categoria
 				List<Categoria> preferencias = enc.get().getPreferencias();
-				if(!preferencias.contains(cat.get())) {
-					return false;
+				if(!preferencias.contains(cat.get())) {							//evalua si no existe la categoria dentro de las preferencias
+					return false;												//si no existe, no hace anda
 				}else {
-					preferencias.remove(cat.get());
-					enc.get().setPreferencias(preferencias);
+					preferencias.remove(cat.get());								//si existe la elimina y guarda la lista de preferencias 
+					enc.get().setPreferencias(preferencias);						
 					encuestadoRepository.saveAndFlush(enc.get());
 					return true;
 				}	
