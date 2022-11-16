@@ -4,7 +4,6 @@ import java.util.Optional;
 import java.util.List;
 import org.springframework.stereotype.Service;
 
-import com.teamxploitdx.proyecto_ubb.Model.Categoria;
 import com.teamxploitdx.proyecto_ubb.Model.Usuario;
 import com.teamxploitdx.proyecto_ubb.Repository.UsuarioRepository;
 import com.teamxploitdx.proyecto_ubb.Repository.RolRepository;
@@ -36,8 +35,8 @@ public class UsuarioService {
     }
     */
     public boolean save(Usuario usuario) {
-    	UsuarioRepository.saveAndFlush(usuario);
-    	Optional<Usuario> usuarioOptional = UsuarioRepository.findUsuarioByNombre(usuario.getNombre());
+    	UsuarioRepository.save(usuario);
+    	Optional<Usuario> usuarioOptional = UsuarioRepository.findUsuarioById(usuario.getIdUsuario());
     	return usuarioOptional.isPresent();
     }
 
