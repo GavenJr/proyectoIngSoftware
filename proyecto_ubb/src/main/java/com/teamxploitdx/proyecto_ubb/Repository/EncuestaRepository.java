@@ -14,3 +14,5 @@ public interface EncuestaRepository extends JpaRepository<Encuesta, Integer>{   
     List<Encuesta> findByEmpresa(String nombre);    // Definimos los datos a recuperar segun los atributos de Encuesta
 
 }
+
+

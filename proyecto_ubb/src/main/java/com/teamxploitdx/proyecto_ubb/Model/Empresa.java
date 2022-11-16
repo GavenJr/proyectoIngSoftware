@@ -1,9 +1,13 @@
 package com.teamxploitdx.proyecto_ubb.Model;
+import java.util.List;
+
 // imports de dependencias
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity														// Indicamos que es una entidad
@@ -15,6 +19,10 @@ public class Empresa {
     String nombre;
     String email;
     String descripcion;
+
+    @OneToMany
+    @JoinColumn(name = "idUsuario")
+    private List<Usuario> usuarios;
 
 
     /* - - - - - - - - - - - - - - -
