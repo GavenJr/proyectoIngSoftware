@@ -26,7 +26,9 @@ public class EncuestadoRestController {
         this.encuestadoService = encuestadoService;
     }
     
-    /*Busca todos los encuestados y muestra sus preferencias*/
+    /**
+    Busca todos los encuestados y muestra sus preferencias
+    */    
     @GetMapping(value = "")
     public ResponseEntity<List<Encuestado>> getAllEncuestados() {
         List<Encuestado> encuestadoList = encuestadoService.findAllEncuestados();
@@ -37,7 +39,10 @@ public class EncuestadoRestController {
         }
     }
     
-    /*Busca un encuestado especifico*/
+    /**
+    Busca un encuestado especifico
+    @param int El id del encuestado
+    */  
     @GetMapping(value = "/{idEnc}")
     public ResponseEntity<Encuestado> getEncuestadoById(@PathVariable int idEnc) {
         Optional<Encuestado> encuestadoOptional = encuestadoService.findEncuestadoById(idEnc) ;
@@ -48,7 +53,10 @@ public class EncuestadoRestController {
         }
     }
     
-    /*Agrega un encuestado nuevo*/ 
+    /**
+    Agrega un encuestado nuevo
+    @param Encuestado El encuestado a agregar
+    */  
     @PostMapping(value = "")
     public ResponseEntity<Void> addEncuestado(@RequestBody Encuestado encuestado) {
         boolean nuevo = encuestadoService.save(encuestado);

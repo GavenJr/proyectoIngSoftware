@@ -21,19 +21,33 @@ public class EncuestadoService {
         this.categoriaRepository = categoriaRepository;
     }
 
+    /**
+    Encuentra a todos los encuestados
+    */    
     public List<Encuestado> findAllEncuestados() {
         return encuestadoRepository.findAll();
     }
     
+    /**
+    Encuentra un encuestado por id
+    @param id El id del encuestado
+    */  
     public Optional<Encuestado> findEncuestadoById(int id){
     	return encuestadoRepository.findById(id);
     }
     
+    /**
+    Encuentra una categoria por id
+    @param id El id de la categoria
+    */  
     public Optional<Categoria> findCategoriaById(int id){
     	return categoriaRepository.findById(id);
     }
     
-    /*Agrega un nuevo Encuestado*/
+    /**
+    Agrega un nuevo Encuestado
+    @param Encuestado El encuestado a agregar al repositorio
+    */  
 	public boolean save(Encuestado encuestado) {
 		encuestadoRepository.saveAndFlush(encuestado);
         Optional<Encuestado> encuestadoOptional = encuestadoRepository.findEncuestadoByNombre(encuestado.getNombre());
@@ -45,7 +59,6 @@ public class EncuestadoService {
 		Optional<Encuestado> enc = encuestadoRepository.findById(encId);
 		Optional<Categoria> cat = categoriaRepository.findById(catId);
 		
-	
 		if(enc.isPresent()) {													//evalua si existe el encuestado
 			if(cat.isPresent()) { 												//evalua si existe la categoria
 				List<Categoria> preferencias = enc.get().getPreferencias();		
@@ -87,5 +100,4 @@ public class EncuestadoService {
 			return false;
 		}
 	}
-	
 }
