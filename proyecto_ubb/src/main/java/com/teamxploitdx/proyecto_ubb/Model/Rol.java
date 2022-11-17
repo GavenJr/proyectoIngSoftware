@@ -25,14 +25,13 @@ public class Rol {
         int id;
         String nombre;
 
-        @ManyToOne
-        @JoinColumn(name = "id")
-        Usuario usuario;
-
         // Constructor con parametros idRol
         public Rol(int idRol, String nombre) { 
             this.id = idRol;
             this.nombre = nombre;
+        }
+
+        public Rol() {
         }
 
         // Getters y Setters
