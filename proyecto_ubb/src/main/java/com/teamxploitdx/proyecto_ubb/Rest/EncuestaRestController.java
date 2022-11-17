@@ -13,8 +13,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.annotation.RequestBody;
-import com.fasterxml.jackson.databind.JsonMappingException;
 
+import com.fasterxml.jackson.databind.JsonMappingException;
 // imports locales
 import com.teamxploitdx.proyecto_ubb.Model.Encuesta;
 import com.teamxploitdx.proyecto_ubb.Service.EncuestaService;
@@ -63,7 +63,7 @@ public class EncuestaRestController {
 
     }
 
-    /**
+     /**
     Actualiza la visibilidad de una encuesta segun su ID
     @param int El id de la encuesta
     */
@@ -77,7 +77,7 @@ public class EncuestaRestController {
         }
     }
 
-      /**
+    /**
     Actualiza el maximo de personas que responden una encuesta 
     @param int El id de la encuesta , se envia atraves de la url  /proyecto_ubb/encuestas/cambiarMaximo/2
     @param json encuesta representa el modelo encuesta y se envia el nuevo valor de la maximo de respuestas de
@@ -102,7 +102,6 @@ public class EncuestaRestController {
     la encuesta de la siguiente forma a traves del body de la petición
         {"min_respuestas":58 } 
     */
-
     @PatchMapping (value = "/cambiarMinimo/{idEncuesta}")
     public ResponseEntity<Void> changeMinimoEncuesta (@PathVariable int idEncuesta,@RequestBody Encuesta encuesta){
         boolean actualizado = encuestaService.updateMinRespuestas(idEncuesta, encuesta.getMin_respuestas() );
