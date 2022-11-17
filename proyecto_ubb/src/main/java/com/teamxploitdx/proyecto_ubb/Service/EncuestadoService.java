@@ -54,37 +54,50 @@ public class EncuestadoService {
         return encuestadoOptional.isPresent();
 	}
 	
-    /**
-    Agrega una preferencia
-    @param Encuestado El encuestado a modificar
-    @param Categoria La preferencia a agregar
-    */  
-	public boolean addPreferencia(Encuestado enc, Categoria categoria) {
-		if(categoria == null) {
-			return false;
+	/*Agrega una preferencia*/
+	public boolean addPreferencia(int encId, int catId) {
+		Optional<Encuestado> enc = encuestadoRepository.findById(encId);
+		Optional<Categoria> cat = categoriaRepository.findById(catId);
+		
+		if(enc.isPresent()) {													//evalua si existe el encuestado
+			if(cat.isPresent()) { 												//evalua si existe la categoria
+				List<Categoria> preferencias = enc.get().getPreferencias();		
+				if(!preferencias.contains(cat.get())) {							//evalua si no existe la categoria dentro de las preferencias 
+					enc.get().addPreferencias(cat.get());						//si no existe, entonces la agrega
+					encuestadoRepository.saveAndFlush(enc.get());
+					return true;
+				}else {															//si existe, no la agrega
+					return false;
+				}
+			}else {
+				return false;
+			}
 		}else {
-			enc.addPreferencias(categoria);
-			encuestadoRepository.saveAndFlush(enc);
-			return true;
+			return false;
 		}
 	}
 	
-    /**
-    Elimina una preferencia
-    @param int El id de la preferencia
-    @param Encuestado El encuestado del que se desea eliminar
-    */  
-	public boolean deletePreferenciaById(int idCat, Encuestado enc) {
-        Optional<Categoria> categoriaOptional = categoriaRepository.findById(idCat);
-        if (categoriaOptional.isPresent()) {
-            List<Categoria> preferencias = enc.getPreferencias();
-            preferencias.remove(categoriaOptional.get());
-            enc.setPreferencias(preferencias);
-            encuestadoRepository.saveAndFlush(enc);
-            return true;
-        } else {
-            return false;
-        }
-    }
-	
+	/*Elimina una preferencia*/
+	public boolean deletePreferenciaById(int idCat, int encId) {
+		Optional<Categoria> cat = categoriaRepository.findById(idCat);
+		Optional<Encuestado> enc = encuestadoRepository.findById(encId);
+		
+		if(enc.isPresent()) {													//evalua si existe el encuestado
+			if(cat.isPresent()) {												//evalua si existe la categoria
+				List<Categoria> preferencias = enc.get().getPreferencias();
+				if(!preferencias.contains(cat.get())) {							//evalua si no existe la categoria dentro de las preferencias
+					return false;												//si no existe, no hace anda
+				}else {
+					preferencias.remove(cat.get());								//si existe la elimina y guarda la lista de preferencias 
+					enc.get().setPreferencias(preferencias);						
+					encuestadoRepository.saveAndFlush(enc.get());
+					return true;
+				}	
+			}else {
+				return false;
+			}
+		}else {
+			return false;
+		}
+	}
 }
