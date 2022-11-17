@@ -1,10 +1,18 @@
 package com.teamxploitdx.proyecto_ubb.Model;
+import java.util.List;
+
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
 // imports de dependencias
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
+
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 @Entity														// Indicamos que es una entidad
 @Table (name = "empresa")									// indicamos el nombre del initDB.sql
@@ -17,6 +25,19 @@ public class Empresa {
     String descripcion;
 
 
+    @OneToMany (mappedBy = "empresa",fetch = FetchType.EAGER, cascade = CascadeType.ALL) //empresa hace referencia a el nombre de la variable creada en Usuario
+    @Column(nullable = true)
+    @JsonManagedReference
+    private List<Usuario> usuarios;
+
+    public List<Usuario> getUsuarios() {
+        return usuarios;
+    }
+
+    public void setUsuarios(Usuario usuario) {
+        usuarios.add(usuario);
+    }
+   
     /* - - - - - - - - - - - - - - -
 	* 	Constructores
 	*/
