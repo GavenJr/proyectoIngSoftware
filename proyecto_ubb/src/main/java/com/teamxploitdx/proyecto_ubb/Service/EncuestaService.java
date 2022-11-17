@@ -49,22 +49,28 @@ public class EncuestaService {
         return encuestaRepository.findById(id);
     }
 
-    /**
+   /**
     Encuentra las encuestas segun el nombre de una empresa
     @param int El id de la empresa
     @param boolean La visibilidad deseada
     */
-    public boolean updateVisibilidad (int idEncuesta, Boolean newVisi){
+    public boolean updateVisibilidad (int idEncuesta){
         
         Optional<Encuesta> encuestaOptional = encuestaRepository.findById(idEncuesta);
         Encuesta encuesta = encuestaOptional.get();
         
-        if (encuestaOptional.isPresent()){
-            encuesta.setVisible(newVisi);
+        if (encuestaOptional.isPresent()&&encuesta.isVisible()){
+            encuesta.setVisible(false);
             encuestaRepository.save(encuesta);
-                return true;
+            return true;
             }else{
-                return false;
+                if (encuestaOptional.isPresent()&&!encuesta.isVisible()){
+                    encuesta.setVisible(true);
+                    encuestaRepository.save(encuesta);
+                    return true;
+                }else{
+                    return false;
+                } 
             }
     }
 
