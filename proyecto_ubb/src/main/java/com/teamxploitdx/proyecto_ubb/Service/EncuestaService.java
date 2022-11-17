@@ -68,4 +68,44 @@ public class EncuestaService {
             }
     }
 
+    /**
+    Encuentra la encuesta según el id
+    @param int El id de la empresa
+    @param int  Valor del nuevo maximo de encuestas 
+    */
+
+    public boolean updateMaxRespuestas (int id, int newMax){
+        
+        Optional<Encuesta> encuestaOptional = encuestaRepository.findById(id);
+        Encuesta encuesta = encuestaOptional.get();
+        
+        if (encuestaOptional.isPresent()){
+            encuesta.setMax_respuestas(newMax);
+            encuestaRepository.save(encuesta);
+                return true;
+            }else{
+                return false;
+            }
+    }
+
+    /**
+    Encuentra la encuesta según el id
+    @param int El id de la empresa
+    @param int  Valor del nuevo minimo
+    */
+
+    public boolean updateMinRespuestas (int id, int newMin){
+        
+        Optional<Encuesta> encuestaOptional = encuestaRepository.findById(id);
+        Encuesta encuesta = encuestaOptional.get();
+        
+        if (encuestaOptional.isPresent()){
+            encuesta.setMin_respuestas(newMin);
+            encuestaRepository.save(encuesta);
+                return true;
+            }else{
+                return false;
+            }
+    }
+
 }
