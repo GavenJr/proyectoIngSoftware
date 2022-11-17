@@ -12,7 +12,7 @@ artifact id: proyecto_ubb
 ### Sistema de Encuestas que recopila informacion estrategica sobre usuarios para empresas
 
 ##### Team Xploit DX - Grupo 2 (17:10)
-        
+
 <p align="center" width="100%">
     <img width="10%" src="https://brandslogos.com/wp-content/uploads/images/large/java-logo-1.png">
     <img width="15%" src="https://e4developer.com/wp-content/uploads/2018/01/spring-boot.png">
