@@ -24,35 +24,67 @@ import javax.persistence.Table;
 public class Usuario {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int idUsuario;
+    private int id;
     private String nombre;
     private String apellido;
     private String email;
-    private int Rol_idRol;
-    private int Empresa_idEmpresa;
 
+    //cambiar Rol_idRol por relacion por Rol
+    @ManyToOne
+    @JoinColumn(name = "id_rol")
+    private Rol rol;
 
 
     @ManyToOne							// Cardinalidad de la relacion n:1
-	@JoinColumn(name = "idEmpresa")	// Atributo que hace la relacion
+	@JoinColumn(name = "id_empresa")	// Atributo que hace la relacion
     private Empresa empresa;
+
+    //JSON example
+    /*
+        {
+        "nombre": "Juan",
+        "apellido": "Perez",
+        "email": "Juan@gmail.com",
+        "rol": {
+            "id": 1,
+            "nombre": "Administrador"
+        },
+        "empresa": {
+            "id": 1
+        }
+    }
+
+     */
     
     // Constructor con parametros
-    public Usuario(int idUsuario, String nombre, String apellido, String email, int rol_idRol, int empresa_idEmpresa) {
-        this.idUsuario = idUsuario;
+    public Usuario(int idUsuario, String nombre, String apellido, String email) { 
+        this.id = idUsuario;
         this.nombre = nombre;
         this.apellido = apellido;
         this.email = email;
-        Rol_idRol = rol_idRol;
-        Empresa_idEmpresa = empresa_idEmpresa;
     }
+
+    public Usuario(int idUsuario, String nombre, String apellido, String email, Rol rol, Empresa empresa) { 
+        this.id = idUsuario;
+        this.nombre = nombre;
+        this.apellido = apellido;
+        this.email = email;
+        this.rol = rol;
+        this.empresa = empresa;
+    }
+
+    //constructor vacio
+    public Usuario() {
+    }
+
+
     
     // Getters y Setters
     public int getIdUsuario() {
-        return idUsuario;
+        return id;
     }
     public void setIdUsuario(int idUsuario) {
-        this.idUsuario = idUsuario;
+        this.id = idUsuario;
     }
     public String getNombre() {
         return nombre;
@@ -72,23 +104,18 @@ public class Usuario {
     public void setEmail(String email) {
         this.email = email;
     }
-    public int getRol_idRol() {
-        return Rol_idRol;
+
+    public Rol getRol() {
+        return rol;
     }
-    public void setRol_idRol(int rol_idRol) {
-        Rol_idRol = rol_idRol;
-    }
-    public int getEmpresa_idEmpresa() {
-        return Empresa_idEmpresa;
-    }
-    public void setEmpresa_idEmpresa(int empresa_idEmpresa) {
-        Empresa_idEmpresa = empresa_idEmpresa;
+
+    public void setRol(Rol rol) {
+        this.rol = rol;
     }
     
     // toString
     @Override
     public String toString() {
-        return "Usuario [idUsuario=" + idUsuario + ", nombre=" + nombre + ", apellido=" + apellido + ", email=" + email
-                + ", Rol_idRol=" + Rol_idRol + ", Empresa_idEmpresa=" + Empresa_idEmpresa + "]";
+        return "Usuario [id=" + id + ", nombre=" + nombre + ", apellido=" + apellido + ", email=" + email + ", rol=" + rol + "]";
     }
 }

@@ -20,23 +20,27 @@ import javax.persistence.Table;
 
 public class Rol {
 
-     // Atributos
+    // Atributos
         @Id
-        int idRol;
+        int id;
         String nombre;
 
-        // Constructor con parametros
-        public Rol(int idRol, String nombre) {
-            this.idRol = idRol;
+        @ManyToOne
+        @JoinColumn(name = "id")
+        Usuario usuario;
+
+        // Constructor con parametros idRol
+        public Rol(int idRol, String nombre) { 
+            this.id = idRol;
             this.nombre = nombre;
         }
 
         // Getters y Setters
         public int getIdRol() {
-            return idRol;
+            return id;
         }
         public void setIdRol(int idRol) {
-            this.idRol = idRol;
+            this.id = idRol;
         }
         public String getNombre() {
             return nombre;

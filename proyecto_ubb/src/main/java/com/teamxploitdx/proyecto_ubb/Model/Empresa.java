@@ -18,7 +18,7 @@ public class Empresa {
     int id;
     String nombre;
     String email;
-    String descripcion;
+    String descripción;
 
     @OneToMany
     @JoinColumn(name = "idUsuario")
@@ -34,7 +34,7 @@ public class Empresa {
         this.id = id;
         this.nombre = nombre;
         this.email = email;
-        this.descripcion = descripcion;
+        this.descripción = descripcion;
     }
 
     /* - - - - - - - - - - - - - - -
@@ -65,11 +65,11 @@ public class Empresa {
     }
 
     public String getDescripcion() {
-        return this.descripcion;
+        return this.descripción;
     }
 
     public void setDescripcion(String descripcion) {
-        this.descripcion = descripcion;
+        this.descripción = descripcion;
     }
 
 
