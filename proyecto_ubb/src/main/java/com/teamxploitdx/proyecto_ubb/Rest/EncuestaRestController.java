@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.annotation.RequestBody;
+import com.fasterxml.jackson.databind.JsonMappingException;
 
 // imports locales
 import com.teamxploitdx.proyecto_ubb.Model.Encuesta;
@@ -65,11 +66,10 @@ public class EncuestaRestController {
     /**
     Actualiza la visibilidad de una encuesta segun su ID
     @param int El id de la encuesta
-    @param boolean La visibilidad deseada
     */
-    @PatchMapping (value = "/{cambiarVisibilidad}")
-    public ResponseEntity<Void> changeVisibilidad (@PathVariable int idEncuesta,@PathVariable boolean newVis){
-        boolean actualizado = encuestaService.updateVisibilidad(idEncuesta, newVis );
+    @PatchMapping (value = "/cambiarVisibilidad/{idEncuesta}")
+    public ResponseEntity<Void> changeVisibilidad (@PathVariable int idEncuesta)throws JsonMappingException{
+        boolean actualizado = encuestaService.updateVisibilidad(idEncuesta);
           if(actualizado){
             return new ResponseEntity<>(HttpStatus.OK);
         }else{
