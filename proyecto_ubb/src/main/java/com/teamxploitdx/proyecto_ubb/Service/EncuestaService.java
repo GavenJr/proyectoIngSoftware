@@ -49,18 +49,64 @@ public class EncuestaService {
         return encuestaRepository.findById(id);
     }
 
-    /**
+   /**
     Encuentra las encuestas segun el nombre de una empresa
     @param int El id de la empresa
     @param boolean La visibilidad deseada
     */
-    public boolean updateVisibilidad (int idEncuesta, Boolean newVisi){
+    public boolean updateVisibilidad (int idEncuesta){
         
         Optional<Encuesta> encuestaOptional = encuestaRepository.findById(idEncuesta);
         Encuesta encuesta = encuestaOptional.get();
         
+        if (encuestaOptional.isPresent()&&encuesta.isVisible()){
+            encuesta.setVisible(false);
+            encuestaRepository.save(encuesta);
+            return true;
+            }else{
+                if (encuestaOptional.isPresent()&&!encuesta.isVisible()){
+                    encuesta.setVisible(true);
+                    encuestaRepository.save(encuesta);
+                    return true;
+                }else{
+                    return false;
+                } 
+            }
+    }
+
+    /**
+    Encuentra la encuesta según el id
+    @param int El id de la empresa
+    @param int  Valor del nuevo maximo de encuestas 
+    */
+
+    public boolean updateMaxRespuestas (int id, int newMax){
+        
+        Optional<Encuesta> encuestaOptional = encuestaRepository.findById(id);
+        Encuesta encuesta = encuestaOptional.get();
+        
         if (encuestaOptional.isPresent()){
-            encuesta.setVisible(newVisi);
+            encuesta.setMax_respuestas(newMax);
+            encuestaRepository.save(encuesta);
+                return true;
+            }else{
+                return false;
+            }
+    }
+
+    /**
+    Encuentra la encuesta según el id
+    @param int El id de la empresa
+    @param int  Valor del nuevo minimo
+    */
+
+    public boolean updateMinRespuestas (int id, int newMin){
+        
+        Optional<Encuesta> encuestaOptional = encuestaRepository.findById(id);
+        Encuesta encuesta = encuestaOptional.get();
+        
+        if (encuestaOptional.isPresent()){
+            encuesta.setMin_respuestas(newMin);
             encuestaRepository.save(encuesta);
                 return true;
             }else{
