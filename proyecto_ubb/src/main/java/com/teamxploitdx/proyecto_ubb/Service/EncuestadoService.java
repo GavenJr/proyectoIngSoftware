@@ -49,9 +49,14 @@ public class EncuestadoService {
     @param Encuestado El encuestado a agregar al repositorio
     */  
 	public boolean save(Encuestado encuestado) {
-		encuestadoRepository.saveAndFlush(encuestado);
         Optional<Encuestado> encuestadoOptional = encuestadoRepository.findEncuestadoByNombre(encuestado.getNombre());
-        return encuestadoOptional.isPresent();
+        if(encuestadoOptional.isEmpty()) {
+        	encuestadoRepository.saveAndFlush(encuestado);
+        	encuestadoOptional = encuestadoRepository.findEncuestadoByNombre(encuestado.getNombre());
+            return encuestadoOptional.isPresent();
+        } else {
+            return false;
+        }
 	}
 	
 	/*Agrega una preferencia*/

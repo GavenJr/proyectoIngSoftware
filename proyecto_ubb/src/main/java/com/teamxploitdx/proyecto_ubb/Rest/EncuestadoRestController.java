@@ -76,7 +76,7 @@ public class EncuestadoRestController {
     	if(anadido) {
         	return new ResponseEntity<>(HttpStatus.OK);
         } else {
-            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
         }
     }
     
@@ -89,7 +89,7 @@ public class EncuestadoRestController {
     	if(eliminado) {
     		return new ResponseEntity<>(HttpStatus.OK);
         } else {
-            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
         }
     }
     

@@ -13,9 +13,7 @@ import com.teamxploitdx.proyecto_ubb.Repository.EmpresaRepository;
 
 @Entity
 public class Usuario {
-    /**
-     *
-     */
+   
     @Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
@@ -24,12 +22,10 @@ public class Usuario {
     private String email;
 
     @ManyToOne 
-    @JsonBackReference
     @JoinColumn (name = "id_empresa", referencedColumnName = "id")
     private Empresa empresa;
 
     @ManyToOne
-    @JsonBackReference
     @JoinColumn(name = "id_rol", referencedColumnName = "id")
     private Rol rol;
 

@@ -26,12 +26,13 @@ public class Encuesta {
 	private int max_respuestas;
 
 	@ManyToOne							// Cardinalidad de la relacion n:1
-	@JoinColumn(name = "id_empresa")	// Atributo que hace la relacion
+	@JoinColumn(name = "id_empresa", referencedColumnName="ID")	// Atributo que hace la relacion
 	private Empresa empresa;			// Referencia al objeto 1
-    
+   
 	@ManyToOne							// Cardinalidad de la relacion n:1
-	@JoinColumn(name = "id_categoría")	// Atributo que hace la relacion
+	@JoinColumn(name = "id_categoría", referencedColumnName="ID")	// Atributo que hace la relacion
 	private Categoria categoria;			// Referencia al objeto 1
+
 	/* - - - - - - - - - - - - - - -
 	 * 	Constructores
 	 */
@@ -48,7 +49,7 @@ public class Encuesta {
 		this.min_respuestas = min_respuestas;
 		this.max_respuestas = max_respuestas;
 		this.empresa = empresa;
-		this.categoria = categoria;
+		//this.categoria = categoria;
 	}
 
 	public int getId() {
@@ -123,5 +124,13 @@ public class Encuesta {
 	public void setEmpresa(Empresa empresa) {
 		this.empresa = empresa;
 	}
+/*
+	public Categoria getCategoria() {
+		return this.categoria;
+	}
+	public void setCategoria(Categoria categoria) {
+		this.categoria = categoria;
+	}
+*/
 	    
 }
