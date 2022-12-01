@@ -20,7 +20,7 @@ public class Empresa {
     int id;
     String nombre;
     String email;
-    String descripción;
+    String descripcion;
 
 
     @OneToMany (mappedBy = "empresa",fetch = FetchType.EAGER, cascade = CascadeType.ALL) //empresa hace referencia a el nombre de la variable creada en Usuario
@@ -45,7 +45,7 @@ public class Empresa {
         this.id = id;
         this.nombre = nombre;
         this.email = email;
-        this.descripción = descripcion;
+        this.descripcion = descripcion;
     }
 
     /* - - - - - - - - - - - - - - -
@@ -76,11 +76,11 @@ public class Empresa {
     }
 
     public String getDescripcion() {
-        return this.descripción;
+        return this.descripcion;
     }
 
     public void setDescripcion(String descripcion) {
-        this.descripción = descripcion;
+        this.descripcion = descripcion;
     }
 
 
