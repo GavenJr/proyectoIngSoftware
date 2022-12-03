@@ -22,7 +22,6 @@ public class Rol {
     
     @OneToMany (mappedBy = "rol",fetch = FetchType.EAGER, cascade = CascadeType.ALL)//rol hace referencia a el nombre de la variable creada en Usuario
     @Column(nullable = true)
-    @JsonManagedReference
     private List<Usuario> usuarios;
     
     public int getId() {
