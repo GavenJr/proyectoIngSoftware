@@ -41,7 +41,7 @@ public class EncuestadoRestController {
     
     /**
     Busca un encuestado especifico
-    @param int El id del encuestado
+    @param idEnc El id del encuestado
     */  
     @GetMapping(value = "/{idEnc}")
     public ResponseEntity<Encuestado> getEncuestadoById(@PathVariable int idEnc) {
@@ -55,7 +55,7 @@ public class EncuestadoRestController {
     
     /**
     Agrega un encuestado nuevo
-    @param Encuestado El encuestado a agregar
+    @param encuestado El encuestado a agregar
     */  
     @PostMapping(value = "")
     public ResponseEntity<Void> addEncuestado(@RequestBody Encuestado encuestado) {
@@ -67,7 +67,11 @@ public class EncuestadoRestController {
         }
     }
     
-    /*Agrega una categoria a las preferencias del encuestado*/
+    /**
+    Agrega una categoria a las preferencias del encuestado 
+    @param encuestadoId El id del encuestado
+    @param categoriaId El id de la categoria preferida
+    */
     @PostMapping(value = "/{encuestadoId}/preferencia/agrega/{categoriaId}")
     public ResponseEntity<Void> updatePreferencias(@PathVariable(value = "encuestadoId") int encuestadoId, 
     		                                       @PathVariable(value = "categoriaId") int categoriaId) {
@@ -76,11 +80,15 @@ public class EncuestadoRestController {
     	if(anadido) {
         	return new ResponseEntity<>(HttpStatus.OK);
         } else {
-            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
         }
     }
     
-    /*Elimina una categoria de las preferencias del encuestado*/
+    /**
+    Elimina una categoria de las preferencias del encuestado 
+    @param encuestadoId El id del encuestado
+    @param categoriaId El id de la categoria preferida
+    */
     @DeleteMapping(value = "/{encuestadoId}/preferencia/elimina/{categoriaId}")
     public ResponseEntity<Void> deletePreferencia(@PathVariable(value = "encuestadoId") int encuestadoId,
     		                                      @PathVariable(value = "categoriaId") int categoriaId) {
@@ -89,7 +97,7 @@ public class EncuestadoRestController {
     	if(eliminado) {
     		return new ResponseEntity<>(HttpStatus.OK);
         } else {
-            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
         }
     }
     

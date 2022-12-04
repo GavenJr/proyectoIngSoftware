@@ -12,8 +12,6 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
-import com.fasterxml.jackson.annotation.JsonManagedReference;
-
 @Entity														// Indicamos que es una entidad
 @Table (name = "empresa")									// indicamos el nombre del initDB.sql
 public class Empresa {
@@ -27,7 +25,6 @@ public class Empresa {
 
     @OneToMany (mappedBy = "empresa",fetch = FetchType.EAGER, cascade = CascadeType.ALL) //empresa hace referencia a el nombre de la variable creada en Usuario
     @Column(nullable = true)
-    @JsonManagedReference
     private List<Usuario> usuarios;
 
     public List<Usuario> getUsuarios() {

@@ -48,7 +48,7 @@ public class EncuestaRestController {
 
     /**
     Retorna las encuestas de una empresa (por nombre) a la URI "proyecto_ubb/encuestas/empresa?nombre="
-    @param String El nombre de la empresa
+    @param nombre El nombre de la empresa
     */
     @GetMapping(value = "/empresa")       //RequestParam extrae el parametro name de la query
     public ResponseEntity< List<Encuesta> > getEncuestasByEmpresa(@RequestParam String nombre){
@@ -65,7 +65,7 @@ public class EncuestaRestController {
 
      /**
     Actualiza la visibilidad de una encuesta segun su ID
-    @param int El id de la encuesta
+    @param idEncuesta El id de la encuesta
     */
     @PatchMapping (value = "/cambiarVisibilidad/{idEncuesta}")
     public ResponseEntity<Void> changeVisibilidad (@PathVariable int idEncuesta)throws JsonMappingException{
@@ -79,15 +79,13 @@ public class EncuestaRestController {
 
     /**
     Actualiza el maximo de personas que responden una encuesta 
-    @param int El id de la encuesta , se envia atraves de la url  /proyecto_ubb/encuestas/cambiarMaximo/2
-    @param json encuesta representa el modelo encuesta y se envia el nuevo valor de la maximo de respuestas de
-    la encuesta de la siguiente forma a traves del body de la petición
-        {"max_respuestas":58 } 
+    @param idEncuesta El id de la encuesta , se envia atraves de la url  /proyecto_ubb/encuestas/cambiarMaximo/2/100
+    @param newMax El nuevo maximo de encuestados admitidos
     */
 
-    @PatchMapping (value = "/cambiarMaximo/{idEncuesta}")
-    public ResponseEntity<Void> changeMaximoEncuesta (@PathVariable int idEncuesta,@RequestBody Encuesta encuesta){
-        boolean actualizado = encuestaService. updateMaxRespuestas(idEncuesta, encuesta.getMax_respuestas() );
+    @PatchMapping (value = "/cambiarMaximo/{idEncuesta}/{newMax}")
+    public ResponseEntity<Void> changeMaximoEncuesta (@PathVariable int idEncuesta,@PathVariable int newMax){
+        boolean actualizado = encuestaService.updateMaxRespuestas(idEncuesta, newMax );
           if(actualizado){
             return new ResponseEntity<>(HttpStatus.OK);
         }else{
@@ -95,16 +93,14 @@ public class EncuestaRestController {
         }
     }
 
-     /**
+    /**
     Actualiza el minimo de personas que responden una encuesta 
-    @param int El id de la encuesta , se envia atraves de la url  /proyecto_ubb/encuestas/cambiarMinimo/2
-    @param json encuesta representa el modelo encuesta y se envia el nuevo valor de la minimo de respuestas de
-    la encuesta de la siguiente forma a traves del body de la petición
-        {"min_respuestas":58 } 
+    @param idEncuesta El id de la encuesta , se envia atraves de la url  /proyecto_ubb/encuestas/cambiarMinimo/2/24
+    @param newMin El nuevo minimo de encuestados admitidos
     */
-    @PatchMapping (value = "/cambiarMinimo/{idEncuesta}")
-    public ResponseEntity<Void> changeMinimoEncuesta (@PathVariable int idEncuesta,@RequestBody Encuesta encuesta){
-        boolean actualizado = encuestaService.updateMinRespuestas(idEncuesta, encuesta.getMin_respuestas() );
+    @PatchMapping (value = "/cambiarMinimo/{idEncuesta}/{newMin}")
+    public ResponseEntity<Void> changeMinimoEncuesta (@PathVariable int idEncuesta,@PathVariable int newMin){
+        boolean actualizado = encuestaService.updateMinRespuestas(idEncuesta, newMin );
           if(actualizado){
             return new ResponseEntity<>(HttpStatus.OK);
         }else{

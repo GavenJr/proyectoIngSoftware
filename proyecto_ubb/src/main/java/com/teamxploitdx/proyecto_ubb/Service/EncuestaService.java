@@ -29,7 +29,7 @@ public class EncuestaService {
 
     /**
     Encuentra las encuestas segun el nombre de una empresa
-    @param String El nombre de la empresa
+    @param nombre El nombre de la empresa
     */
     public List<Encuesta> findByEmpresa(String nombre){
         // Obtenemos referencia a la empresa de interes
@@ -43,16 +43,15 @@ public class EncuestaService {
     
      /**
     Encuentra las encuestas segun el nombre de una empresa
-    @param int El id de la empresa
+    @param id El id de la empresa
     */
     public Optional<Encuesta> findEncuestaById(int id){
         return encuestaRepository.findById(id);
     }
 
    /**
-    Encuentra las encuestas segun el nombre de una empresa
-    @param int El id de la empresa
-    @param boolean La visibilidad deseada
+    Cambia la visibilidad de una encuesta
+    @param idEncuesta El id de la encuesta
     */
     public boolean updateVisibilidad (int idEncuesta){
         
@@ -75,11 +74,10 @@ public class EncuestaService {
     }
 
     /**
-    Encuentra la encuesta según el id
-    @param int El id de la empresa
-    @param int  Valor del nuevo maximo de encuestas 
+    Actualiza el maximo de respuestas
+    @param id El id de la encuesta
+    @param newMax  Valor del nuevo maximo de encuestados 
     */
-
     public boolean updateMaxRespuestas (int id, int newMax){
         
         Optional<Encuesta> encuestaOptional = encuestaRepository.findById(id);
@@ -95,11 +93,10 @@ public class EncuestaService {
     }
 
     /**
-    Encuentra la encuesta según el id
-    @param int El id de la empresa
-    @param int  Valor del nuevo minimo
+    Actualiza el minimo de respuestas
+    @param id El id de la encuesta
+    @param newMin  Valor del nuevo minimo de encuestados 
     */
-
     public boolean updateMinRespuestas (int id, int newMin){
         
         Optional<Encuesta> encuestaOptional = encuestaRepository.findById(id);
