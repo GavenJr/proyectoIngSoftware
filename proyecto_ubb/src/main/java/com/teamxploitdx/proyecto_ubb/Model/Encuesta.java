@@ -30,7 +30,7 @@ public class Encuesta {
 	private Empresa empresa;			// Referencia al objeto 1
    
 	@ManyToOne							// Cardinalidad de la relacion n:1
-	@JoinColumn(name = "id_categoría", referencedColumnName="ID")	// Atributo que hace la relacion
+	@JoinColumn(name = "id_categoria", referencedColumnName="ID")	// Atributo que hace la relacion
 	private Categoria categoria;			// Referencia al objeto 1
 
 	/* - - - - - - - - - - - - - - -
