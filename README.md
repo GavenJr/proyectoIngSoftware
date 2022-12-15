@@ -20,6 +20,8 @@ artifact id: proyecto_ubb
     <img width="10%" src="https://www.freepnglogos.com/uploads/logo-mysql-png/logo-mysql-how-setup-mysql-workbench-database-for-wordpress-20.png">
     <img width="15%" src="https://upload.wikimedia.org/wikipedia/commons/c/c2/Postman_%28software%29.png">
     <img width="15%" src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2f/PhpMyAdmin_logo_2010_hidef.svg/1200px-PhpMyAdmin_logo_2010_hidef.svg.png">
+    <img width="15%" src="https://junit.org/junit5/assets/img/junit5-logo.png">
+    <img width="15%" src="https://static.javatpoint.com/tutorial/mockito/images/mockito.png">
 </p>
 
 ## Sobre el proyecto:
@@ -212,14 +214,46 @@ Abarcar escenarios base.
 - - -
 
 ### SPRINT 2: Que esperamos lograr
+Implementar 5 requisitos de sistema adicionales, y agregar tests a los servicios actualmente implementados, asi como asegurar que el codigo se encuentre documentado y sea mantenible
 
 - - -
+
+##### SERVICIO 6
+<details><summary>VER DETALLES</summary>
+<p>
+</p>
+</details>
+
+##### SERVICIO 7
+<details><summary>VER DETALLES</summary>
+<p>
+</p>
+</details>
+
+##### SERVICIO 8
+<details><summary>VER DETALLES</summary>
+<p>
+</p>
+</details>
+
+##### SERVICIO 9
+<details><summary>VER DETALLES</summary>
+<p>
+</p>
+</details>
+
+##### SERVICIO 10
+<details><summary>VER DETALLES</summary>
+<p>
+</p>
+</details>
+
 - - -
 <!-- Imagenes alineadas unas con las otras con un tamano del 30% -->
 <p align="center" width="100%">
     <img width="10%" src="https://www.pngkit.com/png/full/402-4028532_the-great-papyrus-great-papyrus.png">
-    <img width="30%" src="https://github.com/GavenJr/proyectoIngSoftware/blob/master/proyecto_ubb/src/main/resources/model/sprint2/ER.jpg">
-    <img width="30%" src="https://github.com/GavenJr/proyectoIngSoftware/blob/master/proyecto_ubb/src/main/resources/model/sprint2/Relational_Schema.png">
+    <img width="30%" src="https://github.com/GavenJr/proyectoIngSoftware/blob/master/proyecto_ubb/src/main/resources/model/sprint2/ER_2.jpg">
+    <img width="30%" src="https://github.com/GavenJr/proyectoIngSoftware/blob/master/proyecto_ubb/src/main/resources/model/sprint2/Relational_Schema_2.png">
     <img width="10%" src="https://www.nicepng.com/png/full/26-267104_sans-sans-sprite.png">
 </p>
 

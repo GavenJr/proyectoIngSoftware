@@ -5,7 +5,7 @@
 CREATE TABLE `alternativa` (
   `id` int(11) NOT NULL,
   `texto` varchar(500) NOT NULL,
-  `id_pregunta` int(11) NOT NULL
+  `id_pregunta` int(11) 
 );
 
 -- --------------------------------------------------------
@@ -217,7 +217,8 @@ INSERT INTO alternativa (id, texto, id_pregunta) VALUES
 
 CREATE TABLE `borrador` (
   `id` int(11) NOT NULL,
-  `ultima_edicion` date NOT NULL,
+  `ultima_edicion` date,
+  `finalizado` date,
   `id_encuestado` int(11) NOT NULL,
   `id_encuesta` int(11) NOT NULL
 );
