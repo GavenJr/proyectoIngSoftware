@@ -41,8 +41,8 @@ public class Borrador {
     // private List<Respuesta> respuestas;
 
 	
-	@OneToMany(mappedBy = "borrador")
-    private List<Respuesta> respuestas;
+	// @OneToMany(mappedBy = "borrador")
+    // private List<Respuesta> respuestas;
 	
 	public Borrador() {
 	}

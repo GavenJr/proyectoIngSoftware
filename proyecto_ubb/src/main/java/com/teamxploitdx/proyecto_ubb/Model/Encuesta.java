@@ -39,11 +39,11 @@ public class Encuesta {
 	@JoinColumn(name = "id_categoria", referencedColumnName="ID")	// Atributo que hace la relacion
 	private Categoria categoria;			// Referencia al objeto 1
 
-	@OneToMany(mappedBy = "encuesta")	// Referencia a la variable en Borrador
-	//@JsonManagedReference
-	@JsonIgnore
-	@Column(nullable = true)
-    private List<Borrador> borradores;
+	// @OneToMany(mappedBy = "encuesta")	// Referencia a la variable en Borrador
+	// //@JsonManagedReference
+	// @JsonIgnore
+	// @Column(nullable = true)
+    // private List<Borrador> borradores;
 
 	/* - - - - - - - - - - - - - - -
 	 * 	Constructores
@@ -142,13 +142,13 @@ public class Encuesta {
 		this.categoria = categoria;
 	}
 
-	public List<Borrador> getBorradores() {
-		return this.borradores;
-	}
+	// public List<Borrador> getBorradores() {
+	// 	return this.borradores;
+	// }
 
-	public void setBorradores(List<Borrador> borradores) {
-		this.borradores = borradores;
-	}
+	// public void setBorradores(List<Borrador> borradores) {
+	// 	this.borradores = borradores;
+	// }
 
 	    
 }

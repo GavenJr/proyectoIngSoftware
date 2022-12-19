@@ -33,8 +33,8 @@ public class Alternativa {
 	// @Column(nullable = true)
     // private List<Respuesta> respuestas;
 
-	@OneToOne(mappedBy = "alternativa")
-    private Respuesta respuesta;
+	// @OneToOne(mappedBy = "alternativa")
+    // private Respuesta respuesta;
 
 
 	public Alternativa() {

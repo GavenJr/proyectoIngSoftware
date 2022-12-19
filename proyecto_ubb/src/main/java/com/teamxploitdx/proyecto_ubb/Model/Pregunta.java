@@ -43,11 +43,11 @@ public class Pregunta {
 	// @Column(nullable = true)
     // private List<Respuesta> respuestas;
 
-	@OneToMany (mappedBy = "pregunta")
-	private List<Alternativa> alternativas;
+	// @OneToMany (mappedBy = "pregunta")
+	// private List<Alternativa> alternativas;
 
-	@OneToOne(mappedBy = "pregunta")
-    private Respuesta respuesta;
+	// @OneToOne(mappedBy = "pregunta")
+    // private Respuesta respuesta;
 
 
 	public Pregunta() {
