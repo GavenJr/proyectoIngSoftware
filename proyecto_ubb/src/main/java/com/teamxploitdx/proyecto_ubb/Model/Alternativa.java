@@ -2,6 +2,7 @@ package com.teamxploitdx.proyecto_ubb.Model;
 
 import java.util.List;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -27,18 +28,20 @@ public class Alternativa {
 	
 	// // Relaciones implicitas
 	// @OneToMany(mappedBy = "alternativa")	// Referencia a la variable en respuesta
-	// //@JsonIgnore
 	// @JsonManagedReference
+	// @JsonIgnore
+	// @Column(nullable = true)
     // private List<Respuesta> respuestas;
+
+	@OneToOne(mappedBy = "alternativa")
+    private Respuesta respuesta;
 
 
 	public Alternativa() {
 	}
 
-
-
 	public int getId() {
-		return id;
+		return this.id;
 	}
 
 	public void setId(int id) {
@@ -46,7 +49,7 @@ public class Alternativa {
 	}
 
 	public String getTexto() {
-		return texto;
+		return this.texto;
 	}
 
 	public void setTexto(String texto) {
@@ -54,10 +57,19 @@ public class Alternativa {
 	}
 
 	public Pregunta getPregunta() {
-		return pregunta;
+		return this.pregunta;
 	}
 
 	public void setPregunta(Pregunta pregunta) {
 		this.pregunta = pregunta;
 	}
+
+	// public List<Respuesta> getRespuestas() {
+	// 	return this.respuestas;
+	// }
+
+	// public void setRespuestas(List<Respuesta> respuestas) {
+	// 	this.respuestas = respuestas;
+	// }
+
 }

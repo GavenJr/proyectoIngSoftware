@@ -3,6 +3,7 @@ package com.teamxploitdx.proyecto_ubb.Model;
 import java.sql.Date;
 import java.util.List;
 
+import javax.persistence.Column;
 // imports de dependencias
 import javax.persistence.Entity;							// Si no pueden importar de javax,
 import javax.persistence.GeneratedValue;					// les faltan dependencias en el POM
@@ -38,10 +39,11 @@ public class Encuesta {
 	@JoinColumn(name = "id_categoria", referencedColumnName="ID")	// Atributo que hace la relacion
 	private Categoria categoria;			// Referencia al objeto 1
 
-	// @OneToMany(mappedBy = "encuesta")	// Referencia a la variable en Borrador
-	// //@JsonIgnore
-	// @JsonManagedReference
-    // private List<Borrador> borradores;
+	@OneToMany(mappedBy = "encuesta")	// Referencia a la variable en Borrador
+	//@JsonManagedReference
+	@JsonIgnore
+	@Column(nullable = true)
+    private List<Borrador> borradores;
 
 	/* - - - - - - - - - - - - - - -
 	 * 	Constructores
@@ -54,19 +56,6 @@ public class Encuesta {
 		//this.id = id;
 		this.nombre = nombre;
 		this.empresa = empresa;
-	}
-
-	public Encuesta(int id, String nombre, String descripcion, Date fecha_inicio, Date fecha_termino, boolean visible, int min_respuestas, int max_respuestas, Empresa empresa, Categoria categoria) {
-		this.id = id;
-		this.nombre = nombre;
-		this.descripcion = descripcion;
-		this.fecha_inicio = fecha_inicio;
-		this.fecha_termino = fecha_termino;
-		this.visible = visible;
-		this.min_respuestas = min_respuestas;
-		this.max_respuestas = max_respuestas;
-		this.empresa = empresa;
-		//this.categoria = categoria;
 	}
 
 	public int getId() {
@@ -113,6 +102,10 @@ public class Encuesta {
 		return this.visible;
 	}
 
+	public boolean getVisible() {
+		return this.visible;
+	}
+
 	public void setVisible(boolean visible) {
 		this.visible = visible;
 	}
@@ -131,7 +124,6 @@ public class Encuesta {
 
 	public void setMax_respuestas(int max_respuestas) {
 		this.max_respuestas = max_respuestas;
-
 	}
 
 	public Empresa getEmpresa() {
@@ -141,13 +133,22 @@ public class Encuesta {
 	public void setEmpresa(Empresa empresa) {
 		this.empresa = empresa;
 	}
-/*
+
 	public Categoria getCategoria() {
 		return this.categoria;
 	}
+
 	public void setCategoria(Categoria categoria) {
 		this.categoria = categoria;
 	}
-*/
+
+	public List<Borrador> getBorradores() {
+		return this.borradores;
+	}
+
+	public void setBorradores(List<Borrador> borradores) {
+		this.borradores = borradores;
+	}
+
 	    
 }

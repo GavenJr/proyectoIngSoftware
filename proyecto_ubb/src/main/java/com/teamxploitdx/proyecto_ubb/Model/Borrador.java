@@ -3,6 +3,7 @@ package com.teamxploitdx.proyecto_ubb.Model;
 import java.util.Date;
 import java.util.List;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -30,28 +31,21 @@ public class Borrador {
 	@JoinColumn(name = "id_encuesta")	// Referencia a la clave foranea SQL
 	private Encuesta encuesta;
 	
-	/*
-	// Relaciones implicitas
-	//@OneToMany(mappedBy = "university")
-	@OneToMany(mappedBy = "borrador")	// Referencia a la variable en respuesta
-	//@JsonIgnore
-	@JsonManagedReference
+	
+	// // Relaciones implicitas
+	// //@OneToMany(mappedBy = "university")
+	// @OneToMany(mappedBy = "borrador")	// Referencia a la variable en respuesta
+	// //@JsonManagedReference
+	// @JsonIgnore
+	// @Column(nullable = true)
+    // private List<Respuesta> respuestas;
+
+	
+	@OneToMany(mappedBy = "borrador")
     private List<Respuesta> respuestas;
-	*/
-
-
+	
 	public Borrador() {
 	}
-
-	public Borrador(int id, Date ultima_edicion, Date finalizado, Encuestado encuestado, List<Respuesta> respuestas) {
-		this.id = id;
-		this.ultima_edicion = ultima_edicion;
-		this.finalizado = finalizado;
-		this.encuestado = encuestado;
-		//this.respuestas = respuestas;
-	}
-
-
 
 	public int getId() {
 		return this.id;
@@ -92,14 +86,15 @@ public class Borrador {
 	public void setEncuesta(Encuesta encuesta) {
 		this.encuesta = encuesta;
 	}
-/*
-	public List<Respuesta> getRespuestas() {
-		return this.respuestas;
-	}
 
-	public void setRespuestas(List<Respuesta> respuestas) {
-		this.respuestas = respuestas;
-	}
-	*/
+	// public List<Respuesta> getRespuestas() {
+	// 	return this.respuestas;
+	// }
+
+	// public void setRespuestas(List<Respuesta> respuestas) {
+	// 	this.respuestas = respuestas;
+	// }
+
+
 	
 }

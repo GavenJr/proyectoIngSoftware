@@ -34,20 +34,27 @@ public class Pregunta {
 	// // Relaciones implicitas
 	// @OneToMany (mappedBy = "pregunta")	// Referencia a la variable pregunta en alternativa
 	// @JsonIgnore
+	// @Column(nullable = true)
 	// private List<Alternativa> alternativas;
 	
 	// @OneToMany(mappedBy = "pregunta")	// Referencia a la variable pregunta en respuesta
-	// //@JsonIgnore
-	// @JsonManagedReference
+	// //@JsonManagedReference
+	// @JsonIgnore
+	// @Column(nullable = true)
     // private List<Respuesta> respuestas;
+
+	@OneToMany (mappedBy = "pregunta")
+	private List<Alternativa> alternativas;
+
+	@OneToOne(mappedBy = "pregunta")
+    private Respuesta respuesta;
 
 
 	public Pregunta() {
 	}
-	 
-	 //Getters y Setters
+	
 	public int getId() {
-		return id;
+		return this.id;
 	}
 
 	public void setId(int id) {
@@ -55,7 +62,7 @@ public class Pregunta {
 	}
 
 	public String getTexto() {
-		return texto;
+		return this.texto;
 	}
 
 	public void setTexto(String texto) {
@@ -63,7 +70,7 @@ public class Pregunta {
 	}
 
 	public int getOrden() {
-		return orden;
+		return this.orden;
 	}
 
 	public void setOrden(int orden) {
@@ -71,23 +78,39 @@ public class Pregunta {
 	}
 
 	public boolean isObligatoria() {
-		return obligatoria;
+		return this.obligatoria;
+	}
+
+	public boolean getObligatoria() {
+		return this.obligatoria;
 	}
 
 	public void setObligatoria(boolean obligatoria) {
 		this.obligatoria = obligatoria;
 	}
 
+	public Encuesta getEncuesta() {
+		return this.encuesta;
+	}
+
+	public void setEncuesta(Encuesta encuesta) {
+		this.encuesta = encuesta;
+	}
+
 	// public List<Alternativa> getAlternativas() {
-	// 	return alternativas;
+	// 	return this.alternativas;
 	// }
 
 	// public void setAlternativas(List<Alternativa> alternativas) {
 	// 	this.alternativas = alternativas;
-	// } 
+	// }
+
+	// public List<Respuesta> getRespuestas() {
+	// 	return this.respuestas;
+	// }
+
+	// public void setRespuestas(List<Respuesta> respuestas) {
+	// 	this.respuestas = respuestas;
+	// }
 	
-	// public void addAlternativas(Alternativa alternativa) {
-    //     getAlternativas().add(alternativa);
-    //     alternativa.setPregunta(this);
-    // }
 }

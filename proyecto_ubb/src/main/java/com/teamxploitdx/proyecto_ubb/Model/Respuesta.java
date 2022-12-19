@@ -14,24 +14,35 @@ public class Respuesta {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
 	
-	@ManyToOne
+	// @ManyToOne
+	// @JoinColumn(name = "id_pregunta")
+    // private Pregunta pregunta;
+	
+	// @ManyToOne
+	// @JoinColumn(name = "id_alternativa")
+	// private Alternativa alternativa;
+	
+	// @ManyToOne()
+    // @JoinColumn(name = "id_borrador")
+	// private Borrador borrador;
+
+	@OneToOne
 	@JoinColumn(name = "id_pregunta")
     private Pregunta pregunta;
-	
-	@ManyToOne
+
+	@OneToOne
 	@JoinColumn(name = "id_alternativa")
 	private Alternativa alternativa;
-	
+
 	@ManyToOne()
     @JoinColumn(name = "id_borrador")
 	private Borrador borrador;
-
 
 	public Respuesta() {
 	}
 
 	public int getId() {
-		return id;
+		return this.id;
 	}
 
 	public void setId(int id) {
@@ -39,7 +50,7 @@ public class Respuesta {
 	}
 
 	public Pregunta getPregunta() {
-		return pregunta;
+		return this.pregunta;
 	}
 
 	public void setPregunta(Pregunta pregunta) {
@@ -47,7 +58,7 @@ public class Respuesta {
 	}
 
 	public Alternativa getAlternativa() {
-		return alternativa;
+		return this.alternativa;
 	}
 
 	public void setAlternativa(Alternativa alternativa) {
@@ -55,10 +66,11 @@ public class Respuesta {
 	}
 
 	public Borrador getBorrador() {
-		return borrador;
+		return this.borrador;
 	}
 
 	public void setBorrador(Borrador borrador) {
 		this.borrador = borrador;
 	}
+
 }
