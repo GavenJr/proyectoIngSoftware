@@ -1,6 +1,7 @@
 package com.teamxploitdx.proyecto_ubb.Model;
 // imports de Java
 import java.sql.Date;
+import java.util.List;
 
 // imports de dependencias
 import javax.persistence.Entity;							// Si no pueden importar de javax,
@@ -9,7 +10,11 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 @Entity														// Indicamos que es una entidad
 @Table (name = "encuesta")									// indicamos el nombre del initDB.sql
@@ -33,11 +38,23 @@ public class Encuesta {
 	@JoinColumn(name = "id_categoria", referencedColumnName="ID")	// Atributo que hace la relacion
 	private Categoria categoria;			// Referencia al objeto 1
 
+	// @OneToMany(mappedBy = "encuesta")	// Referencia a la variable en Borrador
+	// //@JsonIgnore
+	// @JsonManagedReference
+    // private List<Borrador> borradores;
+
 	/* - - - - - - - - - - - - - - -
 	 * 	Constructores
 	 */
 
-	 public Encuesta(){}
+	public Encuesta(){}
+
+	// El id no debe proporcionarse, pues es AUTOGENERADO
+	public Encuesta(/*int id,*/ String nombre, Empresa empresa){
+		//this.id = id;
+		this.nombre = nombre;
+		this.empresa = empresa;
+	}
 
 	public Encuesta(int id, String nombre, String descripcion, Date fecha_inicio, Date fecha_termino, boolean visible, int min_respuestas, int max_respuestas, Empresa empresa, Categoria categoria) {
 		this.id = id;

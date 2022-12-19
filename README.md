@@ -20,8 +20,8 @@ artifact id: proyecto_ubb
     <img width="10%" src="https://www.freepnglogos.com/uploads/logo-mysql-png/logo-mysql-how-setup-mysql-workbench-database-for-wordpress-20.png">
     <img width="15%" src="https://upload.wikimedia.org/wikipedia/commons/c/c2/Postman_%28software%29.png">
     <img width="15%" src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2f/PhpMyAdmin_logo_2010_hidef.svg/1200px-PhpMyAdmin_logo_2010_hidef.svg.png">
-    <img width="15%" src="https://junit.org/junit5/assets/img/junit5-logo.png">
-    <img width="15%" src="https://static.javatpoint.com/tutorial/mockito/images/mockito.png">
+    <img width="10%" src="https://junit.org/junit5/assets/img/junit5-logo.png">
+    <img width="10%" src="https://static.javatpoint.com/tutorial/mockito/images/mockito.png">
 </p>
 
 ## Sobre el proyecto:
@@ -206,9 +206,10 @@ Abarcar escenarios base.
 
 <!-- NOTA: el tamano solo parece funcionar en incrementos de 10 -->
 <p align="center" width="100%">
+    <img width="10%" src="https://i.imgflip.com/624in1.png?a463872">
     <img width="25%" src="https://github.com/GavenJr/proyectoIngSoftware/blob/master/proyecto_ubb/src/main/resources/model/sprint1/Modelo_Fisico_BD.png">
     <img width="50%" src="https://github.com/GavenJr/proyectoIngSoftware/blob/master/proyecto_ubb/src/main/resources/model/sprint1/Representacion_SQL.PNG">
-    <img width="20%" src="https://github.com/GavenJr/proyectoIngSoftware/blob/master/proyecto_ubb/java_tan.jfif">
+    <img width="10%" src="https://i.imgflip.com/624in1.png?a463872">
 </p>
 
 - - -

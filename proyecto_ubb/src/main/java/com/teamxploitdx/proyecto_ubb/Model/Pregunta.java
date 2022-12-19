@@ -12,6 +12,9 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -23,12 +26,24 @@ public class Pregunta {
 	private String texto;
 	private int orden;
 	private boolean obligatoria;
+
+	@ManyToOne()
+	@JoinColumn(name = "id_encuesta")	// Referencia a la clave foranea SQL
+	Encuesta encuesta;
 	
-	@OneToMany (mappedBy = "pregunta")
-	private List<Alternativa> alternativas;
+	// // Relaciones implicitas
+	// @OneToMany (mappedBy = "pregunta")	// Referencia a la variable pregunta en alternativa
+	// @JsonIgnore
+	// private List<Alternativa> alternativas;
 	
-	@OneToOne(mappedBy = "pregunta")
-    private Respuesta respuesta;
+	// @OneToMany(mappedBy = "pregunta")	// Referencia a la variable pregunta en respuesta
+	// //@JsonIgnore
+	// @JsonManagedReference
+    // private List<Respuesta> respuestas;
+
+
+	public Pregunta() {
+	}
 	 
 	 //Getters y Setters
 	public int getId() {
@@ -63,16 +78,16 @@ public class Pregunta {
 		this.obligatoria = obligatoria;
 	}
 
-	public List<Alternativa> getAlternativas() {
-		return alternativas;
-	}
+	// public List<Alternativa> getAlternativas() {
+	// 	return alternativas;
+	// }
 
-	public void setAlternativas(List<Alternativa> alternativas) {
-		this.alternativas = alternativas;
-	} 
+	// public void setAlternativas(List<Alternativa> alternativas) {
+	// 	this.alternativas = alternativas;
+	// } 
 	
-	public void addAlternativas(Alternativa alternativa) {
-        getAlternativas().add(alternativa);
-        alternativa.setPregunta(this);
-    }
+	// public void addAlternativas(Alternativa alternativa) {
+    //     getAlternativas().add(alternativa);
+    //     alternativa.setPregunta(this);
+    // }
 }

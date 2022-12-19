@@ -1,6 +1,8 @@
 package com.teamxploitdx.proyecto_ubb.Rest;
+import java.lang.StackWalker.Option;
 // imports de Java
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 // imports de spring boot
@@ -9,6 +11,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
@@ -40,14 +43,14 @@ public class EncuestaRestController {
         List<Encuesta> encuestaList = encuestaService.findAllEncuestas();
         // Comprueba si se encontro alguna
         if( !encuestaList.isEmpty() ){
-            return new ResponseEntity<>(encuestaList, HttpStatus.OK);
+            return new ResponseEntity<>(encuestaList, HttpStatus.FOUND);
         }else{
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
     }
 
     /**
-    Retorna las encuestas de una empresa (por nombre) a la URI "proyecto_ubb/encuestas/empresa?nombre="
+    Retorna las encuestas de una empresa (por nombre) a la URI "proyecto_ubb/encuestas/empresa?nombre=
     @param nombre El nombre de la empresa
     */
     @GetMapping(value = "/empresa")       //RequestParam extrae el parametro name de la query
@@ -56,11 +59,48 @@ public class EncuestaRestController {
         List<Encuesta> encuestaList = encuestaService.findByEmpresa(nombre);
         // Revisamos si hay encuestas en esa empresa
         if( !encuestaList.isEmpty() ){
-            return new ResponseEntity<List<Encuesta>>(encuestaList, HttpStatus.OK);
+            return new ResponseEntity<List<Encuesta>>(encuestaList, HttpStatus.FOUND);
         }else{
             return new ResponseEntity<List<Encuesta>>(encuestaList, HttpStatus.NOT_FOUND);
         }
 
+    }
+
+    /**
+    * Retorna la encuesta basado en su nombre a la uri "/proyecto_ubb/encuestas/encuesta?nombre="
+    */    
+    @GetMapping(value = "/encuesta")
+    public ResponseEntity< Encuesta > getEncuestaByNombre(@RequestParam String nombre){
+        // Busca las encuestas
+        Optional<Encuesta> encuesta = encuestaService.findByName(nombre);
+        // Comprueba si se encontro alguna
+        if( encuesta.isPresent() ){
+            return new ResponseEntity<>(encuesta.get(), HttpStatus.FOUND);
+        }else{
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
+    }
+
+    /**
+     * Crea una encuesta basado en un id de empresa creadora y nombre de encuesta, a la URI proyecto_ubb/empresa/{idEmpresa}/encuestas/agregar?nombre=
+     * @param idEmpresa el id de la empresa
+     * @param nombre el nombre de la nueva encuesta
+     * @return ResponseEntity de la encuesta, o un codigo de error
+     */
+    @PostMapping (value = "/empresa/{idEmpresa}/agregar")
+    public ResponseEntity<Encuesta> crearEncuesta(@PathVariable (value = "idEmpresa") int idEmpresa, @RequestParam String nombre){
+        // Primero, deberiamos comprobar si ya existe la encuesta
+        Optional<Encuesta> encuesta = encuestaService.findByName(nombre);
+        if(encuesta.isPresent()){
+            return new ResponseEntity<>(HttpStatus.IM_USED);
+        }
+        // Si no, intentamos crearla
+        boolean creada = encuestaService.crearEncuesta(idEmpresa, nombre);
+        if(creada){
+            return new ResponseEntity<Encuesta>(HttpStatus.CREATED);
+        }
+
+        return new ResponseEntity<Encuesta>(HttpStatus.CONFLICT);
     }
 
      /**

@@ -14,17 +14,21 @@ public class Respuesta {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
 	
-	@OneToOne
+	@ManyToOne
 	@JoinColumn(name = "id_pregunta")
     private Pregunta pregunta;
 	
-	@OneToOne
-	@JoinColumn(name = "id_pregunta")
+	@ManyToOne
+	@JoinColumn(name = "id_alternativa")
 	private Alternativa alternativa;
 	
 	@ManyToOne()
     @JoinColumn(name = "id_borrador")
 	private Borrador borrador;
+
+
+	public Respuesta() {
+	}
 
 	public int getId() {
 		return id;

@@ -19,8 +19,8 @@ public class Encuestado {
             inverseJoinColumns = @JoinColumn(name = "id_categoria"))
     private List<Categoria> preferencias;
 	
-	@OneToMany (mappedBy = "encuestado")
-	private List<Borrador> borradores;
+	// @OneToMany (mappedBy = "encuestado")
+	// private List<Borrador> borradores;
 	 
 	//Getters y Setters
 	public int getId() {
@@ -65,16 +65,16 @@ public class Encuestado {
         categoria.addEncuestado(this);
     }
     
-    //One to Many
-	public List<Borrador> getBorradores() {
-		return borradores;
-	}
-	public void setBorradores(List<Borrador> borradores) {
-		this.borradores = borradores;
-	}
+    // //One to Many
+	// public List<Borrador> getBorradores() {
+	// 	return borradores;
+	// }
+	// public void setBorradores(List<Borrador> borradores) {
+	// 	this.borradores = borradores;
+	// }
 	
-	public void addBorrador(Borrador borrador) {
-        getBorradores().add(borrador);
-        borrador.setEncuestado(this);
-    }
+	// public void addBorrador(Borrador borrador) {
+    //     getBorradores().add(borrador);
+    //     borrador.setEncuestado(this);
+    // }
 }
