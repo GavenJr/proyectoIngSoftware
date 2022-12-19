@@ -227,9 +227,9 @@ CREATE TABLE `borrador` (
 -- Volcado de datos para la tabla `borrador`
 --
 
-INSERT INTO borrador (id, ultima_edicion, id_encuestado, id_encuesta) VALUES 
-(1, '2022-08-11', 9, 3),
-(2, '2022-02-07', 4, 2);
+INSERT INTO borrador (id, ultima_edicion, finalizado, id_encuestado, id_encuesta) VALUES 
+(1, '2022-08-11', NULL, 9, 3),
+(2, '2022-02-07', NULL, 4, 2);
 
 -- --------------------------------------------------------
 
