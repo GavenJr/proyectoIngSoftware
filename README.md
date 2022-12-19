@@ -206,10 +206,10 @@ Abarcar escenarios base.
 
 <!-- NOTA: el tamano solo parece funcionar en incrementos de 10 -->
 <p align="center" width="100%">
-    <img width="10%" src="https://i.imgflip.com/624in1.png?a463872">
+    <img width="10%" src="https://media.tenor.com/yZRsvoJB9QwAAAAj/wowa-pepe.gif">
     <img width="25%" src="https://github.com/GavenJr/proyectoIngSoftware/blob/master/proyecto_ubb/src/main/resources/model/sprint1/Modelo_Fisico_BD.png">
     <img width="50%" src="https://github.com/GavenJr/proyectoIngSoftware/blob/master/proyecto_ubb/src/main/resources/model/sprint1/Representacion_SQL.PNG">
-    <img width="10%" src="https://i.imgflip.com/624in1.png?a463872">
+    <img width="10%" src="https://static.wikia.nocookie.net/fridaynightfunking/images/0/05/CryingEmojiUp.png/revision/latest/scale-to-width-down/250?cb=20210715175906">
 </p>
 
 - - -
