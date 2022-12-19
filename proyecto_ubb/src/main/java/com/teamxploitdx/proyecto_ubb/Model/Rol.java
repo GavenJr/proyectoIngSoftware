@@ -20,9 +20,9 @@ public class Rol {
     private int id;
     private String nombre;
     
-    @OneToMany (mappedBy = "rol",fetch = FetchType.EAGER, cascade = CascadeType.ALL)//rol hace referencia a el nombre de la variable creada en Usuario
-    @Column(nullable = true)
-    private List<Usuario> usuarios;
+    // @OneToMany (mappedBy = "rol",fetch = FetchType.EAGER, cascade = CascadeType.ALL)//rol hace referencia a el nombre de la variable creada en Usuario
+    // @Column(nullable = true)
+    // private List<Usuario> usuarios;
     
     public int getId() {
         return id;
@@ -42,11 +42,11 @@ public class Rol {
 
    
 
-    public List<Usuario> getUsuarios() {
-        return usuarios;
-    }
+    // public List<Usuario> getUsuarios() {
+    //     return usuarios;
+    // }
 
-    public void addUsuarios(Usuario usuario) {
-        usuarios.add(usuario);
-    }
+    // public void addUsuarios(Usuario usuario) {
+    //     usuarios.add(usuario);
+    // }
 }

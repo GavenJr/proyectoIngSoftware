@@ -83,6 +83,28 @@ public class EncuestaRestController {
 
     /**
      * Crea una encuesta basado en un id de empresa creadora y nombre de encuesta, a la URI proyecto_ubb/empresa/{idEmpresa}/encuestas/agregar?nombre=
+     * @param encuesta encuesta proporcionada por el Body en formato Json
+     * @param nombre el nombre de la nueva encuesta
+     * @return ResponseEntity de la encuesta, o un codigo de error
+     */
+    @PostMapping (value = "/agregar")
+    public ResponseEntity< Void > crearEncuesta(@RequestBody Encuesta encuesta){
+        // Primero, deberiamos comprobar si ya existe la encuesta
+        Optional<Encuesta> encuestaOptional = encuestaService.findByName(encuesta.getNombre());
+        if(encuestaOptional.isPresent()){
+            return new ResponseEntity<>(HttpStatus.IM_USED);
+        }
+        // Si no, intentamos crearla
+        boolean creada = encuestaService.crearEncuesta(encuesta);
+        if(creada){
+            return new ResponseEntity<>(HttpStatus.CREATED);
+        }
+
+        return new ResponseEntity<>(HttpStatus.CONFLICT);
+    }
+
+    /**
+     * Crea una encuesta basado en un id de empresa creadora y nombre de encuesta, a la URI proyecto_ubb/empresa/{idEmpresa}/encuestas/agregar?nombre=
      * @param idEmpresa el id de la empresa
      * @param nombre el nombre de la nueva encuesta
      * @return ResponseEntity de la encuesta, o un codigo de error

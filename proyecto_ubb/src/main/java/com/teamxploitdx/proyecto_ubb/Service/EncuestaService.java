@@ -52,6 +52,20 @@ public class EncuestaService {
 
     /**
      * Intenta crear una encuesta, sincronizandola al repositorio
+     * @param encuesta la encuesta proporcionada por el Json body
+     * @return si la encuesta se creo o no
+     */
+    public boolean crearEncuesta(Encuesta encuesta){
+        
+        if(encuesta != null || encuesta.getEmpresa() != null)
+            encuestaRepository.saveAndFlush( encuesta );
+
+        Optional<Encuesta> encuestaOptional = encuestaRepository.findByNombre(encuesta.getNombre());
+        return encuestaOptional.isPresent();
+    }
+
+    /**
+     * Intenta crear una encuesta, sincronizandola al repositorio
      * @param idEmpresa el id de la empresa propietaria
      * @param nombre el nombre de la nueva encuesta
      * @return si la encuesta se creo o no

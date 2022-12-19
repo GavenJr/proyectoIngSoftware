@@ -23,17 +23,17 @@ public class Empresa {
     String descripcion;
 
 
-    @OneToMany (mappedBy = "empresa",fetch = FetchType.EAGER, cascade = CascadeType.ALL) //empresa hace referencia a el nombre de la variable creada en Usuario
-    @Column(nullable = true)
-    private List<Usuario> usuarios;
+    // @OneToMany (mappedBy = "empresa",fetch = FetchType.EAGER, cascade = CascadeType.ALL) //empresa hace referencia a el nombre de la variable creada en Usuario
+    // @Column(nullable = true)
+    // private List<Usuario> usuarios;
 
-    public List<Usuario> getUsuarios() {
-        return usuarios;
-    }
+    // public List<Usuario> getUsuarios() {
+    //     return usuarios;
+    // }
 
-    public void setUsuarios(Usuario usuario) {
-        usuarios.add(usuario);
-    }
+    // public void setUsuarios(Usuario usuario) {
+    //     usuarios.add(usuario);
+    // }
    
     /* - - - - - - - - - - - - - - -
 	* 	Constructores
