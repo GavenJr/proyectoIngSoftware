@@ -21,7 +21,7 @@ public class Borrador {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
 	private Date ultima_edicion;
-	private Date finalizado;
+	// private Date finalizado;
 	
 	@ManyToOne()
     @JoinColumn(name = "id_encuestado")	// Referencia a la clave foranea SQL
@@ -63,13 +63,13 @@ public class Borrador {
 		this.ultima_edicion = ultima_edicion;
 	}
 
-	public Date getFinalizado() {
-		return this.finalizado;
-	}
+	// public Date getFinalizado() {
+	// 	return this.finalizado;
+	// }
 
-	public void setFinalizado(Date finalizado) {
-		this.finalizado = finalizado;
-	}
+	// public void setFinalizado(Date finalizado) {
+	// 	this.finalizado = finalizado;
+	// }
 
 	public Encuestado getEncuestado() {
 		return this.encuestado;
