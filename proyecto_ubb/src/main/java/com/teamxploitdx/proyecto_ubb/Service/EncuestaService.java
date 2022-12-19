@@ -40,6 +40,45 @@ public class EncuestaService {
         // Si no, retornamos las encuestas que tengan vinculadas a esa empresa
         return encuestaRepository.findByEmpresa(empresa);
     }
+
+    /**
+     * Recupera una encuesta por su nombre
+     * @param nombre el nomnre de la encuesta
+     * @return la encuesta
+     */
+    public Optional<Encuesta> findByName(String nombre){
+        return encuestaRepository.findByNombre(nombre);
+    }
+
+    /**
+     * Intenta crear una encuesta, sincronizandola al repositorio
+     * @param encuesta la encuesta proporcionada por el Json body
+     * @return si la encuesta se creo o no
+     */
+    public boolean crearEncuesta(Encuesta encuesta){
+        
+        if(encuesta != null || encuesta.getEmpresa() != null)
+            encuestaRepository.saveAndFlush( encuesta );
+
+        Optional<Encuesta> encuestaOptional = encuestaRepository.findByNombre(encuesta.getNombre());
+        return encuestaOptional.isPresent();
+    }
+
+    /**
+     * Intenta crear una encuesta, sincronizandola al repositorio
+     * @param idEmpresa el id de la empresa propietaria
+     * @param nombre el nombre de la nueva encuesta
+     * @return si la encuesta se creo o no
+     */
+    public boolean crearEncuesta(int idEmpresa, String nombre){
+        Encuesta encuesta = new Encuesta(nombre, empresaRepository.findById(idEmpresa).get());
+        
+        if(encuesta != null || encuesta.getEmpresa() != null)
+            encuestaRepository.saveAndFlush( encuesta );
+
+        Optional<Encuesta> encuestaOptional = encuestaRepository.findByNombre(nombre);
+        return encuestaOptional.isPresent();
+    }
     
      /**
     Encuentra las encuestas segun el nombre de una empresa
