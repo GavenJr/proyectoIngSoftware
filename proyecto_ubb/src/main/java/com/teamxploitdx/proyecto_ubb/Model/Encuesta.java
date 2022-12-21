@@ -37,7 +37,7 @@ public class Encuesta {
 	 * 	Constructores
 	 */
 
-	 public Encuesta(){}
+	public Encuesta(){}
 
 	public Encuesta(int id, String nombre, String descripcion, Date fecha_inicio, Date fecha_termino, boolean visible, int min_respuestas, int max_respuestas, Empresa empresa, Categoria categoria) {
 		this.id = id;
