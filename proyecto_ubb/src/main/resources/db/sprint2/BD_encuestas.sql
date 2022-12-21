@@ -57,16 +57,17 @@ INSERT INTO `empresa` (`id`, `nombre`, `email`, `descripcion`) VALUES
 --
 
 CREATE TABLE `encuesta` (
-  `id` int(11) NOT NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `nombre` varchar(500) NOT NULL,
-  `descripcion` varchar(2000) NOT NULL,
+  `descripcion` varchar(2000),
   `fecha_inicio` date,
   `fecha_termino` date,
   `max_respuestas` int(11),
   `min_respuestas` int(11),
   `visible` tinyint(1) NOT NULL,
   `id_empresa` int(11) NOT NULL,
-  `id_categoria` int(11) NOT NULL
+  `id_categoria` int(11) ,
+  PRIMARY KEY (id)
 );
 
 --
@@ -336,10 +337,11 @@ ALTER TABLE `empresa`
 --
 -- Indices de la tabla `encuesta`
 --
+-- ADD PRIMARY KEY (`id`),
 ALTER TABLE `encuesta`
-  ADD PRIMARY KEY (`id`),
   ADD KEY `id_empresa` (`id_empresa`,`id_categoria`),
-  ADD KEY `id_categoria` (`id_categoria`);
+  ADD KEY `id_categoria` (`id_categoria`),
+  AUTO_INCREMENT = 6;
 
 --
 -- Indices de la tabla `encuestado`

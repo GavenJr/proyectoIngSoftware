@@ -12,7 +12,10 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
+import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
+
+import org.hibernate.annotations.GenericGenerator;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
@@ -24,7 +27,7 @@ public class Encuesta {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)		// Indicamos que es un valor generado
 	private int id;
 	private String nombre;
-	private String descripcion ;
+	private String descripcion;
 	private Date fecha_inicio;
 	private Date fecha_termino;
 	private boolean visible;
@@ -51,11 +54,18 @@ public class Encuesta {
 
 	public Encuesta(){}
 
-	// El id no debe proporcionarse, pues es AUTOGENERADO
-	public Encuesta(/*int id,*/ String nombre, Empresa empresa){
-		//this.id = id;
+	// El id no se da, pues es AUTOGENERADO
+	public Encuesta(String nombre, Empresa empresa){
 		this.nombre = nombre;
 		this.empresa = empresa;
+		this.visible = false;
+	}
+
+	public Encuesta(int id, String nombre, Empresa empresa){
+		this.id = id;
+		this.nombre = nombre;
+		this.empresa = empresa;
+		this.visible = false;
 	}
 
 	public int getId() {

@@ -65,13 +65,29 @@ public class EncuestaService {
     }
 
     /**
-     * Intenta crear una encuesta, sincronizandola al repositorio
+     * Crea una encuesta asumiendo que el id de encuesta es autogenerado
      * @param idEmpresa el id de la empresa propietaria
      * @param nombre el nombre de la nueva encuesta
      * @return si la encuesta se creo o no
      */
-    public boolean crearEncuesta(int idEmpresa, String nombre){
+    public boolean crearEncuesta(String nombre, int idEmpresa){
         Encuesta encuesta = new Encuesta(nombre, empresaRepository.findById(idEmpresa).get());
+        
+        if(encuesta != null || encuesta.getEmpresa() != null)
+            encuestaRepository.saveAndFlush( encuesta );
+
+        Optional<Encuesta> encuestaOptional = encuestaRepository.findByNombre(nombre);
+        return encuestaOptional.isPresent();
+    }
+
+        /**
+     * Crea una encuesta asumiendo que el id de encuesta NO es autogenerado
+     * @param idEmpresa el id de la empresa propietaria
+     * @param nombre el nombre de la nueva encuesta
+     * @return si la encuesta se creo o no
+     */
+    public boolean crearEncuesta(int idEncuesta, String nombre, int idEmpresa){
+        Encuesta encuesta = new Encuesta(idEncuesta, nombre, empresaRepository.findById(idEmpresa).get());
         
         if(encuesta != null || encuesta.getEmpresa() != null)
             encuestaRepository.saveAndFlush( encuesta );

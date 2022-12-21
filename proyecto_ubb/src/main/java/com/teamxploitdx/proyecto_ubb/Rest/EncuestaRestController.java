@@ -7,6 +7,7 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 // imports de spring boot
 import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PatchMapping;
@@ -82,47 +83,27 @@ public class EncuestaRestController {
     }
 
     /**
-     * Crea una encuesta basado en un id de empresa creadora y nombre de encuesta, a la URI proyecto_ubb/empresa/{idEmpresa}/encuestas/agregar?nombre=
-     * @param encuesta encuesta proporcionada por el Body en formato Json
-     * @param nombre el nombre de la nueva encuesta
-     * @return ResponseEntity de la encuesta, o un codigo de error
+     * Intenta crear una encuesta a la URI proyecto_ubb/encuestas/empresa/{idEmpresa}/agregar/{idEncuesta}?nombre=
+     * @param nombre el nombre de la nueva encuesta pasado por Json
+     * @param idEmpresa el id de la empresa pasado por Json
+     * @return 226 si ya existe una encuesta por ese nombre, 201 si se creo, 409 si hubo conflicto
      */
-    @PostMapping (value = "/agregar")
-    public ResponseEntity< Void > crearEncuesta(@RequestBody Encuesta encuesta){
+    @PostMapping (value = "/empresa/{idEmpresa}/agregar/{idEncuesta}")
+    public ResponseEntity< Void > crearEncuesta(@PathVariable (value = "idEmpresa") int idEmpresa, 
+                                                @RequestParam (value = "nombre") String nombre,
+                                                @PathVariable (value = "idEmpresa") int idEncuesta){
         // Primero, deberiamos comprobar si ya existe la encuesta
-        Optional<Encuesta> encuestaOptional = encuestaService.findByName(encuesta.getNombre());
+        Optional<Encuesta> encuestaOptional = encuestaService.findByName( nombre );
         if(encuestaOptional.isPresent()){
             return new ResponseEntity<>(HttpStatus.IM_USED);
         }
         // Si no, intentamos crearla
-        boolean creada = encuestaService.crearEncuesta(encuesta);
+        boolean creada = encuestaService.crearEncuesta(idEncuesta, nombre, idEmpresa);
         if(creada){
             return new ResponseEntity<>(HttpStatus.CREATED);
         }
 
         return new ResponseEntity<>(HttpStatus.CONFLICT);
-    }
-
-    /**
-     * Crea una encuesta basado en un id de empresa creadora y nombre de encuesta, a la URI proyecto_ubb/empresa/{idEmpresa}/encuestas/agregar?nombre=
-     * @param idEmpresa el id de la empresa
-     * @param nombre el nombre de la nueva encuesta
-     * @return ResponseEntity de la encuesta, o un codigo de error
-     */
-    @PostMapping (value = "/empresa/{idEmpresa}/agregar")
-    public ResponseEntity<Encuesta> crearEncuesta(@PathVariable (value = "idEmpresa") int idEmpresa, @RequestParam String nombre){
-        // Primero, deberiamos comprobar si ya existe la encuesta
-        Optional<Encuesta> encuesta = encuestaService.findByName(nombre);
-        if(encuesta.isPresent()){
-            return new ResponseEntity<>(HttpStatus.IM_USED);
-        }
-        // Si no, intentamos crearla
-        boolean creada = encuestaService.crearEncuesta(idEmpresa, nombre);
-        if(creada){
-            return new ResponseEntity<Encuesta>(HttpStatus.CREATED);
-        }
-
-        return new ResponseEntity<Encuesta>(HttpStatus.CONFLICT);
     }
 
      /**
