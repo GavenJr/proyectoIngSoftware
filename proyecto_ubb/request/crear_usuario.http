@@ -1,0 +1,8 @@
+POST http://localhost:8081/proyecto_ubb/usuario HTTP/1.1
+Content-Type: application/json
+
+{
+    "nombre": "Juan",
+    "apellido": "Perez",
+    "email": "juan@gmail.com"
+} 
