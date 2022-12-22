@@ -130,7 +130,7 @@ public class EncuestaRestController {
     @param idEncuesta El id de la encuesta
     */
     @PatchMapping (value = "/cambiarVisibilidad/{idEncuesta}")
-    public ResponseEntity<Void> changeVisibilidad (@PathVariable int idEncuesta)throws JsonMappingException{
+    public ResponseEntity<Void> changeVisibilidad (@PathVariable (value = "idEncuesta") int idEncuesta)throws JsonMappingException{
         boolean actualizado = encuestaService.updateVisibilidad(idEncuesta);
           if(actualizado){
             return new ResponseEntity<>(HttpStatus.OK);
@@ -170,7 +170,7 @@ public class EncuestaRestController {
         }
     }
     
-    @PatchMapping(value = "cambiarDescripcion/{idEncuesta}")
+    @PostMapping(value = "/cambiarDescripcion/{idEncuesta}")
     public ResponseEntity<Void> cambiarDescripcion (@PathVariable (value = "idEncuesta")int idEncuesta, @RequestBody String newDesc){
         
         boolean actualizado = encuestaService.updateDescripcion(idEncuesta,newDesc);
@@ -181,7 +181,7 @@ public class EncuestaRestController {
         }
     }
 
-    @GetMapping (value = "obtenerDescripcion/{idEncuesta}")
+    @GetMapping (value = "/obtenerDescripcion/{idEncuesta}")
     public String getDescripcion (@PathVariable int idEncuesta){
 
         String descripcion = encuestaService.getDescripcion(idEncuesta);

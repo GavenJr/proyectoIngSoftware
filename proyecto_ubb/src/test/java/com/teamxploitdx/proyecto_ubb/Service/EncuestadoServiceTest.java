@@ -114,13 +114,14 @@ public class EncuestadoServiceTest {
         Optional<Encuestado> encuestadoOptional = Optional.of(encuestado);
         Categoria categoria = getCategoria().get(0);
         Optional<Categoria> categoriaOptional = Optional.of(categoria);
+		
         when(encuestadoRepository.findById(encuestado.getId())).thenReturn(encuestadoOptional);
         when(categoriaRepository.findById(categoria.getId())).thenReturn(categoriaOptional);
         
         
         // Act
-        boolean resultado = encuestadoService.deletePreferenciaById(encuestado.getId(),
-        		categoria.getId());
+        boolean resultado = encuestadoService.deletePreferenciaById(categoria.getId(),
+        		encuestado.getId());
 
         // Assert
         assertTrue(resultado);

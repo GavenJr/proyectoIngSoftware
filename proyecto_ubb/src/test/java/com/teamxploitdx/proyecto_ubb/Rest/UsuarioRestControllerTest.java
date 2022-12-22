@@ -34,6 +34,7 @@ public class UsuarioRestControllerTest {
     private EncuestaService encuestaService;
     @Mock
     private EmpresaRepository empresaRepository;
+
     @InjectMocks
     private UsuarioRestController UsuarioRestController;
 
@@ -48,40 +49,41 @@ public class UsuarioRestControllerTest {
         mockMvc = MockMvcBuilders.standaloneSetup(UsuarioRestController).build();
     }
 
-    // @Test
-    // public void siInvocoAddEmpresaYUsuarioYEmpresaExistenEntoncesRetornaStatusOk () throws Exception{
-    //     //Arrange
-    //     Empresa empresa = getEmpresa();
-    //     Usuario usuario = getUsuario();
-    //     given(usuarioService.AddEmpresa(usuario.getId(),empresa.getId())).willReturn(true);
+    @Test
+    public void siInvocoAddEmpresaYUsuarioYEmpresaExistenEntoncesRetornaStatusOk () throws Exception{
+        //Arrange
+        Empresa empresa = getEmpresa();
+        Usuario usuario = getUsuario();
+        given(usuarioService.AddEmpresa(usuario.getId(),empresa.getId())).willReturn(true);
        
-    //     //Act
-    //     MockHttpServletResponse response = mockMvc
-    //         .perform(MockMvcRequestBuilders.post("/addEmpresa/"+empresa.getId()+"/empresa/"+usuario.getId())
-    //         .accept(MediaType.APPLICATION_JSON)
-    //         .content(jsonUsuario.write(usuario).getJson())
-    //         .contentType(MediaType.APPLICATION_JSON)).andReturn().getResponse();
+        //Act
+        MockHttpServletResponse response = mockMvc
+            .perform(MockMvcRequestBuilders.post("/usuarios/addEmpresa/"+usuario.getId()+"/empresa/"+empresa.getId())
+            .accept(MediaType.APPLICATION_JSON)
+            .content(jsonUsuario.write(usuario).getJson())
+            .contentType(MediaType.APPLICATION_JSON)).andReturn().getResponse();
 
-    //     // Assert
-    //     assertEquals(HttpStatus.OK.value(),response.getStatus());
-    // }
-    // @Test
-    // public void siInvocoAddEmpresaYNoExisteEmpresaOUsuarioEntoncesRetornaStatusBadRequest () throws Exception{
-    //     //Arrange
-    //     Empresa empresa = getEmpresa();
-    //     Usuario usuario = getUsuario();
-    //     given(usuarioService.AddEmpresa(usuario.getId(),empresa.getId())).willReturn(false);
+        // Assert
+        assertEquals(HttpStatus.OK.value(),response.getStatus());
+    }
+    @Test
+    public void siInvocoAddEmpresaYNoExisteEmpresaOUsuarioEntoncesRetornaStatusBadRequest () throws Exception{
+        //Arrange
+        Empresa empresa = getEmpresa();
+        Usuario usuario = getUsuario();
+
+        given(usuarioService.AddEmpresa(usuario.getId(),empresa.getId())).willReturn(false);
        
-    //     //Act
-    //     MockHttpServletResponse response = mockMvc
-    //         .perform(MockMvcRequestBuilders.post("/addEmpresa/"+empresa.getId()+"/empresa/"+usuario.getId())
-    //         .accept(MediaType.APPLICATION_JSON)
-    //         .content(jsonUsuario.write(usuario).getJson())
-    //         .contentType(MediaType.APPLICATION_JSON)).andReturn().getResponse();
+        //Act
+        MockHttpServletResponse response = mockMvc
+            .perform(MockMvcRequestBuilders.post("/usuarios/addEmpresa/"+usuario.getId()+"/empresa/"+empresa.getId())
+            .accept(MediaType.APPLICATION_JSON)
+            .content(jsonUsuario.write(usuario).getJson())
+            .contentType(MediaType.APPLICATION_JSON)).andReturn().getResponse();
 
-    //     // Assert
-    //     assertEquals(HttpStatus.BAD_REQUEST.value(),response.getStatus());
-    // }
+        // Assert
+        assertEquals(HttpStatus.BAD_REQUEST.value(),response.getStatus());
+    }
 
 
     private Empresa getEmpresa(){

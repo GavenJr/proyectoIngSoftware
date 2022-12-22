@@ -48,7 +48,7 @@ public class EncuestaRestControllerTest {
     //     given(encuestaService.updateVisibilidad(encuesta.getId())).willReturn(true);     
     //     //Act
     //     MockHttpServletResponse response = mockMvc
-    //         .perform(MockMvcRequestBuilders.patch("/cambiarVisibilidad/"+encuesta.getId())
+    //         .perform(MockMvcRequestBuilders.patch("/encuestas/cambiarVisibilidad/"+encuesta.getId())
     //         .accept(MediaType.APPLICATION_JSON)
     //         .content(jEncuesta.write(encuesta).getJson())
     //         .contentType(MediaType.APPLICATION_JSON)).andReturn().getResponse();
@@ -56,6 +56,7 @@ public class EncuestaRestControllerTest {
     //     // Assert
     //     assertEquals(HttpStatus.OK.value(),response.getStatus());
     // }
+
     // @Test
     // public void siInvocoCambiarVisibilidadEntoncesNoCambiaVisibilidadYRetornaBadRequest () throws Exception{
     //     //Arrange
@@ -63,7 +64,7 @@ public class EncuestaRestControllerTest {
     //     given(encuestaService.updateVisibilidad(encuesta.getId())).willReturn(false);     
     //     //Act
     //     MockHttpServletResponse response = mockMvc
-    //         .perform(MockMvcRequestBuilders.patch("/cambiarVisibilidad/"+encuesta.getId())
+    //         .perform(MockMvcRequestBuilders.patch("/encuestas/cambiarVisibilidad/"+encuesta.getId())
     //         .accept(MediaType.APPLICATION_JSON)
     //         .content(jEncuesta.write(encuesta).getJson())
     //         .contentType(MediaType.APPLICATION_JSON)).andReturn().getResponse();
@@ -78,11 +79,10 @@ public class EncuestaRestControllerTest {
     //     given(encuestaService.updateDescripcion(encuesta.getId(), encuesta.getDescripcion())).willReturn(true);     
     //     //Act
     //     MockHttpServletResponse response = mockMvc
-    //         .perform(MockMvcRequestBuilders.patch("cambiarDescripcion/"+encuesta.getId())
+    //         .perform(MockMvcRequestBuilders.post("/encuestas/cambiarDescripcion/"+encuesta.getId())
     //         .accept(MediaType.APPLICATION_JSON)
     //         .content(jEncuesta.write(encuesta).getJson())
     //         .contentType(MediaType.APPLICATION_JSON)).andReturn().getResponse();
-
     //     // Assert
     //     assertEquals(HttpStatus.OK.value(),response.getStatus());
     // }
