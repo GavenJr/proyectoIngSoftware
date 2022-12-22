@@ -86,10 +86,10 @@ public class EncuestadoService {
 	public boolean deletePreferenciaById(int idCat, int encId) {
 		Optional<Categoria> cat = categoriaRepository.findById(idCat);
 		Optional<Encuestado> enc = encuestadoRepository.findById(encId);
-		List<Categoria> preferencias = enc.get().getPreferencias();
 		
 		if(enc.isPresent()) {													//evalua si existe el encuestado
-			if(cat.isPresent()) {												//evalua si existe la categoria
+			if(cat.isPresent()) {                                                                           //evalua si existe la categoria
+				List<Categoria> preferencias = enc.get().getPreferencias();
 				if(!preferencias.contains(cat.get())) {							//evalua si no existe la categoria dentro de las preferencias
 					return false;												//si no existe, no hace anda
 				}else {
