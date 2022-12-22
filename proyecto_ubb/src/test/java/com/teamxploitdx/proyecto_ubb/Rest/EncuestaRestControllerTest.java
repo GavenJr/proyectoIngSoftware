@@ -41,6 +41,8 @@ public class EncuestaRestControllerTest {
         mockMvc = MockMvcBuilders.standaloneSetup(encuestaRestController).build();
     }
     
+    //public void testHu_25_siBusco
+
     // @Test
     // public void siInvocoCambiarVisibilidadEntoncesCambiaVisibilidadYRetornaOk () throws Exception{
     //     //Arrange
