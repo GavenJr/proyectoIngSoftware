@@ -4,6 +4,7 @@ import java.util.Optional;
 import java.util.List;
 import org.springframework.stereotype.Service;
 
+import com.teamxploitdx.proyecto_ubb.Model.Rol;
 import com.teamxploitdx.proyecto_ubb.Model.Usuario;
 import com.teamxploitdx.proyecto_ubb.Repository.UsuarioRepository;
 import com.teamxploitdx.proyecto_ubb.Repository.RolRepository;
@@ -42,5 +43,19 @@ public class UsuarioService {
 
     public List<Usuario> findAllUsuarios(){
     	return UsuarioRepository.findAll();
+    }
+
+    //funcion para asignar un rol a un usuario
+    public boolean asignarRol(int idUsuario, int idRol) {
+    	Optional<Usuario> usuarioOptional = UsuarioRepository.findUsuarioById(idUsuario);
+    	Optional<Rol> rolOptional = RolRepository.findRolById(idRol);
+    	if(usuarioOptional.isPresent() && rolOptional.isPresent()) {
+    		Usuario usuario = usuarioOptional.get();
+    		Rol rol = rolOptional.get();
+    		usuario.setRol(rol);
+    		UsuarioRepository.save(usuario);
+    		return true;
+    	}
+    	return false;
     }
 }
