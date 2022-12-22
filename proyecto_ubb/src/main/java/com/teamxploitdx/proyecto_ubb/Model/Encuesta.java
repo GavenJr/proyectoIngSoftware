@@ -24,7 +24,7 @@ import com.fasterxml.jackson.annotation.JsonManagedReference;
 @Table (name = "encuesta")									// indicamos el nombre del initDB.sql
 public class Encuesta {
 	@Id														// El atributo deabajo es la clave primaria 
-	@GeneratedValue(strategy = GenerationType.IDENTITY)		// Indicamos que es un valor generado
+	//@GeneratedValue(strategy = GenerationType.IDENTITY)		// Indicamos que es un valor generado
 	private int id;
 	private String nombre;
 	private String descripcion;

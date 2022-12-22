@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -37,6 +38,7 @@ public class EncuestaRestController {
 
     /**
     Retorna todas las encuestas a la uri "/proyecto_ubb/encuestas"
+    * @return 404 si no se encuentra nada, 202 si se encontraron
     */    
     @GetMapping(value = "")
     public ResponseEntity< List<Encuesta> > getAllEncuestas(){
@@ -52,7 +54,8 @@ public class EncuestaRestController {
 
     /**
     Retorna las encuestas de una empresa (por nombre) a la URI "proyecto_ubb/encuestas/empresa?nombre=
-    @param nombre El nombre de la empresa
+    * @param nombre El nombre de la empresa
+    * @return 404 si no se encuentra nada, 202 si se encontro algo
     */
     @GetMapping(value = "/empresa")       //RequestParam extrae el parametro name de la query
     public ResponseEntity< List<Encuesta> > getEncuestasByEmpresa(@RequestParam String nombre){
@@ -62,13 +65,14 @@ public class EncuestaRestController {
         if( !encuestaList.isEmpty() ){
             return new ResponseEntity<List<Encuesta>>(encuestaList, HttpStatus.FOUND);
         }else{
-            return new ResponseEntity<List<Encuesta>>(encuestaList, HttpStatus.NOT_FOUND);
+            return new ResponseEntity<List<Encuesta>>(HttpStatus.NOT_FOUND);
         }
 
     }
 
     /**
     * Retorna la encuesta basado en su nombre a la uri "/proyecto_ubb/encuestas/encuesta?nombre="
+    * @return 404 si no se encuentra, 302 si se encuentra
     */    
     @GetMapping(value = "/encuesta")
     public ResponseEntity< Encuesta > getEncuestaByNombre(@RequestParam String nombre){
@@ -104,6 +108,42 @@ public class EncuestaRestController {
         }
 
         return new ResponseEntity<>(HttpStatus.CONFLICT);
+    }
+
+    /**
+     * Borra una encuesta basada en su id en la uri proyecto_ubb/encuestas/delete/{idEncuesta}
+     * @param idEncuesta el id de la encuesta
+     * @return 200 si se elimino, 409 si hubo un problema en la operacion, 404 si no se encontro
+     */
+    @DeleteMapping (value = "/delete/{idEncuesta}")
+    public ResponseEntity< Void > deleteEncuesta(@PathVariable (value = "idEncuesta") int idEncuesta){
+        Optional<Encuesta> encuestaOptional = encuestaService.findEncuestaById(idEncuesta);
+        if(encuestaOptional.isPresent()){
+            if( encuestaService.deleteEncuesta(idEncuesta) ){
+                return new ResponseEntity<>(HttpStatus.OK);
+            }
+            return new ResponseEntity<>(HttpStatus.CONFLICT);
+        }
+        System.out.println("No se ha encontrado ninguna encuesta con el id: "+idEncuesta);
+        return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+    }
+
+        /**
+     * Borra una encuesta basada en su id en la uri proyecto_ubb/encuestas/delete?nombre=
+     * @param nombre el nombre de la encuesta
+     * @return 200 si se elimino, 409 si hubo un problema en la operacion, 404 si no se encontro
+     */
+    @DeleteMapping (value = "/delete")
+    public ResponseEntity< Void > deleteEncuesta(@RequestParam (value = "nombre") String nombre){
+        Optional<Encuesta> encuestaOptional = encuestaService.findEncuestaByNombre(nombre);
+        if(encuestaOptional.isPresent()){
+            if( encuestaService.deleteEncuesta(nombre) ){
+                return new ResponseEntity<>(HttpStatus.OK);
+            }
+            return new ResponseEntity<>(HttpStatus.CONFLICT);
+        }
+        System.out.println("No se ha encontrado ninguna encuesta con el id: "+nombre);
+        return new ResponseEntity<>(HttpStatus.NOT_FOUND);
     }
 
      /**
@@ -151,6 +191,12 @@ public class EncuestaRestController {
         }
     }
     
+    /**
+     * Cambia la descripcion de una encuesta a la URI: 
+     * @param idEncuesta el id de la encuesta a  modificar
+     * @param newDesc la descripcion de la nueva encuesta
+     * @return 404 si no se encontro la encuesta, 200 si todo resulto ok
+     */
     @PatchMapping(value = "cambiarDescripcion/{idEncuesta}")
     public ResponseEntity<Void> cambiarDescripcion (@PathVariable (value = "idEncuesta")int idEncuesta, @RequestBody String newDesc){
         
@@ -162,6 +208,11 @@ public class EncuestaRestController {
         }
     }
 
+    /**
+     * Obtiene la descripcion de una encuesta
+     * @param idEncuesta el id de la encuesta a recuperar la descripcion
+     * @return la descripcion de la encuesta
+     */
     @GetMapping (value = "obtenerDescripcion/{idEncuesta}")
     public String getDescripcion (@PathVariable int idEncuesta){
 
