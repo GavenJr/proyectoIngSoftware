@@ -135,7 +135,7 @@ public class EncuestaRestController {
           if(actualizado){
             return new ResponseEntity<>(HttpStatus.OK);
         }else{
-            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
         }
     }
 
@@ -168,5 +168,24 @@ public class EncuestaRestController {
         }else{
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
+    }
+    
+    @PatchMapping(value = "cambiarDescripcion/{idEncuesta}")
+    public ResponseEntity<Void> cambiarDescripcion (@PathVariable (value = "idEncuesta")int idEncuesta, @RequestBody String newDesc){
+        
+        boolean actualizado = encuestaService.updateDescripcion(idEncuesta,newDesc);
+        if(actualizado){
+            return new ResponseEntity<>(HttpStatus.OK);
+        }else{
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
+    }
+
+    @GetMapping (value = "obtenerDescripcion/{idEncuesta}")
+    public String getDescripcion (@PathVariable int idEncuesta){
+
+        String descripcion = encuestaService.getDescripcion(idEncuesta);
+        return descripcion;
+
     }
 }

@@ -150,4 +150,30 @@ public class EncuestaService {
             }
     }
 
+    /**
+    Actualiza la descripcion de la encuesta
+    @param id El id de la encuesta
+    @param newDescripcion  Nueva descripcion para encuesta
+    */
+    public boolean updateDescripcion (int id, String newDescripcion){
+        Optional<Encuesta> encuestaOptional = encuestaRepository.findById(id);
+        Encuesta encuesta = encuestaOptional.get();
+        if (encuestaOptional.isPresent()){
+            encuesta.setDescripcion(newDescripcion);;
+            encuestaRepository.save(encuesta);
+                return true;
+            }else{
+                return false;
+            }
+    }
+    /**
+    obtiene la descripcion de la encuesta
+    @param id El id de la encuesta
+    */
+    public String getDescripcion(int id){
+        Optional<Encuesta> encuestaOptional = encuestaRepository.findById(id);
+        Encuesta encuesta = encuestaOptional.get();
+        return encuesta.getDescripcion();
+    }
+
 }
