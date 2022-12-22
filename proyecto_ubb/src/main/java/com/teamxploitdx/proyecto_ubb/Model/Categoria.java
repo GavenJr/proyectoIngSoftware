@@ -40,7 +40,7 @@ public class Categoria {
     }
 
     @JsonIgnore
-    public void setEmpleados(List<Encuestado> encuestados) {
+    public void setEncuestado(List<Encuestado> encuestados) {
         this.encuestados = encuestados;
     }
 
