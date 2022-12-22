@@ -66,14 +66,14 @@ CREATE TABLE `encuesta` (
   `max_respuestas` int(11) NOT NULL,
   `visible` tinyint(1) NOT NULL,
   `id_empresa` int(11) NOT NULL,
-  `id_categoría` int(11) NOT NULL
+  `id_categoria` int(11) NOT NULL
 );
 
 --
 -- Volcado de datos para la tabla `encuesta`
 --
 
-INSERT INTO `encuesta` (`id`, `nombre`, `descripcion`, `fecha_inicio`, `fecha_termino`, `min_respuestas`, `max_respuestas`, `visible`, `id_empresa`, `id_categoría`) VALUES
+INSERT INTO `encuesta` (`id`, `nombre`, `descripcion`, `fecha_inicio`, `fecha_termino`, `min_respuestas`, `max_respuestas`, `visible`, `id_empresa`, `id_categoria`) VALUES
 (1, 'Teclado New Exp', 'Soy una descripción de encuesta genérica', '2022-10-01', '2022-10-11', 29, 38, 0, 1, 2),
 (2, 'Monitor New World', 'Soy una descripción de encuesta genérica', '2022-10-11', '2022-10-21', 21, 42, 0, 1, 2),
 (3, 'Zapateros modernos', 'Soy una descripción de encuesta genérica', '2022-10-21', '2022-11-01', 21, 39, 0, 1, 3),
@@ -240,8 +240,8 @@ ALTER TABLE `empresa`
 --
 ALTER TABLE `encuesta`
   ADD PRIMARY KEY (`id`),
-  ADD KEY `id_empresa` (`id_empresa`,`id_categoría`),
-  ADD KEY `id_categoría` (`id_categoría`);
+  ADD KEY `id_empresa` (`id_empresa`,`id_categoria`),
+  ADD KEY `id_categoria` (`id_categoria`);
 
 --
 -- Indices de la tabla `encuestado`
@@ -359,7 +359,7 @@ ALTER TABLE `alternativa`
 --
 ALTER TABLE `encuesta`
   ADD CONSTRAINT `encuesta_ibfk_1` FOREIGN KEY (`id_empresa`) REFERENCES `empresa` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `encuesta_ibfk_2` FOREIGN KEY (`id_categoría`) REFERENCES `categoria` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `encuesta_ibfk_2` FOREIGN KEY (`id_categoria`) REFERENCES `categoria` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Filtros para la tabla `preferencias`

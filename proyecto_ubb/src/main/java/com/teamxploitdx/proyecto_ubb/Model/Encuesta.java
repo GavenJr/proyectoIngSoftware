@@ -1,7 +1,9 @@
 package com.teamxploitdx.proyecto_ubb.Model;
 // imports de Java
 import java.sql.Date;
+import java.util.List;
 
+import javax.persistence.Column;
 // imports de dependencias
 import javax.persistence.Entity;							// Si no pueden importar de javax,
 import javax.persistence.GeneratedValue;					// les faltan dependencias en el POM
@@ -9,16 +11,23 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
+import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
+
+import org.hibernate.annotations.GenericGenerator;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 @Entity														// Indicamos que es una entidad
 @Table (name = "encuesta")									// indicamos el nombre del initDB.sql
 public class Encuesta {
 	@Id														// El atributo deabajo es la clave primaria 
-	@GeneratedValue(strategy = GenerationType.IDENTITY)		// Indicamos que es un valor generado
+	//@GeneratedValue(strategy = GenerationType.IDENTITY)		// Indicamos que es un valor generado
 	private int id;
 	private String nombre;
-	private String descripcion ;
+	private String descripcion;
 	private Date fecha_inicio;
 	private Date fecha_termino;
 	private boolean visible;
@@ -30,8 +39,14 @@ public class Encuesta {
 	private Empresa empresa;			// Referencia al objeto 1
    
 	@ManyToOne							// Cardinalidad de la relacion n:1
-	@JoinColumn(name = "id_categoría", referencedColumnName="ID")	// Atributo que hace la relacion
+	@JoinColumn(name = "id_categoria", referencedColumnName="ID")	// Atributo que hace la relacion
 	private Categoria categoria;			// Referencia al objeto 1
+
+	// @OneToMany(mappedBy = "encuesta")	// Referencia a la variable en Borrador
+	// //@JsonManagedReference
+	// @JsonIgnore
+	// @Column(nullable = true)
+    // private List<Borrador> borradores;
 
 	/* - - - - - - - - - - - - - - -
 	 * 	Constructores
@@ -39,17 +54,18 @@ public class Encuesta {
 
 	public Encuesta(){}
 
-	public Encuesta(int id, String nombre, String descripcion, Date fecha_inicio, Date fecha_termino, boolean visible, int min_respuestas, int max_respuestas, Empresa empresa, Categoria categoria) {
+	// El id no se da, pues es AUTOGENERADO
+	public Encuesta(String nombre, Empresa empresa){
+		this.nombre = nombre;
+		this.empresa = empresa;
+		this.visible = false;
+	}
+
+	public Encuesta(int id, String nombre, Empresa empresa){
 		this.id = id;
 		this.nombre = nombre;
-		this.descripcion = descripcion;
-		this.fecha_inicio = fecha_inicio;
-		this.fecha_termino = fecha_termino;
-		this.visible = visible;
-		this.min_respuestas = min_respuestas;
-		this.max_respuestas = max_respuestas;
 		this.empresa = empresa;
-		//this.categoria = categoria;
+		this.visible = false;
 	}
 
 	public int getId() {
@@ -96,6 +112,10 @@ public class Encuesta {
 		return this.visible;
 	}
 
+	public boolean getVisible() {
+		return this.visible;
+	}
+
 	public void setVisible(boolean visible) {
 		this.visible = visible;
 	}
@@ -114,7 +134,6 @@ public class Encuesta {
 
 	public void setMax_respuestas(int max_respuestas) {
 		this.max_respuestas = max_respuestas;
-
 	}
 
 	public Empresa getEmpresa() {
@@ -124,13 +143,22 @@ public class Encuesta {
 	public void setEmpresa(Empresa empresa) {
 		this.empresa = empresa;
 	}
-/*
+
 	public Categoria getCategoria() {
 		return this.categoria;
 	}
+
 	public void setCategoria(Categoria categoria) {
 		this.categoria = categoria;
 	}
-*/
+
+	// public List<Borrador> getBorradores() {
+	// 	return this.borradores;
+	// }
+
+	// public void setBorradores(List<Borrador> borradores) {
+	// 	this.borradores = borradores;
+	// }
+
 	    
 }
