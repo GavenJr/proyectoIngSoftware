@@ -2,6 +2,7 @@ package com.teamxploitdx.proyecto_ubb.Service;
 
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.mockito.Mockito.doReturn;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
@@ -114,14 +115,17 @@ public class EncuestadoServiceTest {
         Optional<Encuestado> encuestadoOptional = Optional.of(encuestado);
         Categoria categoria = getCategoria().get(0);
         Optional<Categoria> categoriaOptional = Optional.of(categoria);
+
 		
         when(encuestadoRepository.findById(encuestado.getId())).thenReturn(encuestadoOptional);
+
         when(categoriaRepository.findById(categoria.getId())).thenReturn(categoriaOptional);
-        
+        when(encuestadoRepository.findById(encuestado.getId())).thenReturn(encuestadoOptional);
         
         // Act
         boolean resultado = encuestadoService.deletePreferenciaById(categoria.getId(),
         		encuestado.getId());
+
 
         // Assert
         assertTrue(resultado);
@@ -132,12 +136,17 @@ public class EncuestadoServiceTest {
 	@Test
     public void siInvocoDeletePreferenciaByIdYNoExisteEncuestadoRetornarFalse(){
 		// Arrange
-		Encuestado encuestado = new Encuestado();
+		// Arrange
+		Encuestado encuestado = getEncuestado();
+		Optional<Encuestado> encuestadoOptional = Optional.of(encuestado);
 		Categoria categoria = getAdd();
-		
+		Optional<Categoria> categoriaOptional = Optional.of(categoria);
+		when(categoriaRepository.findById(categoria.getId())).thenReturn(categoriaOptional);
+		when(encuestadoRepository.findById(encuestado.getId())).thenReturn(encuestadoOptional);
+
 		// Act
-		boolean resultado = encuestadoService.deletePreferenciaById(encuestado.getId(), 
-				categoria.getId());
+		boolean resultado = encuestadoService.deletePreferenciaById(categoria.getId(), 
+				encuestado.getId());
 		
 		// Assert
 		assertFalse(resultado);

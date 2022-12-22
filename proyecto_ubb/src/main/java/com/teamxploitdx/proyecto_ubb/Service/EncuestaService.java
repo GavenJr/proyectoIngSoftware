@@ -51,6 +51,22 @@ public class EncuestaService {
     }
 
     /**
+    Encuentra las encuestas segun el nombre de una empresa
+    @param id El id de la empresa
+    */
+    public Optional<Encuesta> findEncuestaById(int id){
+        return encuestaRepository.findById(id);
+    }
+
+    /**
+    Encuentra las encuestas segun el nombre de una empresa
+    @param id El id de la empresa
+    */
+    public Optional<Encuesta> findEncuestaByNombre(String nombre){
+        return encuestaRepository.findByNombre(nombre);
+    }
+
+    /**
      * Intenta crear una encuesta, sincronizandola al repositorio
      * @param encuesta la encuesta proporcionada por el Json body
      * @return si la encuesta se creo o no
@@ -65,12 +81,12 @@ public class EncuestaService {
     }
 
     /**
-     * Intenta crear una encuesta, sincronizandola al repositorio
+     * Crea una encuesta asumiendo que el id de encuesta es autogenerado
      * @param idEmpresa el id de la empresa propietaria
      * @param nombre el nombre de la nueva encuesta
      * @return si la encuesta se creo o no
      */
-    public boolean crearEncuesta(int idEmpresa, String nombre){
+    public boolean crearEncuesta(String nombre, int idEmpresa){
         Encuesta encuesta = new Encuesta(nombre, empresaRepository.findById(idEmpresa).get());
         
         if(encuesta != null || encuesta.getEmpresa() != null)
@@ -79,13 +95,47 @@ public class EncuestaService {
         Optional<Encuesta> encuestaOptional = encuestaRepository.findByNombre(nombre);
         return encuestaOptional.isPresent();
     }
+
+        /**
+     * Crea una encuesta asumiendo que el id de encuesta NO es autogenerado
+     * @param idEmpresa el id de la empresa propietaria
+     * @param nombre el nombre de la nueva encuesta
+     * @return si la encuesta se creo o no
+     */
+    public boolean crearEncuesta(int idEncuesta, String nombre, int idEmpresa){
+        Encuesta encuesta = new Encuesta(idEncuesta, nombre, empresaRepository.findById(idEmpresa).get());
+        
+        if(encuesta != null || encuesta.getEmpresa() != null)
+            encuestaRepository.saveAndFlush( encuesta );
+
+        Optional<Encuesta> encuestaOptional = encuestaRepository.findByNombre(nombre);
+        return encuestaOptional.isPresent();
+    }
+
+    /**
+     * Borra una encuesta basado en su id
+     * @param idEncuesta el id de la encuesta
+     * @return true si se elimino, false si no
+     */
+    public boolean deleteEncuesta(int idEncuesta){
+        encuestaRepository.delete( encuestaRepository.findById(idEncuesta).get() );
+        if( encuestaRepository.findById(idEncuesta).isPresent() ){
+            return false;
+        }
+        return true;
+    }
     
-     /**
-    Encuentra las encuestas segun el nombre de una empresa
-    @param id El id de la empresa
-    */
-    public Optional<Encuesta> findEncuestaById(int id){
-        return encuestaRepository.findById(id);
+    /**
+     * Borra una encuesta basado en su nombre
+     * @param nombre el nombre de la encuesta
+     * @return true si se elimino, false si no
+     */
+    public boolean deleteEncuesta(String nombre){
+        encuestaRepository.delete( encuestaRepository.findByNombre(nombre).get() );
+        if( encuestaRepository.findByNombre(nombre).isPresent() ){
+            return false;
+        }
+        return true;
     }
 
    /**
