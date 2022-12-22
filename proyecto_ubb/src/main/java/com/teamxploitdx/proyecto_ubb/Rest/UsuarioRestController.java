@@ -43,4 +43,16 @@ public class UsuarioRestController {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
     }
+
+    //asignar rol a usuario 
+    @PostMapping(value = "/asignarRol") 
+    public ResponseEntity<Void> asignarRol(int idUsuario, int idRol) {
+        boolean asignado = usuarioService.asignarRol(idUsuario, idRol);
+        if (asignado) {
+            return new ResponseEntity<>(HttpStatus.OK);
+        } else {
+            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+        }
+    }
+
 }
