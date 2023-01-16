@@ -1,5 +1,5 @@
 *https://docs.github.com/en/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax*
-PD: JAJAJA, ya nunca sabran lo que decia aqui >:)
+Documentacion pal Readme.md
 <!-- Los comentarios se hacen usando sintaxis HTML -->
 <!-- -->
 <!--
@@ -24,7 +24,6 @@ artifact id: proyecto_ubb
     <img width="10%" src="https://static.javatpoint.com/tutorial/mockito/images/mockito.png">
 </p>
 
-## Sobre el proyecto:
 Se recomienda clonarlo en su IDE de preferencia (Ej: VS Code).
 
 Java JDK 11 | Maven | Spring Boot 2.7.X | Arquitectura MVC.
@@ -33,6 +32,11 @@ Dependencias: Spring Boot DevTools | Spring Web | MySQL Driver | Spring data JPA
 
 MySQL Community 8.0.31 | Disenada con MySQL Workbench | Modelo ER hecho en yED Graph Editor
 - - -
+
+## Sobre el proyecto:
+El proyecto consiste en un sistema de encuestas web, dedicado a la recopilacion de opinion de usuarios, la cual resulta de gran utilidad para ciertas empresas que esten partiendo en algun sector, requieran mejorar sus servicios y casos similares.
+
+Estos datos se entregaran eventualmente en un formato similar al observable en los mockups. Dentro de estos, se ofrecen resumenes de preferejcias, que rangos de edades votaron y en que margen, lo mismo para el genero del encuestado, etc.
 
 <details><summary>COMO USAR/IMPLEMENTAR/CORRER</summary>
 <p>
@@ -59,8 +63,6 @@ MySQL Community 8.0.31 | Disenada con MySQL Workbench | Modelo ER hecho en yED G
 </details>
 
 - - -
-El proyecto consiste en un sistema de encuestas que se dedica a recopilar informacion de usuarios, y se la entrega a las empresas encargadas en algun formato.
-Esta informacion puede incluir preferencias de producto, edad, sexo, localidad, etc.
 
 <!-- This content will not appear in the rendered Markdown -->
 <!-- Los comentarios se hacen usando sintaxis HTML -->
@@ -72,26 +74,17 @@ Esta informacion puede incluir preferencias de producto, edad, sexo, localidad, 
 <!-- > ![Modelo Relacional](https://github.com/GavenJr/proyectoIngSoftware/blob/master/proyecto_ubb/src/main/resources/model/Relational_Schema.png?raw=true) -->
 <!-- <img src="https://github.com/GavenJr/proyectoIngSoftware/blob/master/proyecto_ubb/src/main/resources/model/Relational_Schema.png" width="512x512"> -->
 
-
-
-#### POBLACION DE LA BD
-<details><summary>TABLA Sample Text</summary>
-<p>
-
-| First Header  | Second Header | Third Header  | Forth Header | Fifth Header  | Sixth Header | 
-| ------------- | ------------- | ------------- | ------------- | ------------- | ------------- |
-| Content Cell  | Content Cell  | Content Cell  | Content Cell  | Content Cell  | Content Cell  |
-| Content Cell  | Content Cell  | Content Cell  | Content Cell  | Content Cell  | Content Cell  |
-
-</p>
-</details>
-
 - - -
 
 ### SPRINT 1: Que esperamos lograr
-Implementar los primeros 5 requisitos de sistema.
-Implementar los servicios que conlleven.
-Abarcar escenarios base.
+Modelar inicialmente como sera el sistema para tener un flujo de trabajo correctamente definido.
+Estrcturar el proyecto apropiadamente siguiento la arquitectura MVC.
+Conseguir que la aplicacion interactue con una BD MySQL en disco haciendo uso de Spring Boot.
+Implementar los primeros 5 requisitos de sistema para dar comienzo al desarrollo de esta aplicacion de juguete.
+Implementar los servicios REST que se extraigan de dichas historias de usuario.
+Partir testeando los servicios con Postman.
+Documentar nuestros servicios REST.
+Presentar el progreso al haber transcurrido 1 mes.
 - - -
 
 ##### HU 03 (2 servicios)
@@ -217,106 +210,115 @@ Abarcar escenarios base.
 - - -
 
 ### SPRINT 2: Que esperamos lograr
-Implementar 5 requisitos de sistema adicionales, y agregar tests a los servicios actualmente implementados, asi como asegurar que el codigo se encuentre documentado y sea mantenible
+Planeamos implementar 5 HU mas junto con sus servicios REST implicados, AUNQUE haciendo foco en esta ocasion, de cubrir por lo menos UNA HU que abarque un requisito de calidad.
+Validar los requisitos para el prototipo del producto haciendo uso de mockups para las interfaces de usuario y encuestado.
+Realizar un diagrama de clases para la capa MODEL de nuestro proyecto.
+Implementar al menos 8 pruebas unitarias de los servicios de este sprint y el anterior, haciendo uso de Mockito + JUnit5.
+Documentar nuestros servicios REST.
+Hacer pruebas de integracion con postman.
+Mostrar resultados al cabo de 1 mes.
 
 - - -
 
-##### HU 01/06 (repetida, 2 servicios)
-<details><summary>VER DETALLES</summary>
-<p>
-    HU_01 y HU_06 (REPETIDA): Cómo *usuario, necesito que la web permita crear encuestas de selección múltiple para realizar mis análisis de forma efectiva.
+<details><summary>Historias de Usuario</summary>
 
-    Escenario 1: Creacion de encuesta
+    ##### HU 01/06 (2 servicios)
+    <details><summary>VER DETALLES</summary>
+    <p>
+        HU_01 y HU_06 (REPETIDA): Cómo *usuario, necesito que la web permita crear encuestas de selección múltiple para realizar mis análisis de forma efectiva.
 
-    En el menu de "Mis encuestas", habra un boton para crear una encuesta vacia y NO visible por defecto, a la que habra que dar un nombre para confirmar que existe.
+        Escenario 1: Creacion de encuesta
 
-    Escenario 2: Usuario no existe
+        En el menu de "Mis encuestas", habra un boton para crear una encuesta vacia y NO visible por defecto, a la que habra que dar un nombre para confirmar que existe.
 
-    Dado que me encuentro en la pantalla principal, cuando selecciono el botón de inicio de sesión entonces el sistema deberá informar si mi usuario esta registrado o no.
+        Escenario 2: Usuario no existe
 
-    Servicios a implementar:
+        Dado que me encuentro en la pantalla principal, cuando selecciono el botón de inicio de sesión entonces el sistema deberá informar si mi usuario esta registrado o no.
 
-    Servicio que agrega una nueva encuesta
+        Servicios a implementar:
 
-    Servicio que devuelve una encuesta basado en su nombre
+        Servicio que agrega una nueva encuesta
 
-    Tablas involucradas:
+        Servicio que devuelve una encuesta basado en su nombre
 
-    Encuesta
+        Tablas involucradas:
 
-</p>
+        Encuesta
+
+    </p>
+    </details>
+
+    ##### HU 05 (1 Servicio)
+    <details><summary>VER DETALLES</summary>
+    <p>
+        HU_05: Como encuestado deseo poder crear una cuenta en la plataforma
+
+        Escenario 1: Creación de usuario
+
+        Dado que me encuentro en la pantalla principal, cuando selecciono el botón de registrar entonces el sistema deberá mostrar un formulario de registro donde pueda ingresar mis datos.
+
+        Escenario 2: Usuario no existe
+
+        Dado que me encuentro en la pantalla principal, cuando selecciono el botón de inicio de sesión entonces el sistema deberá informar si mi usuario esta registrado o no.
+
+        Servicios a implementar:
+
+        Servicio que agrega un nuevo encuestado
+
+        Tablas involucradas:
+
+        Encuestado
+    </p>
+    </details>
+
+    ##### HU 16 (n servicios)
+    <details><summary>VER DETALLES</summary>
+    <p>
+        HU_16: COMO administrador QUIERO que mis encuestas puedan describir su proposito en una descripcion PARA que mis encuestados sepan lo que necesiten para su desarrollo
+    </p>
+    </details>
+
+    ##### HU 17 (2 servicios?)
+    <details><summary>VER DETALLES</summary>
+    <p>
+        COMO usuario QUIERO ser capaz de definir que categorias de encuesta me interesa explorar o recibir PARA aportar en temas que sean de mi interes
+    </p>
+    </details>
+
+    ##### HU 27 (5 Servicios)
+    <details><summary>VER DETALLES</summary>
+    <p>
+        HU_27: "Como encargado de marketing desearía poder eliminar una encuesta aun no publicada para así evitar que una encesta mal formulada salga al publico"
+        
+        Escenario 1: Eliminacion de encuesta antes de su publicacion
+
+        En el menu de "Mis encuestas", habra un boton para eliminar cualquier encuesta que se encuentre sin publicar (fecha inicio nula o mayor a la actual, Y esta oculta). Se deberan eliminar igualmente las preguntas y alternativas asociadas.
+
+        Escenario 2: Eliminacion de encuesta despues de su publicacion
+
+        En el menu de "Mis encuestas", se procedera similar al escenario 1, solo que se dara una advertencia pidiendo al usuario cerrar su encuesta antes de proceder similar al escenario 1.
+        En este caso habran respuestas realizadas, por lo que se debera eliminar estas igualmente, asi como de los borradores que hayan dejado los encuestados por ahi dispersadas.
+
+        Servicios a implementar:
+
+        Servicio que elimina una nueva encuesta
+        Servicio que elimina las preguntas asociadas
+        Servicio que elimina las alternativas asociadas a las preguntas
+        Servicio que elimina las respuestas asociadas (en caso de haber para el escenario 2)
+        Servicio que elimina los borradores de los encuestados (escenario 2)
+
+        Tablas involucradas:
+
+        Encuesta
+        Pregunta
+        Alternativa
+        Borrador
+        Respuesta
+
+    </p>
+    </details>
+
 </details>
-
-##### HU 05 (1 Servicio)
-<details><summary>VER DETALLES</summary>
-<p>
-    HU_05: Como encuestado deseo poder crear una cuenta en la plataforma
-
-    Escenario 1: Creación de usuario
-
-    Dado que me encuentro en la pantalla principal, cuando selecciono el botón de registrar entonces el sistema deberá mostrar un formulario de registro donde pueda ingresar mis datos.
-
-    Escenario 2: Usuario no existe
-
-    Dado que me encuentro en la pantalla principal, cuando selecciono el botón de inicio de sesión entonces el sistema deberá informar si mi usuario esta registrado o no.
-
-    Servicios a implementar:
-
-    Servicio que agrega un nuevo encuestado
-
-    Tablas involucradas:
-
-    Encuestado
-</p>
-</details>
-
-##### HU 16 (n servicios)
-<details><summary>VER DETALLES</summary>
-<p>
-    HU_16: COMO administrador QUIERO que mis encuestas puedan describir su proposito en una descripcion PARA que mis encuestados sepan lo que necesiten para su desarrollo
-</p>
-</details>
-
-##### HU 17 (2 servicios?)
-<details><summary>VER DETALLES</summary>
-<p>
-    COMO usuario QUIERO ser capaz de definir que categorias de encuesta me interesa explorar o recibir PARA aportar en temas que sean de mi interes
-</p>
-</details>
-
-##### HU 27 (5 Servicios)
-<details><summary>VER DETALLES</summary>
-<p>
-    HU_27: "Como encargado de marketing desearía poder eliminar una encuesta aun no publicada para así evitar que una encesta mal formulada salga al publico"
-    
-    Escenario 1: Eliminacion de encuesta antes de su publicacion
-
-    En el menu de "Mis encuestas", habra un boton para eliminar cualquier encuesta que se encuentre sin publicar (fecha inicio nula o mayor a la actual, Y esta oculta). Se deberan eliminar igualmente las preguntas y alternativas asociadas.
-
-    Escenario 2: Eliminacion de encuesta despues de su publicacion
-
-    En el menu de "Mis encuestas", se procedera similar al escenario 1, solo que se dara una advertencia pidiendo al usuario cerrar su encuesta antes de proceder similar al escenario 1.
-    En este caso habran respuestas realizadas, por lo que se debera eliminar estas igualmente, asi como de los borradores que hayan dejado los encuestados por ahi dispersadas.
-
-    Servicios a implementar:
-
-    Servicio que elimina una nueva encuesta
-    Servicio que elimina las preguntas asociadas
-    Servicio que elimina las alternativas asociadas a las preguntas
-    Servicio que elimina las respuestas asociadas (en caso de haber para el escenario 2)
-    Servicio que elimina los borradores de los encuestados (escenario 2)
-
-    Tablas involucradas:
-
-    Encuesta
-    Pregunta
-    Alternativa
-    Borrador
-    Respuesta
-
-</p>
-</details>
-
 - - -
 <!-- Imagenes alineadas unas con las otras con un tamano del 30% -->
 <p align="center" width="100%">
@@ -328,6 +330,14 @@ Implementar 5 requisitos de sistema adicionales, y agregar tests a los servicios
 
 - - -
 ### SPRINT 3: Que esperamos lograr
+Implementar 5 HU mas y sus servicios segun lo requerido, similar a los sprints anteriores.
+Definir o implementar HU que recojen 3 o mas subcaracteristicas de requisitos de calidad (RNF)
+Pulir el diagrama de clases del sprint anterior.
+Implementar diagramas de secuencia para al menos 5 servicios backend.
+Implementar al menos 8 pruebas unitarias para los nuevos servicios.
+Hacer mas pruebas de integracion con Postman.
+Mostrar resultados al cabo de 1 mes.
+
 - - -
 - - -
 
