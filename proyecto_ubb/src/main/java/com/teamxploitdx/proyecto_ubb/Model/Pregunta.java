@@ -31,24 +31,29 @@ public class Pregunta {
 	@JoinColumn(name = "id_encuesta")	// Referencia a la clave foranea SQL
 	Encuesta encuesta;
 	
+
+	/* **************************************
+	// CODIGO QUE ROMPE EL PROYECTO
+	//
 	// // Relaciones implicitas
 	// @OneToMany (mappedBy = "pregunta")	// Referencia a la variable pregunta en alternativa
 	// @JsonIgnore
 	// @Column(nullable = true)
 	// private List<Alternativa> alternativas;
-	
+	//
 	// @OneToMany(mappedBy = "pregunta")	// Referencia a la variable pregunta en respuesta
 	// //@JsonManagedReference
 	// @JsonIgnore
 	// @Column(nullable = true)
     // private List<Respuesta> respuestas;
-
+	//
 	// @OneToMany (mappedBy = "pregunta")
 	// private List<Alternativa> alternativas;
-
+	//
 	// @OneToOne(mappedBy = "pregunta")
     // private Respuesta respuesta;
-
+	//
+	*****************************************/
 
 	public Pregunta() {
 	}

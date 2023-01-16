@@ -66,7 +66,7 @@ CREATE TABLE `encuesta` (
   `min_respuestas` int(11),
   `visible` tinyint(1) NOT NULL,
   `id_empresa` int(11) NOT NULL,
-  `id_categoria` int(11) ,
+  `id_categoria` int(11),
   PRIMARY KEY (id)
 );
 
@@ -340,8 +340,7 @@ ALTER TABLE `empresa`
 -- ADD PRIMARY KEY (`id`),
 ALTER TABLE `encuesta`
   ADD KEY `id_empresa` (`id_empresa`,`id_categoria`),
-  ADD KEY `id_categoria` (`id_categoria`),
-  AUTO_INCREMENT = 6;
+  ADD KEY `id_categoria` (`id_categoria`);
 
 --
 -- Indices de la tabla `encuestado`

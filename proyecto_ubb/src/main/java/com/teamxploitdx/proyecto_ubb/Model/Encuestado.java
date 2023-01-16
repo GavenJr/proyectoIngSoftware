@@ -21,9 +21,13 @@ public class Encuestado {
             inverseJoinColumns = @JoinColumn(name = "id_categoria"))
     private List<Categoria> preferencias;
 	
+
+	/* **************************************
+	// CODIGO QUE ROMPE EL PROYECTO
+	//
 	// @OneToMany (mappedBy = "encuestado")
 	// private List<Borrador> borradores;
-
+	*****************************************/
 
 	public Encuestado() {
 	}

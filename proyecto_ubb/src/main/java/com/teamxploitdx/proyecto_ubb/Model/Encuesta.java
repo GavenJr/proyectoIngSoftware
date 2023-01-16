@@ -42,11 +42,16 @@ public class Encuesta {
 	@JoinColumn(name = "id_categoria", referencedColumnName="ID")	// Atributo que hace la relacion
 	private Categoria categoria;			// Referencia al objeto 1
 
-	// @OneToMany(mappedBy = "encuesta")	// Referencia a la variable en Borrador
+	/* **************************************
+	// CODIGO QUE ROMPE EL PROYECTO
+	//
+	// @OneToMany(mappedBy = "encuesta")
 	// //@JsonManagedReference
 	// @JsonIgnore
 	// @Column(nullable = true)
     // private List<Borrador> borradores;
+	//
+	*****************************************/
 
 	/* - - - - - - - - - - - - - - -
 	 * 	Constructores

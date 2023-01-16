@@ -22,10 +22,14 @@ public class Empresa {
     String email;
     String descripcion;
 
-
+	/* **************************************
+	// CODIGO QUE ROMPE EL PROYECTO
+	//
     // @OneToMany (mappedBy = "empresa",fetch = FetchType.EAGER, cascade = CascadeType.ALL) //empresa hace referencia a el nombre de la variable creada en Usuario
     // @Column(nullable = true)
     // private List<Usuario> usuarios;
+    //
+    *****************************************/
 
     // public List<Usuario> getUsuarios() {
     //     return usuarios;

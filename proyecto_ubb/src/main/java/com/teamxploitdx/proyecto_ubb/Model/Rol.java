@@ -20,9 +20,14 @@ public class Rol {
     private int id;
     private String nombre;
     
+	/* **************************************
+	// CODIGO QUE ROMPE EL PROYECTO
+	//
     // @OneToMany (mappedBy = "rol",fetch = FetchType.EAGER, cascade = CascadeType.ALL)//rol hace referencia a el nombre de la variable creada en Usuario
     // @Column(nullable = true)
     // private List<Usuario> usuarios;
+    //
+    *****************************************/
     
     public int getId() {
         return id;
