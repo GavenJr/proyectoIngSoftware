@@ -87,6 +87,8 @@ Documentar nuestros servicios REST.
 Presentar el progreso al haber transcurrido 1 mes.
 - - -
 
+<details><summary>Historias de Usuario</summary>
+
 ##### HU 03 (2 servicios)
 <details><summary>VER DETALLES</summary>
 <p>
@@ -199,6 +201,8 @@ Presentar el progreso al haber transcurrido 1 mes.
 </p>
 </details>
 
+</details>
+
 <!-- NOTA: el tamano solo parece funcionar en incrementos de 10 -->
 <p align="center" width="100%">
     <img width="10%" src="https://media.tenor.com/yZRsvoJB9QwAAAAj/wowa-pepe.gif">
@@ -211,6 +215,7 @@ Presentar el progreso al haber transcurrido 1 mes.
 
 ### SPRINT 2: Que esperamos lograr
 Planeamos implementar 5 HU mas junto con sus servicios REST implicados, AUNQUE haciendo foco en esta ocasion, de cubrir por lo menos UNA HU que abarque un requisito de calidad.
+
 Validar los requisitos para el prototipo del producto haciendo uso de mockups para las interfaces de usuario y encuestado.
 Realizar un diagrama de clases para la capa MODEL de nuestro proyecto.
 Implementar al menos 8 pruebas unitarias de los servicios de este sprint y el anterior, haciendo uso de Mockito + JUnit5.
@@ -222,103 +227,104 @@ Mostrar resultados al cabo de 1 mes.
 
 <details><summary>Historias de Usuario</summary>
 
-    ##### HU 01/06 (2 servicios)
-    <details><summary>VER DETALLES</summary>
-    <p>
-        HU_01 y HU_06 (REPETIDA): Cómo *usuario, necesito que la web permita crear encuestas de selección múltiple para realizar mis análisis de forma efectiva.
+##### HU 01/06 (2 servicios)
+<details><summary>VER DETALLES</summary>
+<p>
+    HU_01 y HU_06 (REPETIDA): Cómo *usuario, necesito que la web permita crear encuestas de selección múltiple para realizar mis análisis de forma efectiva.
 
-        Escenario 1: Creacion de encuesta
+    Escenario 1: Creacion de encuesta
 
-        En el menu de "Mis encuestas", habra un boton para crear una encuesta vacia y NO visible por defecto, a la que habra que dar un nombre para confirmar que existe.
+    En el menu de "Mis encuestas", habra un boton para crear una encuesta vacia y NO visible por defecto, a la que habra que dar un nombre para confirmar que existe.
 
-        Escenario 2: Usuario no existe
+    Escenario 2: Usuario no existe
 
-        Dado que me encuentro en la pantalla principal, cuando selecciono el botón de inicio de sesión entonces el sistema deberá informar si mi usuario esta registrado o no.
+    Dado que me encuentro en la pantalla principal, cuando selecciono el botón de inicio de sesión entonces el sistema deberá informar si mi usuario esta registrado o no.
 
-        Servicios a implementar:
+    Servicios a implementar:
 
-        Servicio que agrega una nueva encuesta
+    Servicio que agrega una nueva encuesta
 
-        Servicio que devuelve una encuesta basado en su nombre
+    Servicio que devuelve una encuesta basado en su nombre
 
-        Tablas involucradas:
+    Tablas involucradas:
 
-        Encuesta
+    Encuesta
 
-    </p>
-    </details>
+</p>
+</details>
 
-    ##### HU 05 (1 Servicio)
-    <details><summary>VER DETALLES</summary>
-    <p>
-        HU_05: Como encuestado deseo poder crear una cuenta en la plataforma
+##### HU 05 (1 Servicio)
+<details><summary>VER DETALLES</summary>
+<p>
+    HU_05: Como encuestado deseo poder crear una cuenta en la plataforma
 
-        Escenario 1: Creación de usuario
+    Escenario 1: Creación de usuario
 
-        Dado que me encuentro en la pantalla principal, cuando selecciono el botón de registrar entonces el sistema deberá mostrar un formulario de registro donde pueda ingresar mis datos.
+    Dado que me encuentro en la pantalla principal, cuando selecciono el botón de registrar entonces el sistema deberá mostrar un formulario de registro donde pueda ingresar mis datos.
 
-        Escenario 2: Usuario no existe
+    Escenario 2: Usuario no existe
 
-        Dado que me encuentro en la pantalla principal, cuando selecciono el botón de inicio de sesión entonces el sistema deberá informar si mi usuario esta registrado o no.
+    Dado que me encuentro en la pantalla principal, cuando selecciono el botón de inicio de sesión entonces el sistema deberá informar si mi usuario esta registrado o no.
 
-        Servicios a implementar:
+    Servicios a implementar:
 
-        Servicio que agrega un nuevo encuestado
+    Servicio que agrega un nuevo encuestado
 
-        Tablas involucradas:
+    Tablas involucradas:
 
-        Encuestado
-    </p>
-    </details>
+    Encuestado
+</p>
+</details>
 
-    ##### HU 16 (n servicios)
-    <details><summary>VER DETALLES</summary>
-    <p>
-        HU_16: COMO administrador QUIERO que mis encuestas puedan describir su proposito en una descripcion PARA que mis encuestados sepan lo que necesiten para su desarrollo
-    </p>
-    </details>
+##### HU 16 (n servicios)
+<details><summary>VER DETALLES</summary>
+<p>
+    HU_16: COMO administrador QUIERO que mis encuestas puedan describir su proposito en una descripcion PARA que mis encuestados sepan lo que necesiten para su desarrollo
+</p>
+</details>
 
-    ##### HU 17 (2 servicios?)
-    <details><summary>VER DETALLES</summary>
-    <p>
-        COMO usuario QUIERO ser capaz de definir que categorias de encuesta me interesa explorar o recibir PARA aportar en temas que sean de mi interes
-    </p>
-    </details>
+##### HU 17 (2 servicios?)
+<details><summary>VER DETALLES</summary>
+<p>
+    COMO usuario QUIERO ser capaz de definir que categorias de encuesta me interesa explorar o recibir PARA aportar en temas que sean de mi interes
+</p>
+</details>
 
-    ##### HU 27 (5 Servicios)
-    <details><summary>VER DETALLES</summary>
-    <p>
-        HU_27: "Como encargado de marketing desearía poder eliminar una encuesta aun no publicada para así evitar que una encesta mal formulada salga al publico"
-        
-        Escenario 1: Eliminacion de encuesta antes de su publicacion
+##### HU 27 (5 Servicios)
+<details><summary>VER DETALLES</summary>
+<p>
+    HU_27: "Como encargado de marketing desearía poder eliminar una encuesta aun no publicada para así evitar que una encesta mal formulada salga al publico"
+    
+    Escenario 1: Eliminacion de encuesta antes de su publicacion
 
-        En el menu de "Mis encuestas", habra un boton para eliminar cualquier encuesta que se encuentre sin publicar (fecha inicio nula o mayor a la actual, Y esta oculta). Se deberan eliminar igualmente las preguntas y alternativas asociadas.
+    En el menu de "Mis encuestas", habra un boton para eliminar cualquier encuesta que se encuentre sin publicar (fecha inicio nula o mayor a la actual, Y esta oculta). Se deberan eliminar igualmente las preguntas y alternativas asociadas.
 
-        Escenario 2: Eliminacion de encuesta despues de su publicacion
+    Escenario 2: Eliminacion de encuesta despues de su publicacion
 
-        En el menu de "Mis encuestas", se procedera similar al escenario 1, solo que se dara una advertencia pidiendo al usuario cerrar su encuesta antes de proceder similar al escenario 1.
-        En este caso habran respuestas realizadas, por lo que se debera eliminar estas igualmente, asi como de los borradores que hayan dejado los encuestados por ahi dispersadas.
+    En el menu de "Mis encuestas", se procedera similar al escenario 1, solo que se dara una advertencia pidiendo al usuario cerrar su encuesta antes de proceder similar al escenario 1.
+    En este caso habran respuestas realizadas, por lo que se debera eliminar estas igualmente, asi como de los borradores que hayan dejado los encuestados por ahi dispersadas.
 
-        Servicios a implementar:
+    Servicios a implementar:
 
-        Servicio que elimina una nueva encuesta
-        Servicio que elimina las preguntas asociadas
-        Servicio que elimina las alternativas asociadas a las preguntas
-        Servicio que elimina las respuestas asociadas (en caso de haber para el escenario 2)
-        Servicio que elimina los borradores de los encuestados (escenario 2)
+    Servicio que elimina una nueva encuesta
+    Servicio que elimina las preguntas asociadas
+    Servicio que elimina las alternativas asociadas a las preguntas
+    Servicio que elimina las respuestas asociadas (en caso de haber para el escenario 2)
+    Servicio que elimina los borradores de los encuestados (escenario 2)
 
-        Tablas involucradas:
+    Tablas involucradas:
 
-        Encuesta
-        Pregunta
-        Alternativa
-        Borrador
-        Respuesta
+    Encuesta
+    Pregunta
+    Alternativa
+    Borrador
+    Respuesta
 
-    </p>
-    </details>
+</p>
+</details>
 
 </details>
+
 - - -
 <!-- Imagenes alineadas unas con las otras con un tamano del 30% -->
 <p align="center" width="100%">
