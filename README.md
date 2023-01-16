@@ -209,6 +209,7 @@ Presentar el progreso al haber transcurrido 1 mes.
 <p align="center" width="100%">
     <img width="15%" src="https://media.tenor.com/yZRsvoJB9QwAAAAj/wowa-pepe.gif">
     <img width="15%" src="https://github.com/GavenJr/proyectoIngSoftware/blob/master/proyecto_ubb/src/main/resources/model/sprint1/Modelo_Fisico_BD.png">
+    <img width="20%" src="https://github.com/GavenJr/proyectoIngSoftware/blob/master/proyecto_ubb/src/main/resources/Mockups/ventana_admin2.png">
     <img width="30%" src="https://github.com/GavenJr/proyectoIngSoftware/blob/master/proyecto_ubb/src/main/resources/model/sprint1/Representacion_SQL.PNG">
     <img width="10%" src="https://static.wikia.nocookie.net/fridaynightfunking/images/0/05/CryingEmojiUp.png/revision/latest/scale-to-width-down/250?cb=20210715175906">
 </p>
@@ -332,10 +333,9 @@ Hacer pruebas de integracion con postman y Mostrar resultados al cabo de 1 mes.
 <!-- Imagenes alineadas unas con las otras con un tamano del 30% -->
 <p align="center" width="100%">
     <img width="10%" src="https://www.pngkit.com/png/full/402-4028532_the-great-papyrus-great-papyrus.png">
-    <img width="15%" src="https://github.com/GavenJr/proyectoIngSoftware/blob/master/proyecto_ubb/src/main/resources/model/sprint2/ER_2.jpg">
-    <img width="20%" src="https://github.com/GavenJr/proyectoIngSoftware/blob/master/proyecto_ubb/src/main/resources/model/sprint2/Relational_Schema_2.png">
-    <img width="15%" src="https://github.com/GavenJr/proyectoIngSoftware/blob/master/proyecto_ubb/src/main/resources/model/sprint2/1-Modelo.png">
-    <img width="20%" src="https://github.com/GavenJr/proyectoIngSoftware/blob/master/proyecto_ubb/src/main/resources/Mockups/ventana_admin2.png">
+    <img width="20%" src="https://github.com/GavenJr/proyectoIngSoftware/blob/master/proyecto_ubb/src/main/resources/model/sprint2/ER_2.jpg">
+    <img width="25%" src="https://github.com/GavenJr/proyectoIngSoftware/blob/master/proyecto_ubb/src/main/resources/model/sprint2/Relational_Schema_2.png">
+    <img width="20%" src="https://github.com/GavenJr/proyectoIngSoftware/blob/master/proyecto_ubb/src/main/resources/model/sprint2/1-Modelo.png">
     <img width="10%" src="https://www.nicepng.com/png/full/26-267104_sans-sans-sprite.png">
 </p>
 
