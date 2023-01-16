@@ -89,6 +89,8 @@ Presentar el progreso al haber transcurrido 1 mes.
 
 <details><summary>Historias de Usuario</summary>
 
+- - -
+
 ##### HU 03 (2 servicios)
 <details><summary>VER DETALLES</summary>
 <p>
@@ -217,11 +219,12 @@ Presentar el progreso al haber transcurrido 1 mes.
 Planeamos implementar 5 HU mas junto con sus servicios REST implicados, AUNQUE haciendo foco en esta ocasion, de cubrir por lo menos UNA HU que abarque un requisito de calidad.
 
 Validar los requisitos para el prototipo del producto haciendo uso de mockups para las interfaces de usuario y encuestado.
-Realizar un diagrama de clases para la capa MODEL de nuestro proyecto.
+
+Realizar un diagrama de clases para la capa MODEL de nuestro proyecto y documentar nuestros servicios REST.
+
 Implementar al menos 8 pruebas unitarias de los servicios de este sprint y el anterior, haciendo uso de Mockito + JUnit5.
-Documentar nuestros servicios REST.
-Hacer pruebas de integracion con postman.
-Mostrar resultados al cabo de 1 mes.
+
+Hacer pruebas de integracion con postman y Mostrar resultados al cabo de 1 mes.
 
 - - -
 
@@ -337,14 +340,29 @@ Mostrar resultados al cabo de 1 mes.
 - - -
 ### SPRINT 3: Que esperamos lograr
 Implementar 5 HU mas y sus servicios segun lo requerido, similar a los sprints anteriores.
+
 Definir o implementar HU que recojen 3 o mas subcaracteristicas de requisitos de calidad (RNF)
-Pulir el diagrama de clases del sprint anterior.
-Implementar diagramas de secuencia para al menos 5 servicios backend.
+
+Pulir el diagrama de clases del sprint anterior e implementar diagramas de secuencia para al menos 5 servicios backend.
+
 Implementar al menos 8 pruebas unitarias para los nuevos servicios.
-Hacer mas pruebas de integracion con Postman.
-Mostrar resultados al cabo de 1 mes.
+
+Hacer mas pruebas de integracion con Postman y mostrar resultados al cabo de 1 mes.
 
 - - -
+
+<details><summary>Historias de Usuario</summary>
+
+
+##### HU sample Text
+<details><summary>VER DETALLES</summary>
+<p>
+    COMO usuario NECESITO poder eliminar preguntas y por ende las alternativas PARA aquellas qué considere necesario
+</p>
+</details>
+
+</details>
+
 - - -
 
 
