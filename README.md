@@ -15,11 +15,11 @@ artifact id: proyecto_ubb
 
 <p align="center" width="100%">
     <img width="10%" src="https://brandslogos.com/wp-content/uploads/images/large/java-logo-1.png">
-    <img width="15%" src="https://e4developer.com/wp-content/uploads/2018/01/spring-boot.png">
-    <img width="15%" src="https://download.logo.wine/logo/MySQL/MySQL-Logo.wine.png">
+    <img width="10%" src="https://e4developer.com/wp-content/uploads/2018/01/spring-boot.png">
+    <img width="10%" src="https://download.logo.wine/logo/MySQL/MySQL-Logo.wine.png">
     <img width="10%" src="https://www.freepnglogos.com/uploads/logo-mysql-png/logo-mysql-how-setup-mysql-workbench-database-for-wordpress-20.png">
-    <img width="15%" src="https://upload.wikimedia.org/wikipedia/commons/c/c2/Postman_%28software%29.png">
-    <img width="15%" src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2f/PhpMyAdmin_logo_2010_hidef.svg/1200px-PhpMyAdmin_logo_2010_hidef.svg.png">
+    <img width="10%" src="https://upload.wikimedia.org/wikipedia/commons/c/c2/Postman_%28software%29.png">
+    <img width="10%" src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2f/PhpMyAdmin_logo_2010_hidef.svg/1200px-PhpMyAdmin_logo_2010_hidef.svg.png">
     <img width="10%" src="https://junit.org/junit5/assets/img/junit5-logo.png">
     <img width="10%" src="https://static.javatpoint.com/tutorial/mockito/images/mockito.png">
 </p>
@@ -207,10 +207,10 @@ Presentar el progreso al haber transcurrido 1 mes.
 
 <!-- NOTA: el tamano solo parece funcionar en incrementos de 10 -->
 <p align="center" width="100%">
-    <img width="20%" src="https://media.tenor.com/yZRsvoJB9QwAAAAj/wowa-pepe.gif">
-    <img width="20%" src="https://github.com/GavenJr/proyectoIngSoftware/blob/master/proyecto_ubb/src/main/resources/model/sprint1/Modelo_Fisico_BD.png">
+    <img width="15%" src="https://media.tenor.com/yZRsvoJB9QwAAAAj/wowa-pepe.gif">
+    <img width="15%" src="https://github.com/GavenJr/proyectoIngSoftware/blob/master/proyecto_ubb/src/main/resources/model/sprint1/Modelo_Fisico_BD.png">
     <img width="30%" src="https://github.com/GavenJr/proyectoIngSoftware/blob/master/proyecto_ubb/src/main/resources/model/sprint1/Representacion_SQL.PNG">
-    <img width="20%" src="https://static.wikia.nocookie.net/fridaynightfunking/images/0/05/CryingEmojiUp.png/revision/latest/scale-to-width-down/250?cb=20210715175906">
+    <img width="10%" src="https://static.wikia.nocookie.net/fridaynightfunking/images/0/05/CryingEmojiUp.png/revision/latest/scale-to-width-down/250?cb=20210715175906">
 </p>
 
 - - -
