@@ -22,12 +22,13 @@ public class Encuestado {
     private List<Categoria> preferencias;
 	
 
-	/* **************************************
+	// **************************************
 	// CODIGO QUE ROMPE EL PROYECTO
+	// 	REVISA LA CLASE "Encuesta" PARA UNA EXPLICACION
 	//
 	// @OneToMany (mappedBy = "encuestado")
-	// private List<Borrador> borradores;
-	*****************************************/
+	// private Set<Borrador> borradores;
+	// ***************************************
 
 	public Encuestado() {
 	}

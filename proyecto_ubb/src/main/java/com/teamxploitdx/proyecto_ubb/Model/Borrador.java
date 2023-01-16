@@ -31,8 +31,9 @@ public class Borrador {
 	@JoinColumn(name = "id_encuesta")	// Referencia a la clave foranea SQL
 	private Encuesta encuesta;
 	
-	/* **************************************
+	// **************************************
 	// CODIGO QUE ROMPE EL PROYECTO
+	// 	REVISA LA CLASE "Encuesta" PARA UNA EXPLICACION
 	//
 	// // Relaciones implicitas
 	// //@OneToMany(mappedBy = "university")
@@ -40,12 +41,12 @@ public class Borrador {
 	// //@JsonManagedReference
 	// @JsonIgnore
 	// @Column(nullable = true)
-    // private List<Respuesta> respuestas;
-
+    // private Set<Respuesta> respuestas;
+	//
 	// @OneToMany(mappedBy = "borrador")
-    // private List<Respuesta> respuestas;
-
-	*****************************************/
+    // private Set<Respuesta> respuestas;
+	//
+	//***************************************
 	
 	public Borrador() {
 	}

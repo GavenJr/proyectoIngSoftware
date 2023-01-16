@@ -7,9 +7,6 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
-import com.teamxploitdx.proyecto_ubb.Repository.EmpresaRepository;
-
 
 @Entity
 public class Usuario {

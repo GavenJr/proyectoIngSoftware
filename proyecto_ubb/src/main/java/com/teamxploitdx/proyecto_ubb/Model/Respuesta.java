@@ -26,23 +26,6 @@ public class Respuesta {
     @JoinColumn(name = "id_borrador")
 	private Borrador borrador;
 
-	/* **************************************
-	// CODIGO QUE ROMPE EL PROYECTO
-	//
-	// @OneToOne
-	// @JoinColumn(name = "id_pregunta")
-    // private Pregunta pregunta;
-	//
-	// @OneToOne
-	// @JoinColumn(name = "id_alternativa")
-	// private Alternativa alternativa;
-	//
-	// @ManyToOne()
-    // @JoinColumn(name = "id_borrador")
-	// private Borrador borrador;
-	//
-	*****************************************/
-
 	public Respuesta() {
 	}
 
