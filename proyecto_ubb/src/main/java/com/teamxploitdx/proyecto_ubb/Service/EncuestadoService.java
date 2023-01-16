@@ -88,7 +88,7 @@ public class EncuestadoService {
 		Optional<Encuestado> enc = encuestadoRepository.findById(encId);
 		
 		if(enc.isPresent()) {													//evalua si existe el encuestado
-			if(cat.isPresent()) {												//evalua si existe la categoria
+			if(cat.isPresent()) {                                                                           //evalua si existe la categoria
 				List<Categoria> preferencias = enc.get().getPreferencias();
 				if(!preferencias.contains(cat.get())) {							//evalua si no existe la categoria dentro de las preferencias
 					return false;												//si no existe, no hace anda
