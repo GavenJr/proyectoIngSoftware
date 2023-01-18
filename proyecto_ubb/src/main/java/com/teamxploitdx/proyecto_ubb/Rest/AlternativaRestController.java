@@ -4,13 +4,17 @@ import java.util.List;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.teamxploitdx.proyecto_ubb.Model.Alternativa;
+import com.teamxploitdx.proyecto_ubb.Model.Pregunta;
 import com.teamxploitdx.proyecto_ubb.Service.AlternativaService;
 
 @RestController     // definimos que es un controlador
@@ -44,6 +48,27 @@ public class AlternativaRestController {
 	        boolean nuevo = alternativaService.save(alternativa);
 	        if (nuevo) {
 	            return new ResponseEntity<>(HttpStatus.CREATED);
+	        } else {
+	            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+	        }
+	    }
+	    
+	    @PutMapping (value = "/editarAlternativa/{idAlt}/{newTexto}")
+	    public ResponseEntity<Void> editarAlternativa (@PathVariable (value = "idAlt") int idAlt, 
+	    											   @PathVariable (value = "newTexto") String newTexto){
+	        boolean edit = alternativaService.editAlternativa(idAlt, newTexto);
+	        if(edit){
+	            return new ResponseEntity<>(HttpStatus.OK);
+	        }else{
+	            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+	        }
+	    }
+	    
+	    @DeleteMapping(value = "/elimina/{altId}")
+	    public ResponseEntity<Void> deleteAlternativa(@PathVariable(value = "altId") int alternativaId) {
+	    	boolean eliminado = alternativaService.deleteAlternativaById(alternativaId);
+	    	if(eliminado) {
+	    		return new ResponseEntity<>(HttpStatus.OK);
 	        } else {
 	            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
 	        }

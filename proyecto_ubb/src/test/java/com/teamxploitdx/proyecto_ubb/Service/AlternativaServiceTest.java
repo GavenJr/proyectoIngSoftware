@@ -59,6 +59,73 @@ public class AlternativaServiceTest {
     }
 	//-----FIN DEL TEST METODO SAVE-----
 	
+	//-----TEST PARA EL METODO EDITALTERNATIVA-----
+    //Caso Positivo
+	@Test
+    public void siInvocoEditAlternativaYExisteAlternativaConElIdRetornarTrue(){
+        // Arrange
+        Alternativa alternativa = getAlternativa();
+        Optional<Alternativa> altOptional = Optional.of(alternativa);
+        when(alternativaRepository.findById(alternativa.getId()))
+        		.thenReturn(altOptional);
+        // Act
+        boolean resultado = alternativaService.editAlternativa(alternativa.getId(), "");
+
+        // Assert
+        assertTrue(resultado);
+        verify(alternativaRepository).saveAndFlush(alternativa);
+    }
+
+	//Caso Negativo
+	@Test
+    public void siInvocoEditAlternativaYNoExisteAlternativaConElIdRetornarTrue(){
+        // Arrange
+		Alternativa alternativa = getAlternativa();
+        Optional<Alternativa> altOptional = Optional.of(alternativa);
+        when(alternativaRepository.findById(alternativa.getId()))
+				.thenReturn(altOptional);
+        // Act
+        boolean resultado = !alternativaService.editAlternativa( alternativa.getId(), "");
+
+        // Assert
+        assertFalse(resultado);
+    }
+	//-----FIN DEL TEST METODO EDITALTERNATIVA-----
+	
+	//-----TEST PARA EL METODO DELETEALTERNATIVABYID-----
+    //Caso Positivo
+	@Test
+    public void siInvocoDeleteAlternativaByIdYExisteAlternativaConElIdRetornarTrue(){
+        // Arrange
+        Alternativa alternativa = getAlternativa();
+        Optional<Alternativa> altOptional = Optional.of(alternativa);
+        when(alternativaRepository.findById(alternativa.getId()))
+        		.thenReturn(altOptional);
+        // Act
+        boolean resultado = alternativaService.deleteAlternativaById(alternativa.getId());
+
+        // Assert
+        assertTrue(resultado);
+        verify(alternativaRepository).delete(alternativa);
+    }
+
+	//Caso Negativo
+	@Test
+    public void siInvocoDeleteAlternativaByIdYNoExisteAlternativaConElIdRetornarFalse(){
+        // Arrange
+		Alternativa alternativa = getAlternativa();
+        Optional<Alternativa> altOptional = Optional.of(alternativa);
+        when(alternativaRepository.findById(alternativa.getId()))
+				.thenReturn(altOptional);
+        // Act
+        boolean resultado = !alternativaService.deleteAlternativaById( alternativa.getId());
+
+        // Assert
+        assertFalse(resultado);
+    }
+	//-----FIN DEL TEST METODO DELETEALTERNATIVABYID-----
+	
+	
 	private Alternativa getAlternativa() {
 		Alternativa alternativa = new Alternativa();
 		alternativa.setId(1);

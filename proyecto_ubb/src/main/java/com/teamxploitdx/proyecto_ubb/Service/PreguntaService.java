@@ -5,7 +5,9 @@ import java.util.Optional;
 
 import org.springframework.stereotype.Service;
 
+import com.teamxploitdx.proyecto_ubb.Model.Alternativa;
 import com.teamxploitdx.proyecto_ubb.Model.Pregunta;
+import com.teamxploitdx.proyecto_ubb.Repository.AlternativaRepository;
 import com.teamxploitdx.proyecto_ubb.Repository.PreguntaRepository;
 
 @Service

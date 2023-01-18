@@ -6,7 +6,9 @@ import java.util.Optional;
 import org.springframework.stereotype.Service;
 
 import com.teamxploitdx.proyecto_ubb.Model.Alternativa;
+import com.teamxploitdx.proyecto_ubb.Model.Pregunta;
 import com.teamxploitdx.proyecto_ubb.Repository.AlternativaRepository;
+import com.teamxploitdx.proyecto_ubb.Repository.PreguntaRepository;
 
 @Service
 public class AlternativaService {
@@ -38,4 +40,28 @@ public class AlternativaService {
         }
 	}
 	
+	/*Edita una alternativa*/
+	public boolean editAlternativa (int idAlt, String newTexto){
+		Optional<Alternativa> alt = alternativaRepository.findById(idAlt);
+		Alternativa alternativa = alt.get();
+		String texto = alternativa.getTexto();
+		if(!texto.contentEquals(newTexto)) {
+			alternativa.setTexto(newTexto);
+	        alternativaRepository.saveAndFlush(alternativa);
+	        return true;
+        }else{
+        	return false;
+        }
+    }
+	
+	/*Elimina una alternativa*/
+	public boolean deleteAlternativaById(int idAlt) {
+		Optional<Alternativa> alt = alternativaRepository.findById(idAlt);
+		if(alt.isPresent()) {
+			alternativaRepository.delete(alt.get());
+			return true;
+		}else {
+			return false;
+		}
+	}
 }
