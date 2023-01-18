@@ -114,6 +114,38 @@ public class EncuestaServiceTest {
 
     }
 
+    @Test
+    public void updateMaxRespuestasTestCaseGood(){
+        int id= 12;
+        int newMax=15;
+        Encuesta encuesta= encuestaRepo.getReferenceById(12);
+        //Optional<Encuesta> encuestaOptional=encuestaRepository.findById(12);
+        when(encuestaRepo.getById(12))
+                .thenReturn(encuesta);
+        // Act
+        encuesta.setMax_respuestas(15);
+        boolean resultado = encuestaService.crearEncuesta(encuesta);
+
+        // Assert
+        assertTrue(resultado);
+    }
+
+    @Test
+    public void updateMaxRespuestasTestCaseBad(){
+        int id= 14;
+        int newMax=15;
+        when(encuestaRepo.getById(12)).thenReturn(null);
+        //Act
+        boolean result= encuestaService.updateMaxRespuestas(12,15);
+        //Assert
+        assertFalse(result);
+    }
+
+
+
+
+
+
     private Encuesta getEncuesta(){
         Encuesta encuesta = new Encuesta();
         encuesta.setId(1);
