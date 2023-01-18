@@ -26,5 +26,15 @@ public class CategoriaService {
     public Optional<Categoria> findCategoriaById(int categoriaId){
     	return categoriaRepository.findById(categoriaId);
     }
-    
+
+    public boolean saveCategoria (Categoria categoria){
+        if(categoria==null){
+            return false;
+        }else{
+            categoriaRepository.save(categoria);
+        }
+        return true;
+    }
+
+
 }
