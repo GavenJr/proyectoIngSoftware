@@ -8,6 +8,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
@@ -15,6 +16,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.fasterxml.jackson.databind.JsonMappingException;
+import com.teamxploitdx.proyecto_ubb.Model.Encuesta;
 import com.teamxploitdx.proyecto_ubb.Model.Pregunta;
 import com.teamxploitdx.proyecto_ubb.Service.EncuestaService;
 import com.teamxploitdx.proyecto_ubb.Service.PreguntaService;
@@ -40,15 +43,15 @@ public class PreguntaRestController {
     }
 
     @PostMapping (value ="/addPregunta")
-    public ResponseEntity <Void> crearPregunta (@RequestBody Pregunta pregunta){
-        Optional <Pregunta> preguntaOptional = preguntaService.findPreguntasById(pregunta.getId());
-        if (preguntaOptional.isPresent()){
-            return new ResponseEntity<>(HttpStatus.IM_USED);
-        }
-        if (preguntaService.AddPregunta(pregunta)){
+
+    public ResponseEntity <Void> crearPregunta (@RequestBody Pregunta pregunta)throws JsonMappingException{
+
+        boolean anadido = preguntaService.AddPregunta(pregunta);
+        if (anadido){
             return new ResponseEntity<>(HttpStatus.CREATED);
+        }else{
+            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
         }
-        return new ResponseEntity<>(HttpStatus.CONFLICT);
     }
     
     @DeleteMapping (value = "/{idPregunta}")
@@ -60,9 +63,9 @@ public class PreguntaRestController {
             return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
         }
     }
-    @PutMapping (value = "/editPregunta")
-    public ResponseEntity<Void> editarPregunta (@RequestBody Pregunta pregunta){
-        boolean edit = preguntaService.editPregunta(pregunta);
+    @PatchMapping (value = "/editPregunta/{idPregunta}")
+    public ResponseEntity<Void> editarPregunta (@RequestBody String texto,@PathVariable (value = "idPregunta") int idPregunta)throws JsonMappingException{
+        boolean edit = preguntaService.editPregunta(texto,idPregunta);
         if(edit){
             return new ResponseEntity<>(HttpStatus.OK);
         }else{

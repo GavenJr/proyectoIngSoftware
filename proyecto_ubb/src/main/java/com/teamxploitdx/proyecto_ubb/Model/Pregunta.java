@@ -29,7 +29,7 @@ public class Pregunta {
 
 	@ManyToOne()
 	@JoinColumn(name = "id_encuesta")	// Referencia a la clave foranea SQL
-	Encuesta encuesta;
+	private Encuesta encuesta;
 	
 	// // Relaciones implicitas
 	// @OneToMany (mappedBy = "pregunta")	// Referencia a la variable pregunta en alternativa
