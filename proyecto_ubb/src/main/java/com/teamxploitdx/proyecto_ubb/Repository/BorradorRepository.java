@@ -10,5 +10,5 @@ import com.teamxploitdx.proyecto_ubb.Model.Encuesta;
 
 @Repository
 public interface BorradorRepository extends JpaRepository <Borrador, Integer>{
-    // List<Borrador> findAllByEncuesta(Encuesta encuesta);
+    List<Borrador> findAllByEncuesta(Encuesta encuesta);
 }
