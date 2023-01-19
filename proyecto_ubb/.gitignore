@@ -4,6 +4,10 @@ target/
 !**/src/main/**/target/
 !**/src/test/**/target/
 
+# Archivos de configuracion de proyecto locales
+.properties
+local.properties
+
 # Compiled class file
 *.class
 
