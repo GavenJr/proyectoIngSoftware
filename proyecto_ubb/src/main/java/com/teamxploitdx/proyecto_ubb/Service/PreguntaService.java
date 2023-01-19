@@ -5,31 +5,40 @@ import java.util.Optional;
 
 import org.springframework.stereotype.Service;
 
-import com.teamxploitdx.proyecto_ubb.Model.Alternativa;
+import com.teamxploitdx.proyecto_ubb.Model.Encuesta;
 import com.teamxploitdx.proyecto_ubb.Model.Pregunta;
-import com.teamxploitdx.proyecto_ubb.Repository.AlternativaRepository;
+import com.teamxploitdx.proyecto_ubb.Repository.EncuestaRepository;
 import com.teamxploitdx.proyecto_ubb.Repository.PreguntaRepository;
 
 @Service
 public class PreguntaService {
     private final PreguntaRepository preguntaRepository;
+    private final EncuestaRepository encuestaRepository;
 
-    public PreguntaService (PreguntaRepository preguntaRepository){
+    public PreguntaService (PreguntaRepository preguntaRepository, EncuestaRepository encuestaRepository){
         this.preguntaRepository = preguntaRepository;
+        this.encuestaRepository = encuestaRepository;
     }
 
     public List <Pregunta> findAllPreguntas (){
         return preguntaRepository.findAll();
     }
 
-    public Optional<Pregunta> findPreguntasById(int preguntaId){
+    public Optional<Pregunta> findPreguntaById(int preguntaId){
         return preguntaRepository.findById(preguntaId);
     }
 
     public boolean AddPregunta (Pregunta pregunta){
 
+        Optional <Encuesta> enc = encuestaRepository.findById(pregunta.getEncuesta().getId()); 
+
+        if (!enc.isEmpty()){
             preguntaRepository.saveAndFlush(pregunta);
-            return true;
+            Optional <Pregunta> preg = preguntaRepository.findById(pregunta.getId());
+            return preg.isPresent();
+        }else{
+            return false;
+        }
     }
     public boolean deletePregunta (int id){
         Optional<Pregunta> preg = preguntaRepository.findById(id);
@@ -41,14 +50,10 @@ public class PreguntaService {
         }  
     }
 
-    public boolean editPregunta (Pregunta pregunta){
-        Optional<Pregunta> preg = preguntaRepository.findById(pregunta.getId());
+    public boolean editPregunta (String texto, int idPregunta){
+        Optional<Pregunta> preg = preguntaRepository.findById(idPregunta);
         if (preg.isPresent()){
-            preg.get().setEncuesta(pregunta.getEncuesta());
-            preg.get().setId(pregunta.getId());
-            preg.get().setObligatoria(pregunta.getObligatoria());
-            preg.get().setOrden(pregunta.getOrden());
-            preg.get().setTexto(pregunta.getTexto());
+            preg.get().setTexto(texto);
             preguntaRepository.saveAndFlush(preg.get());
             return true;
         }else{
