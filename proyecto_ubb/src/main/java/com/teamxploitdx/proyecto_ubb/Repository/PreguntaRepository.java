@@ -14,4 +14,8 @@ public interface PreguntaRepository extends JpaRepository <Pregunta, Integer> {
 
 Optional <Pregunta> findPreguntaById(Integer id);
 List <Pregunta> findPreguntasByEncuesta(Encuesta encuesta);
+List<Pregunta> findAllPreguntaByEncuestaId(int id_encuesta);
+
+
+
 }

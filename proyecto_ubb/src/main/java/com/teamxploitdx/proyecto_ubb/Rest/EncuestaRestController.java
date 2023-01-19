@@ -225,4 +225,24 @@ public class EncuestaRestController {
         return descripcion;
 
     }
+
+
+   @GetMapping("/aprobadas")
+    public  List<Encuesta> getAprobadas(){
+
+        List<Encuesta> aprobadas = encuestaService.getAprobadas();
+        
+        return aprobadas;
+    }
+    
+    @GetMapping(value = "/obligatorias-omitidas/{idEmpresa}")
+    public List<Encuesta> getEncuestasPendientes(@PathVariable int idEmpresa){
+
+        List<Encuesta> pendientes = encuestaService.getPendientes(idEmpresa);
+
+        return pendientes;
+
+    }
+
+
 }
