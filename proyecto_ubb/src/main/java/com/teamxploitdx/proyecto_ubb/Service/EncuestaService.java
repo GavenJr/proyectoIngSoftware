@@ -22,7 +22,7 @@ public class EncuestaService {
     private final PreguntaRepository preguntaRepository;
     private final RespuestaRepository respuestaRepository;
 
-   public EncuestaService(EncuestaRepository encuestaRepository, EmpresaRepository empresaRepository, PreguntaRepository preguntaRepository, RespuestaRepository respuestaRepository ) {
+    public EncuestaService(EncuestaRepository encuestaRepository, EmpresaRepository empresaRepository, PreguntaRepository preguntaRepository, RespuestaRepository respuestaRepository ) {
         this.encuestaRepository = encuestaRepository;           // Con esto, sera posible hacer las asignaciones con el repositorio
         this.empresaRepository = empresaRepository;
         this.preguntaRepository = preguntaRepository;
@@ -30,16 +30,16 @@ public class EncuestaService {
     }
 
     /**
-    Recupera todas las encuestas
-    */
+     Recupera todas las encuestas
+     */
     public List<Encuesta> findAllEncuestas(){
         return encuestaRepository.findAll();
     }
 
     /**
-    Encuentra las encuestas segun el nombre de una empresa
-    @param nombre El nombre de la empresa
-    */
+     Encuentra las encuestas segun el nombre de una empresa
+     @param nombre El nombre de la empresa
+     */
     public List<Encuesta> findByEmpresa(String nombre){
         // Obtenemos referencia a la empresa de interes
         Optional<Empresa> empresa = empresaRepository.findEmpresaByNombre(nombre);
@@ -60,17 +60,17 @@ public class EncuestaService {
     }
 
     /**
-    Encuentra las encuestas segun el nombre de una empresa
-    @param id El id de la empresa
-    */
+     Encuentra las encuestas segun el nombre de una empresa
+     @param id El id de la empresa
+     */
     public Optional<Encuesta> findEncuestaById(int id){
         return encuestaRepository.findById(id);
     }
 
     /**
-    Encuentra las encuestas segun el nombre de una empresa
-    @param id El id de la empresa
-    */
+     Encuentra las encuestas segun el nombre de una empresa
+     //@param id El id de la empresa
+     */
     public Optional<Encuesta> findEncuestaByNombre(String nombre){
         return encuestaRepository.findByNombre(nombre);
     }
@@ -81,7 +81,7 @@ public class EncuestaService {
      * @return si la encuesta se creo o no
      */
     public boolean crearEncuesta(Encuesta encuesta){
-        
+
         if(encuesta != null || encuesta.getEmpresa() != null)
             encuestaRepository.saveAndFlush( encuesta );
 
@@ -97,7 +97,7 @@ public class EncuestaService {
      */
     public boolean crearEncuesta(String nombre, int idEmpresa){
         Encuesta encuesta = new Encuesta(nombre, empresaRepository.findById(idEmpresa).get());
-        
+
         if(encuesta != null || encuesta.getEmpresa() != null)
             encuestaRepository.saveAndFlush( encuesta );
 
@@ -105,7 +105,7 @@ public class EncuestaService {
         return encuestaOptional.isPresent();
     }
 
-        /**
+    /**
      * Crea una encuesta asumiendo que el id de encuesta NO es autogenerado
      * @param idEmpresa el id de la empresa propietaria
      * @param nombre el nombre de la nueva encuesta
@@ -113,7 +113,7 @@ public class EncuestaService {
      */
     public boolean crearEncuesta(int idEncuesta, String nombre, int idEmpresa){
         Encuesta encuesta = new Encuesta(idEncuesta, nombre, empresaRepository.findById(idEmpresa).get());
-        
+
         if(encuesta != null || encuesta.getEmpresa() != null)
             encuestaRepository.saveAndFlush( encuesta );
 
@@ -133,7 +133,7 @@ public class EncuestaService {
         }
         return true;
     }
-    
+
     /**
      * Borra una encuesta basado en su nombre
      * @param nombre el nombre de la encuesta
@@ -147,153 +147,154 @@ public class EncuestaService {
         return true;
     }
 
-   /**
-    Cambia la visibilidad de una encuesta
-    @param idEncuesta El id de la encuesta
-    */
+    /**
+     Cambia la visibilidad de una encuesta
+     @param idEncuesta El id de la encuesta
+     */
     public boolean updateVisibilidad (int idEncuesta){
-        
+
         Optional<Encuesta> encuestaOptional = encuestaRepository.findById(idEncuesta);
         Encuesta encuesta = encuestaOptional.get();
-        
+
         if (encuestaOptional.isPresent()&&encuesta.isVisible()){
             encuesta.setVisible(false);
             encuestaRepository.save(encuesta);
             return true;
+        }else{
+            if (encuestaOptional.isPresent()&&!encuesta.isVisible()){
+                encuesta.setVisible(true);
+                encuestaRepository.save(encuesta);
+                return true;
             }else{
-                if (encuestaOptional.isPresent()&&!encuesta.isVisible()){
-                    encuesta.setVisible(true);
-                    encuestaRepository.save(encuesta);
-                    return true;
-                }else{
-                    return false;
-                } 
+                return false;
             }
+        }
     }
 
     /**
-    Actualiza el maximo de respuestas
-    @param id El id de la encuesta
-    @param newMax  Valor del nuevo maximo de encuestados 
-    */
+     Actualiza el maximo de respuestas
+     @param id El id de la encuesta
+     @param newMax  Valor del nuevo maximo de encuestados
+     */
     public boolean updateMaxRespuestas (int id, int newMax){
-        
+
         Optional<Encuesta> encuestaOptional = encuestaRepository.findById(id);
         Encuesta encuesta = encuestaOptional.get();
-        
+
         if (encuestaOptional.isPresent()){
             encuesta.setMax_respuestas(newMax);
             encuestaRepository.save(encuesta);
-                return true;
-            }else{
-                return false;
-            }
+            return true;
+        }else{
+            return false;
+        }
     }
 
     /**
-    Actualiza el minimo de respuestas
-    @param id El id de la encuesta
-    @param newMin  Valor del nuevo minimo de encuestados 
-    */
+     Actualiza el minimo de respuestas
+     @param id El id de la encuesta
+     @param newMin  Valor del nuevo minimo de encuestados
+     */
     public boolean updateMinRespuestas (int id, int newMin){
-        
+
         Optional<Encuesta> encuestaOptional = encuestaRepository.findById(id);
         Encuesta encuesta = encuestaOptional.get();
-        
+
         if (encuestaOptional.isPresent()){
             encuesta.setMin_respuestas(newMin);
             encuestaRepository.save(encuesta);
-                return true;
-            }else{
-                return false;
-            }
+            return true;
+        }else{
+            return false;
+        }
     }
 
     /**
-    Actualiza la descripcion de la encuesta
-    @param id El id de la encuesta
-    @param newDescripcion  Nueva descripcion para encuesta
-    */
+     Actualiza la descripcion de la encuesta
+     @param id El id de la encuesta
+     @param newDescripcion  Nueva descripcion para encuesta
+     */
     public boolean updateDescripcion (int id, String newDescripcion){
         Optional<Encuesta> encuestaOptional = encuestaRepository.findById(id);
         Encuesta encuesta = encuestaOptional.get();
         if (encuestaOptional.isPresent()){
             encuesta.setDescripcion(newDescripcion);;
             encuestaRepository.save(encuesta);
-                return true;
-            }else{
-                return false;
-            }
+            return true;
+        }else{
+            return false;
+        }
     }
     /**
-    obtiene la descripcion de la encuesta
-    @param id El id de la encuesta
-    */
+     obtiene la descripcion de la encuesta
+     @param id El id de la encuesta
+     */
     public String getDescripcion(int id){
         Optional<Encuesta> encuestaOptional = encuestaRepository.findById(id);
         Encuesta encuesta = encuestaOptional.get();
         return encuesta.getDescripcion();
     }
-    
+
 
     public List<Encuesta> getAprobadas(){
-       List<Encuesta> encuestas = encuestaRepository.findAll();
+        List<Encuesta> encuestas = encuestaRepository.findAll();
 
         List<Encuesta> aprobadas =  new ArrayList<Encuesta>();
-        
+
         try {
-            
+
 
             for (Encuesta encuesta : encuestas) {
-                
+
                 int id_encuesta = encuesta.getId();
                 System.out.println("id enuesta : "+id_encuesta);
 
                 List<Pregunta> preguntas = preguntaRepository.findAllPreguntaByEncuestaId(id_encuesta);
-                boolean obligatorias_respondidas_todas = false;
+                int total_obligatorias  =  0;
+                int total_obligatorias_respondidas = 0;
                 for (Pregunta pregunta : preguntas) {
                     int id_pregunta = pregunta.getId();
 
-                    // buscar respuesta 
+                    // buscar respuesta
                     if (pregunta.getObligatoria()) {
-                        Optional<Respuesta> respuesta = respuestaRepository.findRespuestaByPreguntaId(id_pregunta); 
-                        if (respuesta.isPresent()) {
-                           obligatorias_respondidas_todas = true;    
-                        }else{
-                           obligatorias_respondidas_todas =false;
-                        }
-                        
+                        total_obligatorias++;
+                        Optional<Respuesta> respuesta = respuestaRepository.findRespuestaByPreguntaId(id_pregunta);
+                        if (respuesta.isPresent())
+                            total_obligatorias_respondidas++;
+
+
+
                     }
-                    
+
                 }
-                if (obligatorias_respondidas_todas) {
+                if (total_obligatorias == total_obligatorias_respondidas)
                     aprobadas.add(encuesta);
-                }
 
 
 
 
-                
-                
+
+
+
             }
-            
+
         } catch (Exception e) {
-        
+
         }
-    
-      return aprobadas;
+
+        return aprobadas;
     }
 
 
     public List<Encuesta> getPendientes(int id){
         List<Encuesta> pendientes =  new ArrayList<Encuesta>();
 
-        
+
         System.out.println(id);
         List<Encuesta> encuestas = encuestaRepository.findAllEncuestaByEmpresaId(id);
 
         for (Encuesta encuesta : encuestas) {
-                
+
             int id_encuesta = encuesta.getId();
             System.out.println("id enuesta : "+id_encuesta);
 
@@ -301,31 +302,32 @@ public class EncuestaService {
             int total_obligatorias  =  0;
             int total_obligatorias_respondidas = 0;
             for (Pregunta pregunta : preguntas) {
-                
+
                 int id_pregunta = pregunta.getId();
                 System.out.println(id_pregunta);
-                // buscar respuesta 
+                // buscar respuesta
                 if (pregunta.getObligatoria()) {
-                    
+
                     total_obligatorias++;
-                    Optional<Respuesta> respuesta = respuestaRepository.findRespuestaByPreguntaId(id_pregunta); 
-                    if (respuesta.isPresent()) 
-                       total_obligatorias_respondidas++;    
-                    
-                    
+                    Optional<Respuesta> respuesta = respuestaRepository.findRespuestaByPreguntaId(id_pregunta);
+                    if (respuesta.isPresent())
+                        total_obligatorias_respondidas++;
+
+
                 }
 
-                
-            }
-         
-            if (total_obligatorias > total_obligatorias_respondidas) 
-                 pendientes.add(encuesta);
-            
-            
 
-        
+            }
+
+            if (total_obligatorias > total_obligatorias_respondidas)
+                pendientes.add(encuesta);
+
+
+
+
         }
         return pendientes;
     }
-    
+
 }
+
