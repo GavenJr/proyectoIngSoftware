@@ -12,11 +12,12 @@ import com.teamxploitdx.proyecto_ubb.Repository.PreguntaRepository;
 
 @Service
 public class AlternativaService {
-	private AlternativaRepository alternativaRepository;
-	private PreguntaRepository preguntaRepository;
+	private final AlternativaRepository alternativaRepository;
+	private final PreguntaRepository preguntaRepository;
 	
-	public AlternativaService (AlternativaRepository alternativaRepository) {
+	public AlternativaService (AlternativaRepository alternativaRepository, PreguntaRepository preguntaRepository) {
 		this.alternativaRepository = alternativaRepository;
+		this.preguntaRepository = preguntaRepository;
 	}
 	
 	/**
@@ -67,6 +68,7 @@ public class AlternativaService {
 	}
 
 	public List<Alternativa> findAll(int idPregunta){
-		return alternativaRepository.findAllAlternativas( preguntaRepository.findById(idPregunta).get() );
+		return alternativaRepository.findAlternativasByPregunta( preguntaRepository.findById(idPregunta).get() );
+		//return alternativaRepository.findAlternativas( idPregunta );
 	}
 }

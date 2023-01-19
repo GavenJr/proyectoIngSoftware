@@ -14,5 +14,6 @@ public interface AlternativaRepository extends JpaRepository<Alternativa, Intege
 	
 	Optional<Alternativa> findAlternativaById(Integer id);
 	Optional<Alternativa> findAlternativaByTexto (String texto);
-	List<Alternativa> findAllAlternativas(Pregunta pregunta);
+	List<Alternativa> findAlternativasByPregunta(Pregunta pregunta);
+	//List<Alternativa> findAlternativas(int id_pregunta);
 }

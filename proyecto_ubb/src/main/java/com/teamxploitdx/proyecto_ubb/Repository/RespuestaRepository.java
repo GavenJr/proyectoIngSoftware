@@ -8,7 +8,7 @@ import java.util.Optional;
 @Repository
 public interface RespuestaRepository extends JpaRepository <Respuesta, Integer>{
 
-    Optional<Respuesta> findRespuestaByPreguntaId(Integer id);
+     Optional<Respuesta> findRespuestaByPreguntaId(Integer id);
     
 }
 

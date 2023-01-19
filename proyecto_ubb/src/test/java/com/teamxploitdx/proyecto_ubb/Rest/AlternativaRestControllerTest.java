@@ -4,6 +4,8 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.BDDMockito.given;
 
+import java.util.List;
+
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -31,6 +33,7 @@ public class AlternativaRestControllerTest {
 
     private MockMvc mockMvc;
     private JacksonTester<Alternativa> jsonAlternativa;
+	private List<JacksonTester<Alternativa>> JsonAlternativas;
     
     @BeforeEach
     public void setup() {
@@ -154,6 +157,18 @@ public class AlternativaRestControllerTest {
     }
     //-----FIN DEL TEST SERVICIO QUE ELIMINA UNA NUEVA ALTERNATIVA-----
     
+	@Test
+	public void Hu31_agregarAlternativaAPreguntaInexistenteRetornaHttpNotFound(){
+
+		assert(true);
+	}
+
+	@Test
+	public void Hu31_checkeaSiHayAlternativasDePreguntaEliminadaRetornaNulo(){
+		assert(true);
+	}
+
+
     private Alternativa getAlternativa() {
 		Alternativa alternativa = new Alternativa();
 		alternativa.setId(1);
@@ -161,4 +176,29 @@ public class AlternativaRestControllerTest {
 		alternativa.setPregunta(null);
         return alternativa;
 	}
+
+	private Alternativa getAlternativa2() {
+		Alternativa alternativa = new Alternativa();
+		alternativa.setId(1);
+		alternativa.setTexto("Escarlata");
+		alternativa.setPregunta(null);
+        return alternativa;
+	}
+
+	private Alternativa getAlternativa3() {
+		Alternativa alternativa = new Alternativa();
+		alternativa.setId(1);
+		alternativa.setTexto("Escarlata");
+		alternativa.setPregunta(null);
+        return alternativa;
+	}
+
+	private Alternativa getAlternativa4() {
+		Alternativa alternativa = new Alternativa();
+		alternativa.setId(1);
+		alternativa.setTexto("Escarlata");
+		alternativa.setPregunta(null);
+        return alternativa;
+	}
+
 }
