@@ -111,6 +111,20 @@ public class PreguntaServiceTest {
         assertTrue(resultado);
         verify(pregRepo).saveAndFlush(pregunta);
     }
+    @Test 
+    public void SiInvocoEditPreguntaEntoncesRetornaTrue(){
+        //Arrange
+        Pregunta pregunta = getPregunta();
+        String texto = "nuevoTexto";
+        Optional <Pregunta > opPregunta = Optional.of(pregunta);
+
+        when (pregRepo.findById(pregunta.getId())).thenReturn(opPregunta);
+
+        boolean resultado = pregService.editPregunta(texto, 1);
+
+        assertEquals(texto, opPregunta.get().getTexto());
+
+    }
     // @Test
     // public void SiInvocoAddPreguntaEntoncesRetornaSalse(){
     //     //Arrange

@@ -4,6 +4,8 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.BDDMockito.given;
 
+import java.util.Optional;
+
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -164,7 +166,41 @@ public class EncuestadoRestControllerTest {
 	    }
 	    //-----FIN DEL TEST SERVICIO QUE AGREGA UN NUEVO ENCUESTADO-----
 	  
-	    
+	//-----TEST PARA EL SERVICIO QUE OBTIENE UN ENCUESTADO ESPECIFICO-----
+	//Caso Positivo
+	@Test
+	public void siInvocoGetEncuestadobYiDYExisteRetornarOK() throws Exception{
+		// Arrange
+        Encuestado encuestado = getEncuestado();
+        Optional<Encuestado> optionalEncuestado = Optional.of(encuestado);
+        given(encuestadoService.findEncuestadoById(encuestado.getId())).willReturn(optionalEncuestado);
+
+        // Act
+        MockHttpServletResponse response = mockMvc
+                .perform(MockMvcRequestBuilders.get("/encuestado/"+encuestado.getId())
+                .accept(MediaType.APPLICATION_JSON)).andReturn().getResponse();
+
+        // Assert
+        assertEquals(HttpStatus.OK.value(),response.getStatus());
+        assertEquals(jsonEncuestado.write(encuestado).getJson(),response.getContentAsString());
+	}
+	
+	//Caso Negativo
+	@Test
+	public void siInvocoGetEncuestadoByIdYNoExisteRetornarBadRequest() throws Exception{
+		Encuestado encuestado = getEncuestado();
+        Optional<Encuestado> optionalEncuestado = Optional.empty();
+        given(encuestadoService.findEncuestadoById(encuestado.getId())).willReturn(optionalEncuestado);
+
+        // Act
+        MockHttpServletResponse response = mockMvc
+                .perform(MockMvcRequestBuilders.get("/encuestado/"+encuestado.getId())
+                .accept(MediaType.APPLICATION_JSON)).andReturn().getResponse();
+
+        // Assert
+        assertEquals(HttpStatus.BAD_REQUEST.value(),response.getStatus());
+	}
+	//-----FIN DEL TEST SERVICIO QUE OBTIENE UN ENCUESTADO ESPECIFICO-----
 	  
 	    //Metodos para crear datos de prueba
 		private Encuestado getEncuestado() {

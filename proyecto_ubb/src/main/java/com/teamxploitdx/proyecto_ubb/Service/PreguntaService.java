@@ -30,12 +30,11 @@ public class PreguntaService {
 
     public boolean AddPregunta (Pregunta pregunta){
 
-        Optional <Pregunta> preg = preguntaRepository.findById(pregunta.getId());
         Optional <Encuesta> enc = encuestaRepository.findById(pregunta.getEncuesta().getId()); 
 
         if (!enc.isEmpty()){
             preguntaRepository.saveAndFlush(pregunta);
-            preg = preguntaRepository.findById(pregunta.getId());
+            Optional <Pregunta> preg = preguntaRepository.findById(pregunta.getId());
             return preg.isPresent();
         }else{
             return false;

@@ -16,5 +16,5 @@ public interface EncuestaRepository extends JpaRepository<Encuesta, Integer>{   
     
     List<Encuesta> findByEmpresa(Optional<Empresa> empresa);    // buscamos encuestas por empresa
     Optional<Encuesta> findByNombre(String nombre);
-
+    List<Encuesta> findByVisible(Optional<Encuesta> encuesta);
 }

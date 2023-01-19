@@ -1,3 +1,4 @@
+
 package com.teamxploitdx.proyecto_ubb.Model;
 
 import java.util.List;
@@ -26,16 +27,20 @@ public class Alternativa {
     @JoinColumn(name = "id_pregunta")
 	private Pregunta pregunta;
 	
+	// **************************************
+	// CODIGO QUE ROMPE EL PROYECTO
+	// 	REVISA LA CLASE "Encuesta" PARA UNA EXPLICACION
+	//
 	// // Relaciones implicitas
-	// @OneToMany(mappedBy = "alternativa")	// Referencia a la variable en respuesta
+	// @OneToMany(mappedBy = "alternativa")
 	// @JsonManagedReference
 	// @JsonIgnore
-	// @Column(nullable = true)
-    // private List<Respuesta> respuestas;
-
-	// @OneToOne(mappedBy = "alternativa")
-    // private Respuesta respuesta;
-
+    // private Set<Respuesta> respuestas;
+	//
+	// @OneToMany(mappedBy = "alternativa")
+    // private Set<Respuesta> respuestas;
+	//
+	// ***************************************
 
 	public Alternativa() {
 	}

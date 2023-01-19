@@ -46,11 +46,11 @@ public class PregunaRestControllerTest {
     public void siInvocoAddPreguntaYSePuedeAgregarRetornarSatusCreated() throws Exception{
     	// Arrange
     	Pregunta pregunta = getPregunta();
-    	given(preguntaService.AddPregunta(pregunta)).willReturn(true);
+    	given(preguntaService.AddPregunta(any(Pregunta.class))).willReturn(true);
 
     	// Act
     	MockHttpServletResponse response = mockMvc
-    			.perform(MockMvcRequestBuilders.post("/addPregunta")
+    			.perform(MockMvcRequestBuilders.post("/pregunta/addPregunta")
     			.accept(MediaType.APPLICATION_JSON)
     			.content(jsonPregunta.write(pregunta).getJson())
     			.contentType(MediaType.APPLICATION_JSON)).andReturn().getResponse();
@@ -64,11 +64,11 @@ public class PregunaRestControllerTest {
     public void siInvocoAddPreguntaYNoSePuedeAgregarRetornarBadRequest() throws Exception{
     	// Arrange
     	Pregunta pregunta = getPregunta();
-    	given(preguntaService.AddPregunta(pregunta)).willReturn(false);
+        given(preguntaService.AddPregunta(any(Pregunta.class))).willReturn(false);
 
     	// Act
     	MockHttpServletResponse response = mockMvc
-    			.perform(MockMvcRequestBuilders.post("/alternativa/"+3)
+    			.perform(MockMvcRequestBuilders.post("/pregunta/addPregunta")
     			.accept(MediaType.APPLICATION_JSON)
     			.content(jsonPregunta.write(pregunta).getJson())
     			.contentType(MediaType.APPLICATION_JSON)).andReturn().getResponse();
@@ -76,11 +76,58 @@ public class PregunaRestControllerTest {
         // Assert
         assertEquals(HttpStatus.BAD_REQUEST.value(),response.getStatus());
     }
+
+    @Test
+    public void siInvocoDeletePreguntaEntoncesEliminaLaPreguntaYretornaOk() throws Exception{
+
+        given (preguntaService.deletePregunta(1)).willReturn(true);
+        // Act
+    	MockHttpServletResponse response = mockMvc
+        .perform(MockMvcRequestBuilders.delete("/pregunta/delete/"+1)
+        .accept(MediaType.APPLICATION_JSON)).andReturn().getResponse();
+
+        //Assert
+        assertEquals(HttpStatus.OK.value(),response.getStatus());
+    }
+    @Test
+    public void siInvocoDeletePreguntaEntoncesNoEliminaLaPreguntaYretornaBadRequest() throws Exception{
+
+        given (preguntaService.deletePregunta(1)).willReturn(false);
+        // Act
+    	MockHttpServletResponse response = mockMvc
+        .perform(MockMvcRequestBuilders.delete("/pregunta/delete/"+1)
+        .accept(MediaType.APPLICATION_JSON)).andReturn().getResponse();
+
+        //Assert
+        assertEquals(HttpStatus.BAD_REQUEST.value(),response.getStatus());
+    }
+
+    // /**
+    //  * 
+    //  */
+    // @Test
+    // public void siInvocoEditPreguntaEntoncesEditaLaPreguntaYRetornaOk(){
+
+    //     Pregunta preg = getPregunta();
+    //     String texto = "newTexto";
+
+    //     given(preguntaService.editPregunta(texto, preg.getId())).willReturn(true);
+    //     // Act
+    // 	MockHttpServletResponse response = mockMvc
+    //     .perform(MockMvcRequestBuilders.patch("/pregunta/editPregunta"+preg.getId())
+    //     .accept(MediaType.APPLICATION_JSON)
+    //     .content(jsonPregunta.write(texto).getJson())
+    //     .contentType(MediaType.APPLICATION_JSON)).andReturn().getResponse();
+        
+    //     // Assert
+    //     assertEquals(HttpStatus.OK.value(),response.getStatus());
+        
+    // }
     
     //-----FIN DEL TEST SERVICIO QUE AGREGA UNA NUEVA ALTERNATIVA-----
     private Pregunta getPregunta() {
 		Pregunta pregunta = new Pregunta();
-		pregunta.setId(20);
+		pregunta.setId(11);
         pregunta.setObligatoria(false);
         pregunta.setOrden(5);
         pregunta.setTexto("null");

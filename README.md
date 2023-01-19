@@ -1,5 +1,5 @@
 *https://docs.github.com/en/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax*
-PD: JAJAJA, ya nunca sabran lo que decia aqui >:)
+Documentacion pal Readme.md
 <!-- Los comentarios se hacen usando sintaxis HTML -->
 <!-- -->
 <!--
@@ -15,16 +15,15 @@ artifact id: proyecto_ubb
 
 <p align="center" width="100%">
     <img width="10%" src="https://brandslogos.com/wp-content/uploads/images/large/java-logo-1.png">
-    <img width="15%" src="https://e4developer.com/wp-content/uploads/2018/01/spring-boot.png">
-    <img width="15%" src="https://download.logo.wine/logo/MySQL/MySQL-Logo.wine.png">
+    <img width="10%" src="https://e4developer.com/wp-content/uploads/2018/01/spring-boot.png">
+    <img width="10%" src="https://download.logo.wine/logo/MySQL/MySQL-Logo.wine.png">
     <img width="10%" src="https://www.freepnglogos.com/uploads/logo-mysql-png/logo-mysql-how-setup-mysql-workbench-database-for-wordpress-20.png">
-    <img width="15%" src="https://upload.wikimedia.org/wikipedia/commons/c/c2/Postman_%28software%29.png">
-    <img width="15%" src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2f/PhpMyAdmin_logo_2010_hidef.svg/1200px-PhpMyAdmin_logo_2010_hidef.svg.png">
+    <img width="10%" src="https://upload.wikimedia.org/wikipedia/commons/c/c2/Postman_%28software%29.png">
+    <img width="10%" src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2f/PhpMyAdmin_logo_2010_hidef.svg/1200px-PhpMyAdmin_logo_2010_hidef.svg.png">
     <img width="10%" src="https://junit.org/junit5/assets/img/junit5-logo.png">
     <img width="10%" src="https://static.javatpoint.com/tutorial/mockito/images/mockito.png">
 </p>
 
-## Sobre el proyecto:
 Se recomienda clonarlo en su IDE de preferencia (Ej: VS Code).
 
 Java JDK 11 | Maven | Spring Boot 2.7.X | Arquitectura MVC.
@@ -33,6 +32,11 @@ Dependencias: Spring Boot DevTools | Spring Web | MySQL Driver | Spring data JPA
 
 MySQL Community 8.0.31 | Disenada con MySQL Workbench | Modelo ER hecho en yED Graph Editor
 - - -
+
+## Sobre el proyecto:
+El proyecto consiste en un sistema de encuestas web, dedicado a la recopilacion de opinion de usuarios, la cual resulta de gran utilidad para ciertas empresas que esten partiendo en algun sector, requieran mejorar sus servicios y casos similares.
+
+Estos datos se entregaran eventualmente en un formato similar al observable en los mockups. Dentro de estos, se ofrecen resumenes de preferejcias, que rangos de edades votaron y en que margen, lo mismo para el genero del encuestado, etc.
 
 <details><summary>COMO USAR/IMPLEMENTAR/CORRER</summary>
 <p>
@@ -59,8 +63,6 @@ MySQL Community 8.0.31 | Disenada con MySQL Workbench | Modelo ER hecho en yED G
 </details>
 
 - - -
-El proyecto consiste en un sistema de encuestas que se dedica a recopilar informacion de usuarios, y se la entrega a las empresas encargadas en algun formato.
-Esta informacion puede incluir preferencias de producto, edad, sexo, localidad, etc.
 
 <!-- This content will not appear in the rendered Markdown -->
 <!-- Los comentarios se hacen usando sintaxis HTML -->
@@ -72,26 +74,21 @@ Esta informacion puede incluir preferencias de producto, edad, sexo, localidad, 
 <!-- > ![Modelo Relacional](https://github.com/GavenJr/proyectoIngSoftware/blob/master/proyecto_ubb/src/main/resources/model/Relational_Schema.png?raw=true) -->
 <!-- <img src="https://github.com/GavenJr/proyectoIngSoftware/blob/master/proyecto_ubb/src/main/resources/model/Relational_Schema.png" width="512x512"> -->
 
-
-
-#### POBLACION DE LA BD
-<details><summary>TABLA Sample Text</summary>
-<p>
-
-| First Header  | Second Header | Third Header  | Forth Header | Fifth Header  | Sixth Header | 
-| ------------- | ------------- | ------------- | ------------- | ------------- | ------------- |
-| Content Cell  | Content Cell  | Content Cell  | Content Cell  | Content Cell  | Content Cell  |
-| Content Cell  | Content Cell  | Content Cell  | Content Cell  | Content Cell  | Content Cell  |
-
-</p>
-</details>
-
 - - -
 
 ### SPRINT 1: Que esperamos lograr
-Implementar los primeros 5 requisitos de sistema.
-Implementar los servicios que conlleven.
-Abarcar escenarios base.
+Modelar inicialmente como sera el sistema para tener un flujo de trabajo correctamente definido.
+Estrcturar el proyecto apropiadamente siguiento la arquitectura MVC.
+Conseguir que la aplicacion interactue con una BD MySQL en disco haciendo uso de Spring Boot.
+Implementar los primeros 5 requisitos de sistema para dar comienzo al desarrollo de esta aplicacion de juguete.
+Implementar los servicios REST que se extraigan de dichas historias de usuario.
+Partir testeando los servicios con Postman.
+Documentar nuestros servicios REST.
+Presentar el progreso al haber transcurrido 1 mes.
+- - -
+
+<details><summary>Historias de Usuario</summary>
+
 - - -
 
 ##### HU 03 (2 servicios)
@@ -206,22 +203,35 @@ Abarcar escenarios base.
 </p>
 </details>
 
+</details>
+
 <!-- NOTA: el tamano solo parece funcionar en incrementos de 10 -->
 <p align="center" width="100%">
-    <img width="10%" src="https://media.tenor.com/yZRsvoJB9QwAAAAj/wowa-pepe.gif">
-    <img width="25%" src="https://github.com/GavenJr/proyectoIngSoftware/blob/master/proyecto_ubb/src/main/resources/model/sprint1/Modelo_Fisico_BD.png">
-    <img width="50%" src="https://github.com/GavenJr/proyectoIngSoftware/blob/master/proyecto_ubb/src/main/resources/model/sprint1/Representacion_SQL.PNG">
+    <img width="15%" src="https://media.tenor.com/yZRsvoJB9QwAAAAj/wowa-pepe.gif">
+    <img width="15%" src="https://github.com/GavenJr/proyectoIngSoftware/blob/master/proyecto_ubb/src/main/resources/model/sprint1/Modelo_Fisico_BD.png">
+    <img width="20%" src="https://github.com/GavenJr/proyectoIngSoftware/blob/master/proyecto_ubb/src/main/resources/Mockups/ventana_admin2.png">
+    <img width="30%" src="https://github.com/GavenJr/proyectoIngSoftware/blob/master/proyecto_ubb/src/main/resources/model/sprint1/Representacion_SQL.PNG">
     <img width="10%" src="https://static.wikia.nocookie.net/fridaynightfunking/images/0/05/CryingEmojiUp.png/revision/latest/scale-to-width-down/250?cb=20210715175906">
 </p>
 
 - - -
 
 ### SPRINT 2: Que esperamos lograr
-Implementar 5 requisitos de sistema adicionales, y agregar tests a los servicios actualmente implementados, asi como asegurar que el codigo se encuentre documentado y sea mantenible
+Planeamos implementar 5 HU mas junto con sus servicios REST implicados, AUNQUE haciendo foco en esta ocasion, de cubrir por lo menos UNA HU que abarque un requisito de calidad.
+
+Validar los requisitos para el prototipo del producto haciendo uso de mockups para las interfaces de usuario y encuestado.
+
+Realizar un diagrama de clases para la capa MODEL de nuestro proyecto y documentar nuestros servicios REST.
+
+Implementar al menos 8 pruebas unitarias de los servicios de este sprint y el anterior, haciendo uso de Mockito + JUnit5.
+
+Hacer pruebas de integracion con postman y Mostrar resultados al cabo de 1 mes.
 
 - - -
 
-##### HU 01/06 (repetida, 2 servicios)
+<details><summary>Historias de Usuario</summary>
+
+##### HU 01/06 (2 servicios)
 <details><summary>VER DETALLES</summary>
 <p>
     HU_01 y HU_06 (REPETIDA): Cómo *usuario, necesito que la web permita crear encuestas de selección múltiple para realizar mis análisis de forma efectiva.
@@ -317,18 +327,44 @@ Implementar 5 requisitos de sistema adicionales, y agregar tests a los servicios
 </p>
 </details>
 
+</details>
+
 - - -
 <!-- Imagenes alineadas unas con las otras con un tamano del 30% -->
 <p align="center" width="100%">
     <img width="10%" src="https://www.pngkit.com/png/full/402-4028532_the-great-papyrus-great-papyrus.png">
-    <img width="30%" src="https://github.com/GavenJr/proyectoIngSoftware/blob/master/proyecto_ubb/src/main/resources/model/sprint2/ER_2.jpg">
-    <img width="30%" src="https://github.com/GavenJr/proyectoIngSoftware/blob/master/proyecto_ubb/src/main/resources/model/sprint2/Relational_Schema_2.png">
+    <img width="20%" src="https://github.com/GavenJr/proyectoIngSoftware/blob/master/proyecto_ubb/src/main/resources/model/sprint2/ER_2.jpg">
+    <img width="25%" src="https://github.com/GavenJr/proyectoIngSoftware/blob/master/proyecto_ubb/src/main/resources/model/sprint2/Relational_Schema_2.png">
+    <img width="20%" src="https://github.com/GavenJr/proyectoIngSoftware/blob/master/proyecto_ubb/src/main/resources/model/sprint2/1-Modelo.png">
     <img width="10%" src="https://www.nicepng.com/png/full/26-267104_sans-sans-sprite.png">
 </p>
 
 - - -
 ### SPRINT 3: Que esperamos lograr
+Implementar 5 HU mas y sus servicios segun lo requerido, similar a los sprints anteriores.
+
+Definir o implementar HU que recojen 3 o mas subcaracteristicas de requisitos de calidad (RNF)
+
+Pulir el diagrama de clases del sprint anterior e implementar diagramas de secuencia para al menos 5 servicios backend.
+
+Implementar al menos 8 pruebas unitarias para los nuevos servicios.
+
+Hacer mas pruebas de integracion con Postman y mostrar resultados al cabo de 1 mes.
+
 - - -
+
+<details><summary>Historias de Usuario</summary>
+
+
+##### HU sample Text
+<details><summary>VER DETALLES</summary>
+<p>
+    COMO usuario NECESITO poder eliminar preguntas y por ende las alternativas PARA aquellas qué considere necesario
+</p>
+</details>
+
+</details>
+
 - - -
 
 

@@ -42,11 +42,25 @@ public class Encuesta {
 	@JoinColumn(name = "id_categoria", referencedColumnName="ID")	// Atributo que hace la relacion
 	private Categoria categoria;			// Referencia al objeto 1
 
-	// @OneToMany(mappedBy = "encuesta")	// Referencia a la variable en Borrador
-	// //@JsonManagedReference
-	// @JsonIgnore
-	// @Column(nullable = true)
-    // private List<Borrador> borradores;
+	// **************************************
+	// CODIGO QUE ROMPE EL PROYECTO
+	// Cuidado, que a pesar de que las relaciones OneToMany son muy convenientes como "accesos directos"
+	// a las entidades que tiene cada "padre", son PESADAS para la aplicacion, por lo que afecta al
+	// performance y se relentiza si hay muchas relaciones oneToMany.
+	// Esto es porque se mappean las referencias al conjunto de datos definido abajo (lista, set, etc),
+	// y cada vez que se deba cargar una encuesta por ejemplo, por como funciona la API de persistencia de Java,
+	// deba cargar y verificar cada registro de borradores que existen dentro de cada encuesta que hay.
+	// Con esto en consideracion, muchas veces se recomienda como estrategia, evitar usar OneToMany y mejor
+	// simplemente recuperar de manera manual la lista de los borradores asociados a la encuesta, para que el
+	// proyecto no se quede ejecutando operaciones no deseadas.
+	// Y para hacerlo peor, dado el disenyo de este sistema, ciertas "cascadas" de relaciones OneToMany
+	// producen un loop en el proyecto que hace caer a la aplicacion. Por ende, quitar esta mierda del
+	// proyecto es saludable para la eficiencia, sostenibilidad y mantenibilidad del programa. TOMENSE ESO, RNF BABY B)
+	//
+	// @OneToMany(mappedBy = "encuesta")	// Variable encuesta ubicado en Borrador
+    // private Set<Borrador> borradores;
+	//
+	// ***************************************
 
 	/* - - - - - - - - - - - - - - -
 	 * 	Constructores
