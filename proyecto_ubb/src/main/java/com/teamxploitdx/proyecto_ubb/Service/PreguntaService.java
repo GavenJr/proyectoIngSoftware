@@ -59,4 +59,8 @@ public class PreguntaService {
         }else{
             return false;}
     }
+
+    public List<Pregunta> findAll (int idEncuesta){
+        return preguntaRepository.findPreguntasByEncuesta( encuestaRepository.findById(idEncuesta).get() );
+    }
 }

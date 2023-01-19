@@ -73,4 +73,29 @@ public class AlternativaRestController {
 	            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
 	        }
 	    }
+
+	/**
+     * Elimina todas las alternativas de una pregunta
+     * @param idPregunta el id de la pregunta que esta siendo eliminada
+     * @return 200 si se elimino, 409 si hubo un problema en la operacion, 404 si no se encontro
+     */
+		@DeleteMapping(value = "deleteAll/{idPregunta}")
+		public ResponseEntity<Void> deleteAllFromPregunta(int idPregunta){
+			List<Alternativa> alternativaList = alternativaService.findAll(idPregunta);
+			if(!alternativaList.isEmpty()){
+				// Llamamos a que se eliminen sus respuestas?
+				
+				for(Alternativa alternativa : alternativaList){
+					if( !alternativaService.deleteAlternativaById( alternativa.getId() ) ){
+						// Si no se elimina alguna, tira conflicto
+						return new ResponseEntity<>(HttpStatus.CONFLICT);
+					}
+				}
+				// Si no, todo en orden!
+				return new ResponseEntity<>(HttpStatus.OK);
+				
+			}
+			System.out.println("No se ha encontrado ninguna alternativa para la pregunta con el id: "+idPregunta);
+			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+		}
 }

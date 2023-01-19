@@ -120,6 +120,8 @@ public class EncuestaRestController {
     public ResponseEntity< Void > deleteEncuesta(@PathVariable (value = "idEncuesta") int idEncuesta){
         Optional<Encuesta> encuestaOptional = encuestaService.findEncuestaById(idEncuesta);
         if(encuestaOptional.isPresent()){
+            // Llamamos a que se eliminen sus preguntas aqui:
+            
             if( encuestaService.deleteEncuesta(idEncuesta) ){
                 return new ResponseEntity<>(HttpStatus.OK);
             }
