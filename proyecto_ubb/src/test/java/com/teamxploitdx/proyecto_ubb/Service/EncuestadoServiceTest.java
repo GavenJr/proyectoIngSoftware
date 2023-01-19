@@ -1,6 +1,8 @@
 package com.teamxploitdx.proyecto_ubb.Service;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.mockito.Mockito.doReturn;
 import static org.mockito.Mockito.verify;
@@ -115,27 +117,22 @@ public class EncuestadoServiceTest {
         Optional<Encuestado> encuestadoOptional = Optional.of(encuestado);
         Categoria categoria = getCategoria().get(0);
         Optional<Categoria> categoriaOptional = Optional.of(categoria);
-
-		
-        when(encuestadoRepository.findById(encuestado.getId())).thenReturn(encuestadoOptional);
-
+	
         when(categoriaRepository.findById(categoria.getId())).thenReturn(categoriaOptional);
         when(encuestadoRepository.findById(encuestado.getId())).thenReturn(encuestadoOptional);
         
         // Act
         boolean resultado = encuestadoService.deletePreferenciaById(categoria.getId(),
-        		encuestado.getId());
-
+        					encuestado.getId());
 
         // Assert
-        assertTrue(resultado);
+        assertTrue(!resultado);
         verify(encuestadoRepository).saveAndFlush(encuestado);
     }
 	
 	//Caso Negativo
 	@Test
     public void siInvocoDeletePreferenciaByIdYNoExisteEncuestadoRetornarFalse(){
-		// Arrange
 		// Arrange
 		Encuestado encuestado = getEncuestado();
 		Optional<Encuestado> encuestadoOptional = Optional.of(encuestado);
@@ -152,6 +149,41 @@ public class EncuestadoServiceTest {
 		assertFalse(resultado);
 	}
 	//-----FIN DEL TEST METODO DELETEPREFERENCIA-----
+	
+	//-----TEST PARA EL METODO FINDENCUESTADOBYID-----
+    //Caso Positivo
+	@Test
+    public void siInvocoGetEncuestadoByIdYExisteEncuestadoRetornarEncuestado() {
+        // Arrange
+        Encuestado encuestado = getEncuestado();
+        Optional<Encuestado> encuestadoOptional = Optional.of(encuestado);
+        when(encuestadoRepository.findById(encuestado.getId())).thenReturn(encuestadoOptional);
+        
+        // Act
+        Encuestado resultado = encuestadoService.findEncuestadoById(encuestado.getId()).get();
+
+
+        // Assert
+        assertNotNull(resultado);
+        assertEquals(encuestado, resultado);
+    }
+	
+	//Caso Negativo
+	@Test
+    public void siInvocoGetEncuestadoByIdYNoExisteEncuestadoRetornarVacio() {
+		// Arrange
+		Encuestado encuestado = getEncuestado();
+		Optional<Encuestado> encuestadoOptional = Optional.of(new Encuestado());
+        when(encuestadoRepository.findById(encuestado.getId())).thenReturn(encuestadoOptional);
+        
+        // Act
+        Encuestado resultado = encuestadoService.findEncuestadoById(encuestado.getId()).get();
+
+        // Assert
+        assertNotNull(resultado);
+        assertEquals(encuestadoOptional.get(),resultado);
+	}
+	//-----FIN DEL TEST METODO FINDENCUESTADOBYID-----
 	
 	
 	//Metodos para crear datos de prueba

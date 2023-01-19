@@ -29,6 +29,7 @@ public class Pregunta {
 
 	@ManyToOne()
 	@JoinColumn(name = "id_encuesta")	// Referencia a la clave foranea SQL
+	@JsonIgnore
 	Encuesta encuesta;
 	
 
