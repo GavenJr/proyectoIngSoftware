@@ -1,4 +1,5 @@
 package com.teamxploitdx.proyecto_ubb.Service;
+import java.io.Console;
 // imports de Java
 import java.util.*;
 // imports de spring boot
@@ -7,17 +8,25 @@ import org.springframework.stereotype.Service;
 import com.teamxploitdx.proyecto_ubb.Model.Empresa;
 // imports locales
 import com.teamxploitdx.proyecto_ubb.Model.Encuesta;
+import com.teamxploitdx.proyecto_ubb.Model.Pregunta;
+import com.teamxploitdx.proyecto_ubb.Model.Respuesta;
 import com.teamxploitdx.proyecto_ubb.Repository.EmpresaRepository;
 import com.teamxploitdx.proyecto_ubb.Repository.EncuestaRepository;
+import com.teamxploitdx.proyecto_ubb.Repository.PreguntaRepository;
+import com.teamxploitdx.proyecto_ubb.Repository.RespuestaRepository;
 
 @Service
 public class EncuestaService {
     private final EncuestaRepository encuestaRepository;
     private final EmpresaRepository empresaRepository;
+    private final PreguntaRepository preguntaRepository;
+    private final RespuestaRepository respuestaRepository;
 
-    public EncuestaService(EncuestaRepository encuestaRepository, EmpresaRepository empresaRepository) {
+   public EncuestaService(EncuestaRepository encuestaRepository, EmpresaRepository empresaRepository, PreguntaRepository preguntaRepository, RespuestaRepository respuestaRepository ) {
         this.encuestaRepository = encuestaRepository;           // Con esto, sera posible hacer las asignaciones con el repositorio
         this.empresaRepository = empresaRepository;
+        this.preguntaRepository = preguntaRepository;
+        this.respuestaRepository = respuestaRepository;
     }
 
     /**
@@ -226,5 +235,97 @@ public class EncuestaService {
         return encuesta.getDescripcion();
     }
     
+
+    public List<Encuesta> getAprobadas(){
+       List<Encuesta> encuestas = encuestaRepository.findAll();
+
+        List<Encuesta> aprobadas =  new ArrayList<Encuesta>();
+        
+        try {
+            
+
+            for (Encuesta encuesta : encuestas) {
+                
+                int id_encuesta = encuesta.getId();
+                System.out.println("id enuesta : "+id_encuesta);
+
+                List<Pregunta> preguntas = preguntaRepository.findAllPreguntaByEncuestaId(id_encuesta);
+                boolean obligatorias_respondidas_todas = false;
+                for (Pregunta pregunta : preguntas) {
+                    int id_pregunta = pregunta.getId();
+
+                    // buscar respuesta 
+                    if (pregunta.getObligatoria()) {
+                        Optional<Respuesta> respuesta = respuestaRepository.findRespuestaByPreguntaId(id_pregunta); 
+                        if (respuesta.isPresent()) {
+                           obligatorias_respondidas_todas = true;    
+                        }else{
+                           obligatorias_respondidas_todas =false;
+                        }
+                        
+                    }
+                    
+                }
+                if (obligatorias_respondidas_todas) {
+                    aprobadas.add(encuesta);
+                }
+
+
+
+
+                
+                
+            }
+            
+        } catch (Exception e) {
+        
+        }
+    
+      return aprobadas;
+    }
+
+
+    public List<Encuesta> getPendientes(int id){
+        List<Encuesta> pendientes =  new ArrayList<Encuesta>();
+
+        
+        System.out.println(id);
+        List<Encuesta> encuestas = encuestaRepository.findAllEncuestaByEmpresaId(id);
+
+        for (Encuesta encuesta : encuestas) {
+                
+            int id_encuesta = encuesta.getId();
+            System.out.println("id enuesta : "+id_encuesta);
+
+            List<Pregunta> preguntas = preguntaRepository.findAllPreguntaByEncuestaId(id_encuesta);
+            int total_obligatorias  =  0;
+            int total_obligatorias_respondidas = 0;
+            for (Pregunta pregunta : preguntas) {
+                
+                int id_pregunta = pregunta.getId();
+                System.out.println(id_pregunta);
+                // buscar respuesta 
+                if (pregunta.getObligatoria()) {
+                    
+                    total_obligatorias++;
+                    Optional<Respuesta> respuesta = respuestaRepository.findRespuestaByPreguntaId(id_pregunta); 
+                    if (respuesta.isPresent()) 
+                       total_obligatorias_respondidas++;    
+                    
+                    
+                }
+
+                
+            }
+         
+            if (total_obligatorias > total_obligatorias_respondidas) 
+                 pendientes.add(encuesta);
+            
+            
+
+        
+        }
+        return pendientes;
+    }
     
 }

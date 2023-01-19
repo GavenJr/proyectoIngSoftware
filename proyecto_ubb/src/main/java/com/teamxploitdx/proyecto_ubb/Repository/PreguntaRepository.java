@@ -11,4 +11,8 @@ import com.teamxploitdx.proyecto_ubb.Model.Pregunta;
 @Repository
 public interface PreguntaRepository extends JpaRepository <Pregunta, Integer> {
 
+	List<Pregunta> findAllPreguntaByEncuestaId(int id_encuesta);
+
+
+
 }
