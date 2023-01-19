@@ -73,4 +73,29 @@ public class PreguntaRestController {
             return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
         }
     }
+
+    /**
+     * Elimina todas las preguntas de una encuesta
+     * @param idEncuesta el id de la encuesta que esta siendo eliminada
+     * @return 200 si se elimino, 409 si hubo un problema en la operacion, 404 si no se encontro
+     */
+    @DeleteMapping(value = "deleteAll/{idEncuesta}")
+    public ResponseEntity<Void> deleteAllFromEncuesta(int idEncuesta){
+        List<Pregunta> preguntaList = preguntaService.findAll(idEncuesta);
+        if(!preguntaList.isEmpty()){
+            // Llamamos a que se eliminen sus alternativas aqui:
+            
+            for(Pregunta pregunta : preguntaList){
+                if( !preguntaService.deletePregunta( pregunta.getId() ) ){
+                    // Si no se elimina alguna, tira conflicto
+                    return new ResponseEntity<>(HttpStatus.CONFLICT);
+                }
+            }
+            // Si no, todo en orden!
+            return new ResponseEntity<>(HttpStatus.OK);
+            
+        }
+        System.out.println("No se ha encontrado ninguna pregunta para la encuesta con el id: "+idEncuesta);
+        return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+    }
 }
