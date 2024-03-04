@@ -1,5 +1,5 @@
 *https://docs.github.com/en/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax*
-Documentacion pal Readme.md
+Documentacion para el Readme.md
 <!-- Los comentarios se hacen usando sintaxis HTML -->
 <!-- -->
 <!--
@@ -7,11 +7,11 @@ Group id: com.teamxploitdx
 artifact id: proyecto_ubb
  -->
 
-# Ingenieria de Software 2022-2
+# Proyecto de software deprecado (2022)
 
-### Sistema de Encuestas que recopila informacion estrategica sobre usuarios para empresas
+### Esqueleto de Sistema de Encuestas simple
 
-##### Team Xploit DX - Grupo 2 (17:10)
+### Este proyecto se ha usado para introducir tambien a mis colegas con GIT y Github
 
 <p align="center" width="100%">
     <img width="10%" src="https://brandslogos.com/wp-content/uploads/images/large/java-logo-1.png">
@@ -38,7 +38,7 @@ El proyecto consiste en un sistema de encuestas web, dedicado a la recopilacion 
 
 Estos datos se entregaran eventualmente en un formato similar al observable en los mockups. Dentro de estos, se ofrecen resumenes de preferejcias, que rangos de edades votaron y en que margen, lo mismo para el genero del encuestado, etc.
 
-<details><summary>COMO USAR/IMPLEMENTAR/CORRER</summary>
+<details><summary>Como correr el proyecto</summary>
 <p>
 
     > Crear el proyecto Spring Boot usando el Spring Initializr, o clonarlo de aqui
@@ -76,7 +76,7 @@ Estos datos se entregaran eventualmente en un formato similar al observable en l
 
 - - -
 
-### SPRINT 1: Que esperamos lograr
+### SPRINT 1
 Modelar inicialmente como sera el sistema para tener un flujo de trabajo correctamente definido.
 Estrcturar el proyecto apropiadamente siguiento la arquitectura MVC.
 Conseguir que la aplicacion interactue con una BD MySQL en disco haciendo uso de Spring Boot.
@@ -216,7 +216,7 @@ Presentar el progreso al haber transcurrido 1 mes.
 
 - - -
 
-### SPRINT 2: Que esperamos lograr
+### SPRINT 2
 Planeamos implementar 5 HU mas junto con sus servicios REST implicados, AUNQUE haciendo foco en esta ocasion, de cubrir por lo menos UNA HU que abarque un requisito de calidad.
 
 Validar los requisitos para el prototipo del producto haciendo uso de mockups para las interfaces de usuario y encuestado.
@@ -340,7 +340,7 @@ Hacer pruebas de integracion con postman y Mostrar resultados al cabo de 1 mes.
 </p>
 
 - - -
-### SPRINT 3: Que esperamos lograr
+### SPRINT 3
 Implementar 5 HU mas y sus servicios segun lo requerido, similar a los sprints anteriores.
 
 Definir o implementar HU que recojen 3 o mas subcaracteristicas de requisitos de calidad (RNF)
